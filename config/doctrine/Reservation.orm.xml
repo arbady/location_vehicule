@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Reservation" table="reservation">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="dateRes" type="date" column="date_res" nullable="false"/>
+    <field name="dateDebutLoc" type="date" column="date_debut_loc" nullable="false"/>
+    <field name="dateFinLoc" type="date" column="date_fin_loc" nullable="false"/>
+    <field name="heureDebutLoc" type="time" column="heure_debut_loc" nullable="false"/>
+    <field name="heureFinLoc" type="time" column="heure_fin_loc" nullable="false"/>
+    <field name="montantTotTva" type="float" column="montant_tot_tva" precision="10" scale="0" nullable="false"/>
+    <field name="acompte" type="float" column="acompte" precision="10" scale="0" nullable="false"/>
+    <field name="acomptePaye" type="boolean" column="acompte_paye" nullable="false"/>
+    <field name="statutRes" type="boolean" column="statut_res" nullable="false"/>
+  </entity>
+</doctrine-mapping>

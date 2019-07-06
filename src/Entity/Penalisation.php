@@ -41,6 +41,11 @@ class Penalisation
      */
     private $montant_tot_tva;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Contrat", inversedBy="penalisation", cascade={"persist", "remove"})
+     */
+    private $contrat;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +107,18 @@ class Penalisation
     public function setMontantTotTva(float $montant_tot_tva): self
     {
         $this->montant_tot_tva = $montant_tot_tva;
+
+        return $this;
+    }
+
+    public function getContrat(): ?Contrat
+    {
+        return $this->contrat;
+    }
+
+    public function setContrat(?Contrat $contrat): self
+    {
+        $this->contrat = $contrat;
 
         return $this;
     }

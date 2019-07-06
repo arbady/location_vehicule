@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Penalisation" table="penalisation">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="description" type="text" column="description" length="0" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="datePenal" type="date" column="date_penal" nullable="false"/>
+    <field name="montantAPayer" type="float" column="montant_a_payer" precision="10" scale="0" nullable="false"/>
+    <field name="montantTotHtva" type="float" column="montant_tot_htva" precision="10" scale="0" nullable="false"/>
+    <field name="montantTotTva" type="float" column="montant_tot_tva" precision="10" scale="0" nullable="false"/>
+  </entity>
+</doctrine-mapping>

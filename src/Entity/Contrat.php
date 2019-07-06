@@ -56,6 +56,11 @@ class Contrat
      */
     private $signe;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Penalisation", mappedBy="contrat", cascade={"persist", "remove"})
+     */
+    private $penalisation;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -153,6 +158,24 @@ class Contrat
     public function setSigne(bool $signe): self
     {
         $this->signe = $signe;
+
+        return $this;
+    }
+
+    public function getPenalisation(): ?Penalisation
+    {
+        return $this->penalisation;
+    }
+
+    public function setPenalisation(?Penalisation $penalisation): self
+    {
+        $this->penalisation = $penalisation;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newContrat = $penalisation === null ? null : $this;
+        if ($newContrat !== $penalisation->getContrat()) {
+            $penalisation->setContrat($newContrat);
+        }
 
         return $this;
     }
