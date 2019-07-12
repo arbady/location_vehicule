@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+
+        <div class="menu">
+            <div class="chars">
+                <span class="char char1">m</span>
+                <span class="char char2">e</span>
+                <span class="char char3">n</span>
+                <span class="char char4">u</span>
+            </div>
+            <div>bonjour</div>
+        </div>
+
+        <script>
+            $('.chars').on('click',function(){
+                $('.menu').toggleClass('close')
+            });
+        </script>
+    </body>
+</html>
