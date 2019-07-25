@@ -21,6 +21,12 @@ class ModeDePaiement
      */
     private $description;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Facture", inversedBy="mode_paiement")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $facture;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,6 +40,18 @@ class ModeDePaiement
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getFacture(): ?Facture
+    {
+        return $this->facture;
+    }
+
+    public function setFacture(?Facture $facture): self
+    {
+        $this->facture = $facture;
 
         return $this;
     }

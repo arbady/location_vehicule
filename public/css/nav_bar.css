@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Gilda+Display|Julius+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Martel&display=swap');
+
 .chars {
     color: black;
     font-family: 'Oswald', sans-serif;
@@ -20,7 +23,7 @@
     position: absolute;
     z-index: 1;
     width: 500px;
-    height: 600px;
+    height: 650px;
     left: -430px;
     top: 1%;
     background-color:gray;
@@ -50,9 +53,10 @@
 }
 
 .menu.close {
-    width: 28%;
+    width: 25%;
     left: 0;
     background-color: rgba(128, 18, 82, 0.66);
+    cursor: unset;
 }
 
 .menu.close .chars .char {
@@ -77,4 +81,120 @@
 
 .menu.close .chars .char4 {
     display: none;
+}
+
+.item-a{
+    /*margin-left: 10%;*/
+    margin-top: 10%;
+    text-shadow: none;
+    text-align: center;
+}
+
+.glyphicon{
+    color: black;
+}
+
+.glyphicon:hover{
+    color: #dddddd;
+    text-decoration: none;
+}
+
+.texte{
+    color: black;
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: bold;
+    width: 100%;
+}
+
+.texte:hover{
+    color: #dddddd;
+    text-decoration: none;
+    background-color: black;
+}
+
+/*
+*
+* ==========================================
+* SEARCH BAR
+* ==========================================
+*
+*/
+
+.searchbar{
+    margin-top: 2%;
+    height: 60px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    line-height: 40px;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 230px;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon{
+    background: white;
+    color: #e74c3c;
+}
+
+.search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+}
+
+.texte1{
+    margin-top: 10%;
+    text-shadow: none;
+    /*text-align: center;*/
+    color: black;
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.texte2{
+    /*margin-top: 10%;*/
+    text-shadow: none;
+    /*text-align: center;*/
+    color: black;
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar-nav{
+    list-style: none;
+}
+
+#ligne{
+    width: 60%;
+    margin-left: 12.5%!important;
+}
+
+.deep-purple{
+    border-top: 1px solid #dddddd !important;
+}
+
+.right-arrow{
+    margin-right: 20% !important;
+    font-size: 25px;
 }

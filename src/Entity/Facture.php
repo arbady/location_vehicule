@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -45,6 +47,22 @@ class Facture
      * @ORM\Column(type="boolean")
      */
     private $paye;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Contrat", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $contrat;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ModeDePaiement", mappedBy="facture")
+     */
+    private $mode_paiement;
+
+    public function __construct()
+    {
+        $this->mode_paiement = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -119,6 +137,49 @@ class Facture
     public function setPaye(bool $paye): self
     {
         $this->paye = $paye;
+
+        return $this;
+    }
+
+    public function getContrat(): ?Contrat
+    {
+        return $this->contrat;
+    }
+
+    public function setContrat(Contrat $contrat): self
+    {
+        $this->contrat = $contrat;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ModeDePaiement[]
+     */
+    public function getModePaiement(): Collection
+    {
+        return $this->mode_paiement;
+    }
+
+    public function addModePaiement(ModeDePaiement $modePaiement): self
+    {
+        if (!$this->mode_paiement->contains($modePaiement)) {
+            $this->mode_paiement[] = $modePaiement;
+            $modePaiement->setFacture($this);
+        }
+
+        return $this;
+    }
+
+    public function removeModePaiement(ModeDePaiement $modePaiement): self
+    {
+        if ($this->mode_paiement->contains($modePaiement)) {
+            $this->mode_paiement->removeElement($modePaiement);
+            // set the owning side to null (unless already changed)
+            if ($modePaiement->getFacture() === $this) {
+                $modePaiement->setFacture(null);
+            }
+        }
 
         return $this;
     }

@@ -5,3 +5,31 @@
 home:
   path: /
   controller: App\Controller\HomeController::index
+
+vehicule:
+  path: /Vehicule
+  controller: App\Controller\VehiculeController::index
+
+vehicule_cat:
+  path: /Vehicule/Categorie
+  controller: App\Controller\VehiculeController::categorie
+
+agence:
+  path: /Agence
+  controller: App\Controller\AgenceController::index
+
+reservation:
+  path: /Reservation
+  controller: App\Controller\ReservationController::index
+
+contrat:
+  path: /Contrat
+  controller: App\Controller\ContratController::index
+
+contrat_penal:
+  path: /Contrat/penalisation
+  controller: App\Controller\ContratController::penalisation
+
+client:
+  path: /Client
+  controller: App\Controller\ClientController::index

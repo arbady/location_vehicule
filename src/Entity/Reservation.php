@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -32,16 +34,6 @@ class Reservation
     private $date_fin_loc;
 
     /**
-     * @ORM\Column(type="time")
-     */
-    private $heure_debut_loc;
-
-    /**
-     * @ORM\Column(type="time")
-     */
-    private $heure_fin_loc;
-
-    /**
      * @ORM\Column(type="float")
      */
     private $montant_tot_tva;
@@ -60,6 +52,34 @@ class Reservation
      * @ORM\Column(type="boolean")
      */
     private $statut_res;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Agence", inversedBy="reservations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $agence;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="reservations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categorie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Client", inversedBy="reservations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $client;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Contrat", mappedBy="reservation")
+     */
+    private $contrats;
+
+    public function __construct()
+    {
+        $this->contrats = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -98,30 +118,6 @@ class Reservation
     public function setDateFinLoc(\DateTimeInterface $date_fin_loc): self
     {
         $this->date_fin_loc = $date_fin_loc;
-
-        return $this;
-    }
-
-    public function getHeureDebutLoc(): ?\DateTimeInterface
-    {
-        return $this->heure_debut_loc;
-    }
-
-    public function setHeureDebutLoc(\DateTimeInterface $heure_debut_loc): self
-    {
-        $this->heure_debut_loc = $heure_debut_loc;
-
-        return $this;
-    }
-
-    public function getHeureFinLoc(): ?\DateTimeInterface
-    {
-        return $this->heure_fin_loc;
-    }
-
-    public function setHeureFinLoc(\DateTimeInterface $heure_fin_loc): self
-    {
-        $this->heure_fin_loc = $heure_fin_loc;
 
         return $this;
     }
@@ -170,6 +166,73 @@ class Reservation
     public function setStatutRes(bool $statut_res): self
     {
         $this->statut_res = $statut_res;
+
+        return $this;
+    }
+
+    public function getAgence(): ?Agence
+    {
+        return $this->agence;
+    }
+
+    public function setAgence(?Agence $agence): self
+    {
+        $this->agence = $agence;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getClient(): ?Client
+    {
+        return $this->client;
+    }
+
+    public function setClient(?Client $client): self
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Contrat[]
+     */
+    public function getContrats(): Collection
+    {
+        return $this->contrats;
+    }
+
+    public function addContrat(Contrat $contrat): self
+    {
+        if (!$this->contrats->contains($contrat)) {
+            $this->contrats[] = $contrat;
+            $contrat->setReservation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContrat(Contrat $contrat): self
+    {
+        if ($this->contrats->contains($contrat)) {
+            $this->contrats->removeElement($contrat);
+            // set the owning side to null (unless already changed)
+            if ($contrat->getReservation() === $this) {
+                $contrat->setReservation(null);
+            }
+        }
 
         return $this;
     }

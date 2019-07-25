@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,9 +29,20 @@ class Categorie
     private $cout_par_jour;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\OneToMany(targetEntity="App\Entity\Reservation", mappedBy="categorie")
      */
-    private $reserve_de_vehicule_disponible;
+    private $reservations;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Vehicule", mappedBy="categorie")
+     */
+    private $vehicules;
+
+    public function __construct()
+    {
+        $this->reservations = new ArrayCollection();
+        $this->vehicules = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -60,14 +73,64 @@ class Categorie
         return $this;
     }
 
-    public function getReserveDeVehiculeDisponible(): ?int
+    /**
+     * @return Collection|Reservation[]
+     */
+    public function getReservations(): Collection
     {
-        return $this->reserve_de_vehicule_disponible;
+        return $this->reservations;
     }
 
-    public function setReserveDeVehiculeDisponible(int $reserve_de_vehicule_disponible): self
+    public function addReservation(Reservation $reservation): self
     {
-        $this->reserve_de_vehicule_disponible = $reserve_de_vehicule_disponible;
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setCategorie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->contains($reservation)) {
+            $this->reservations->removeElement($reservation);
+            // set the owning side to null (unless already changed)
+            if ($reservation->getCategorie() === $this) {
+                $reservation->setCategorie(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Vehicule[]
+     */
+    public function getVehicules(): Collection
+    {
+        return $this->vehicules;
+    }
+
+    public function addVehicule(Vehicule $vehicule): self
+    {
+        if (!$this->vehicules->contains($vehicule)) {
+            $this->vehicules[] = $vehicule;
+            $vehicule->setCategorie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVehicule(Vehicule $vehicule): self
+    {
+        if ($this->vehicules->contains($vehicule)) {
+            $this->vehicules->removeElement($vehicule);
+            // set the owning side to null (unless already changed)
+            if ($vehicule->getCategorie() === $this) {
+                $vehicule->setCategorie(null);
+            }
+        }
 
         return $this;
     }

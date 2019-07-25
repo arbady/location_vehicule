@@ -1,0 +1,12 @@
+.slide{
+    left: 30%;
+    z-index: -1;
+    margin-top: 0.50%;
+    margin-bottom: 10%;
+    width: 70%;
+}
+
+.d-block{
+    height: 600px;
+
+}

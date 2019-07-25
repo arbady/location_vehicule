@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -57,9 +59,26 @@ class Contrat
     private $signe;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Penalisation", mappedBy="contrat", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Reservation", inversedBy="contrats")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $penalisation;
+    private $reservation;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Vehicule", mappedBy="contrat")
+     */
+    private $vehicule;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Penalisation", mappedBy="contrat")
+     */
+    private $penalisations;
+
+    public function __construct()
+    {
+        $this->vehicule = new ArrayCollection();
+        $this->penalisations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -175,6 +194,80 @@ class Contrat
         $newContrat = $penalisation === null ? null : $this;
         if ($newContrat !== $penalisation->getContrat()) {
             $penalisation->setContrat($newContrat);
+        }
+
+        return $this;
+    }
+
+    public function getReservation(): ?Reservation
+    {
+        return $this->reservation;
+    }
+
+    public function setReservation(?Reservation $reservation): self
+    {
+        $this->reservation = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Vehicule[]
+     */
+    public function getVehicule(): Collection
+    {
+        return $this->vehicule;
+    }
+
+    public function addVehicule(Vehicule $vehicule): self
+    {
+        if (!$this->vehicule->contains($vehicule)) {
+            $this->vehicule[] = $vehicule;
+            $vehicule->setContrat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVehicule(Vehicule $vehicule): self
+    {
+        if ($this->vehicule->contains($vehicule)) {
+            $this->vehicule->removeElement($vehicule);
+            // set the owning side to null (unless already changed)
+            if ($vehicule->getContrat() === $this) {
+                $vehicule->setContrat(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Penalisation[]
+     */
+    public function getPenalisations(): Collection
+    {
+        return $this->penalisations;
+    }
+
+    public function addPenalisation(Penalisation $penalisation): self
+    {
+        if (!$this->penalisations->contains($penalisation)) {
+            $this->penalisations[] = $penalisation;
+            $penalisation->setContrat($this);
+        }
+
+        return $this;
+    }
+
+    public function removePenalisation(Penalisation $penalisation): self
+    {
+        if ($this->penalisations->contains($penalisation)) {
+            $this->penalisations->removeElement($penalisation);
+            // set the owning side to null (unless already changed)
+            if ($penalisation->getContrat() === $this) {
+                $penalisation->setContrat(null);
+            }
         }
 
         return $this;

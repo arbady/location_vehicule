@@ -1,6 +1,6 @@
-body{
+/*body{
     margin-top: 50%;
-}
+}*/
 
 nav{
     position: fixed;
@@ -64,7 +64,7 @@ nav{
         height: 48px;
         line-height: 48px;
         right: 10px;
-        bottom: 30px;
+        bottom: 50px;
         padding-top: 2px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
@@ -78,7 +78,7 @@ nav{
     }
 
     .scroll-top-wrapper:hover {
-        background-color: #ffca4a;
+        background-color: #801252;
     }
 
     .scroll-top-wrapper.show {

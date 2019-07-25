@@ -42,7 +42,8 @@ class Penalisation
     private $montant_tot_tva;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Contrat", inversedBy="penalisation", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Contrat", inversedBy="penalisations")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $contrat;
 

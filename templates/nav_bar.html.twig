@@ -1,30 +1,94 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-        {% endblock %}
-        {% block javascripts %}{% endblock %}
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+{% block body %}
 
-        <div class="menu">
-            <div class="chars">
-                <span class="char char1">m</span>
-                <span class="char char2">e</span>
-                <span class="char char3">n</span>
-                <span class="char char4">u</span>
+{% endblock %}
+{% block javascripts %}{% endblock %}
+
+<div class="menu">
+    <div class="chars">
+        <span class="char char1">m</span>
+        <span class="char char2">e</span>
+        <span class="char char3">n</span>
+        <span class="char char4">u</span>
+    </div>
+
+    <!----- Home ----->
+    <div class="item-a">
+        <p>
+            <a href="#">
+                <span class="glyphicon glyphicon-home"> </span>
+            </a>
+            <a class="texte" href="#!">My Car Agency</a>
+        </p>
+    </div>
+
+    <!------ Search bar ------>
+    <form class="container" action="/action_page.php" style="margin-left:-119%;">
+        <div class="d-flex justify-content-center h-100">
+            <div class="searchbar">
+                <input class="search_input" type="text" name="" placeholder="Catégorie, Marque ou Modèle" style="font-size: 14px;">
+                <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
             </div>
-            <div>bonjour</div>
         </div>
+    </form>
+    <!-- End Search bar-->
 
-        <script>
-            $('.chars').on('click',function(){
-                $('.menu').toggleClass('close')
-            });
-        </script>
-    </body>
+    <!---- Différentes rubriques ---->
+    <div class="texte1">
+        <hr id="ligne" class="deep-purple accent-2 mb-8 mt-0 d-inline-block mx-auto">
+        <ul class="sidebar-nav">
+            <li><a class="texte" href="#!">VEHICULES</a></li><br>
+            <li><a class="texte" href="#!">AGENCES</a></li><br>
+            <li><a class="texte" href="#!">MYCAAG</a></li><br>
+            <li><a class="texte" href="#!">PROMOS & ACTUS</a></li><br>
+            <li class="panel-group" id="accordion" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                <div id="expand">
+                    <div class="right-arrow pull-right">+</div>
+                    <p><a class="texte" href="#!">SUPPORT CLIENT</a></p>
+                    <div id="collapse1" class="panel-collapse collapse">
+                        <ul>
+                            <li><p><a class="texte2" href="#!">FAQ</a></p></li>
+                            <li><p><a class="texte2" href="#!">SERVICE CLIENT APRES LOCATION</a></p></li>
+                            <li><p><a class="texte2" href="#!">INFOS REGLES DE CARBURANT</a></p></li>
+                            <li><p><a class="texte2" href="#!">NOUS CONTACTER</a></p></li>
+                        </ul>
+                    </div>
+                </div>
+            </li><br>
+        </ul>
+        <hr id="ligne" class="deep-purple accent-2 mb-8 mt-0 d-inline-block mx-auto">
+    </div>
+</div>
+
+<script>
+
+    /*<!--fonction pour le menu principal-->*/
+    $('.chars').on('click',function(){
+        $('.menu').toggleClass('close')
+    });
+
+    <!--fonction pour le menu accordion-->
+    $(function() {
+        $("#expand").on( "click", function() {
+            // $(this).next().slideToggle(200);
+            $expand = $(this).find(">:first-child");
+
+            if($expand.text() == "+") {
+                $expand.text("-");
+            } else {
+                $expand.text("+");
+            }
+        });
+    });
+</script>
+</body>
 </html>

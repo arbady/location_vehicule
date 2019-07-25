@@ -27,14 +27,15 @@ class Permis
     private $date_fin_permis;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $num_permis;
-
-    /**
      * @ORM\Column(type="string", length=2)
      */
     private $categorie_permis;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Client", inversedBy="permis")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $client;
 
     public function getId(): ?int
     {
@@ -65,18 +66,6 @@ class Permis
         return $this;
     }
 
-    public function getNumPermis(): ?int
-    {
-        return $this->num_permis;
-    }
-
-    public function setNumPermis(int $num_permis): self
-    {
-        $this->num_permis = $num_permis;
-
-        return $this;
-    }
-
     public function getCategoriePermis(): ?string
     {
         return $this->categorie_permis;
@@ -85,6 +74,18 @@ class Permis
     public function setCategoriePermis(string $categorie_permis): self
     {
         $this->categorie_permis = $categorie_permis;
+
+        return $this;
+    }
+
+    public function getClient(): ?Client
+    {
+        return $this->client;
+    }
+
+    public function setClient(?Client $client): self
+    {
+        $this->client = $client;
 
         return $this;
     }
