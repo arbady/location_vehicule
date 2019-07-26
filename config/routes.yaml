@@ -33,3 +33,7 @@ contrat_penal:
 client:
   path: /Client
   controller: App\Controller\ClientController::index
+
+securite:
+  path: /Securite
+  controller: App\Controller\SecuriteController::index
