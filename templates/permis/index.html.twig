@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Permis index{% endblock %}
+
+{% block body %}
+    <h1>Permis index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date_debut_permis</th>
+                <th>Date_fin_permis</th>
+                <th>Categorie_permis</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for permi in permis %}
+            <tr>
+                <td>{{ permi.id }}</td>
+                <td>{{ permi.dateDebutPermis ? permi.dateDebutPermis|date('Y-m-d') : '' }}</td>
+                <td>{{ permi.dateFinPermis ? permi.dateFinPermis|date('Y-m-d') : '' }}</td>
+                <td>{{ permi.categoriePermis }}</td>
+                <td>
+                    <a href="{{ path('permis_show', {'id': permi.id}) }}">show</a>
+                    <a href="{{ path('permis_edit', {'id': permi.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('permis_new') }}">Create new</a>
+{% endblock %}

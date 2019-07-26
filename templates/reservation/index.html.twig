@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservation index{% endblock %}
+
+{% block body %}
+    <h1>Reservation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date_res</th>
+                <th>Date_debut_loc</th>
+                <th>Date_fin_loc</th>
+                <th>Montant_tot_tva</th>
+                <th>Acompte</th>
+                <th>Acompte_paye</th>
+                <th>Statut_res</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation in reservations %}
+            <tr>
+                <td>{{ reservation.id }}</td>
+                <td>{{ reservation.dateRes ? reservation.dateRes|date('Y-m-d') : '' }}</td>
+                <td>{{ reservation.dateDebutLoc ? reservation.dateDebutLoc|date('Y-m-d') : '' }}</td>
+                <td>{{ reservation.dateFinLoc ? reservation.dateFinLoc|date('Y-m-d') : '' }}</td>
+                <td>{{ reservation.montantTotTva }}</td>
+                <td>{{ reservation.acompte }}</td>
+                <td>{{ reservation.acomptePaye ? 'Yes' : 'No' }}</td>
+                <td>{{ reservation.statutRes ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('reservation_show', {'id': reservation.id}) }}">show</a>
+                    <a href="{{ path('reservation_edit', {'id': reservation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('reservation_new') }}">Create new</a>
+{% endblock %}

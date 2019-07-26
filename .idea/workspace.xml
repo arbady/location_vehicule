@@ -2,78 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22554ca1-66af-4225-bb71-1bcffeb7493e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/bandeau_promos.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/caroussel1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/caroussel2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/caroussel3.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/android-chrome-192x192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/android-chrome-512x512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/apple-touch-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/car1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/car3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/car4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/favicon-16x16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/favicon-32x32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/gif.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/mot1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/moto.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/moto1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/scooter.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/scooter1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/scooter2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/site.webmanifest" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/slide2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/slide3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/slide3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/trot1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/trot2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/trot3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/vel1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/vel2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/velo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/velo1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/video/gif.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Disponibilite.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190721230925.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/DisponibiliteRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/caroussel1.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/caroussel2.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/caroussel3.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/caroussel.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/menu_home.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/nav_bar.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/nav_bar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/997b1684267f84012cf9e0db1fcbb38b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/Picture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/USE-THIS-RED.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/image/car2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/Yellow-Mini-Cooper-PNG-Picture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/a-l-117960-unsplash.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/image/slide1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/mathieu-renier-1135159-unsplash.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/shen-liu-1381928-unsplash.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/image/slide2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Agence.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Agence.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Categorie.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Contrat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Contrat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Etat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Etat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Facture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Facture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Marque.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Marque.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ModeDePaiement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ModeDePaiement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Modele.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Modele.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Parking.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Penalisation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Penalisation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Permis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Permis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Vehicule.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Vehicule.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190706130425.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20190721232821.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/caroussel.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bandeau_promos.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menu_home.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/nav_bar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nav_bar.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -119,7 +49,17 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-60">
+              <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -181,7 +121,6 @@
         <option value="$PROJECT_DIR$/templates/caroussel3.html.twig" />
         <option value="$PROJECT_DIR$/templates/home/index.html.twig" />
         <option value="$PROJECT_DIR$/public/css/nav_bar.css" />
-        <option value="$PROJECT_DIR$/templates/nav_bar.html.twig" />
         <option value="$PROJECT_DIR$/config/routes.yaml" />
         <option value="$PROJECT_DIR$/src/Entity/Disponibilite.php" />
         <option value="$PROJECT_DIR$/src/Entity/Categorie.php" />
@@ -189,6 +128,8 @@
         <option value="$PROJECT_DIR$/src/Entity/Reservation.php" />
         <option value="$PROJECT_DIR$/src/Entity/Contrat.php" />
         <option value="$PROJECT_DIR$/src/Entity/Penalisation.php" />
+        <option value="$PROJECT_DIR$/templates/nav_bar.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/Client.php" />
       </list>
     </option>
   </component>
@@ -344,7 +285,30 @@
               <item name="location_vehicule" type="b2602c69:ProjectViewProjectNode" />
               <item name="location_vehicule" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="location_vehicule" type="b2602c69:ProjectViewProjectNode" />
+              <item name="location_vehicule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="location_vehicule" type="b2602c69:ProjectViewProjectNode" />
+              <item name="location_vehicule" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="location_vehicule" type="b2602c69:ProjectViewProjectNode" />
+              <item name="location_vehicule" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="location_vehicule" type="b2602c69:ProjectViewProjectNode" />
+              <item name="location_vehicule" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -406,12 +370,12 @@
       <workItem from="1561906978172" duration="114000" />
       <workItem from="1561907146213" duration="15195000" />
       <workItem from="1562230231375" duration="48859000" />
-      <workItem from="1562813832279" duration="120953000" />
+      <workItem from="1562813832279" duration="124827000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186590000" />
+    <option name="totallyTimeSpent" value="190464000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -425,7 +389,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20499243" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20499243" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -438,7 +402,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.29623568" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.29623568" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -451,18 +415,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/doctrine/Agence.orm.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="das://cc774373-b54d-4a2b-9560-311a576ec6e1/schema/location_vehicule/table/agence">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="537b3b1c-e325-4a50-b56f-7567de9b04d9">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://cc774373-b54d-4a2b-9560-311a576ec6e1/schema/location_vehicule/table/vehicule">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="537b3b1c-e325-4a50-b56f-7567de9b04d9">
@@ -612,13 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../betaTest/src/Africaeats/CoreBundle/Resources/views/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="122" column="66" selection-start-line="122" selection-start-column="55" selection-end-line="122" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/bootstrap/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -660,13 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/caroussel1.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="82" column="30" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/caroussel2.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -681,28 +619,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/nav_bar.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-614">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding>
-            <element signature="n#style#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="20" column="100" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -717,13 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="30" column="44" lean-forward="true" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -748,27 +661,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-698">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Reservation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Agence.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-425">
-          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          <folding>
-            <element signature="e#30#78#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -790,6 +686,70 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Agence.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding>
+            <element signature="e#30#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/caroussel1.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="762">
+          <caret line="82" column="30" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/client/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ClientController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1063">
+          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../betaTest/src/Africaeats/CoreBundle/Resources/views/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="122" column="66" selection-start-line="122" selection-start-column="55" selection-end-line="122" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="165" column="42" selection-start-line="165" selection-start-column="42" selection-end-line="165" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/nav_bar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="59" column="66" selection-start-line="59" selection-start-column="66" selection-end-line="59" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
         </state>
       </provider>
     </entry>

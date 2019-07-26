@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Permis{% endblock %}
+
+{% block body %}
+    <h1>Edit Permis</h1>
+
+    {{ include('permis/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('permis_index') }}">back to list</a>
+
+    {{ include('permis/_delete_form.html.twig') }}
+{% endblock %}

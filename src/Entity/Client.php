@@ -54,7 +54,7 @@ class Client
     private $email;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $password;
 
@@ -163,12 +163,12 @@ class Client
         return $this;
     }
 
-    public function getPassword(): ?int
+    public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    public function setPassword(int $password): self
+    public function setPassword(string $password): self
     {
         $this->password = $password;
 

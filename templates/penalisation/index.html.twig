@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Penalisation index{% endblock %}
+
+{% block body %}
+    <h1>Penalisation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Date_penal</th>
+                <th>Montant_a_payer</th>
+                <th>Montant_tot_htva</th>
+                <th>Montant_tot_tva</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for penalisation in penalisations %}
+            <tr>
+                <td>{{ penalisation.id }}</td>
+                <td>{{ penalisation.description }}</td>
+                <td>{{ penalisation.datePenal ? penalisation.datePenal|date('Y-m-d') : '' }}</td>
+                <td>{{ penalisation.montantAPayer }}</td>
+                <td>{{ penalisation.montantTotHtva }}</td>
+                <td>{{ penalisation.montantTotTva }}</td>
+                <td>
+                    <a href="{{ path('penalisation_show', {'id': penalisation.id}) }}">show</a>
+                    <a href="{{ path('penalisation_edit', {'id': penalisation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('penalisation_new') }}">Create new</a>
+{% endblock %}

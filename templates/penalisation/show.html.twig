@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Penalisation{% endblock %}
+
+{% block body %}
+    <h1>Penalisation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ penalisation.id }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ penalisation.description }}</td>
+            </tr>
+            <tr>
+                <th>Date_penal</th>
+                <td>{{ penalisation.datePenal ? penalisation.datePenal|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Montant_a_payer</th>
+                <td>{{ penalisation.montantAPayer }}</td>
+            </tr>
+            <tr>
+                <th>Montant_tot_htva</th>
+                <td>{{ penalisation.montantTotHtva }}</td>
+            </tr>
+            <tr>
+                <th>Montant_tot_tva</th>
+                <td>{{ penalisation.montantTotTva }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('penalisation_index') }}">back to list</a>
+
+    <a href="{{ path('penalisation_edit', {'id': penalisation.id}) }}">edit</a>
+
+    {{ include('penalisation/_delete_form.html.twig') }}
+{% endblock %}
