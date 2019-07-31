@@ -23,8 +23,18 @@
         <!--link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-reboot.min.css"-->
 
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+        {% endblock %}
     </head>
+
+    {% block Flash_message %}
+        {% for message in app.flashes('notice') %}
+            <div class="flash-notice">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endblock %}
+
     <body>
 
         <!--scroll to top-->

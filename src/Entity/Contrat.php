@@ -59,20 +59,26 @@ class Contrat
     private $signe;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Reservation", inversedBy="contrats")
+     * @ORM\OneToMany(targetEntity="App\Entity\Penalisation", mappedBy="contrat")
+     */
+    private $penalisations;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Vehicule", inversedBy="contrats")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $vehicule;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Reservation", inversedBy="contrat", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $reservation;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Vehicule", mappedBy="contrat")
+     * @ORM\OneToOne(targetEntity="App\Entity\Facture", mappedBy="contrat", cascade={"persist", "remove"})
      */
-    private $vehicule;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Penalisation", mappedBy="contrat")
-     */
-    private $penalisations;
+    private $facture;
 
     public function __construct()
     {
@@ -268,6 +274,30 @@ class Contrat
             if ($penalisation->getContrat() === $this) {
                 $penalisation->setContrat(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function setVehicule(?Vehicule $vehicule): self
+    {
+        $this->vehicule = $vehicule;
+
+        return $this;
+    }
+
+    public function getFacture(): ?Facture
+    {
+        return $this->facture;
+    }
+
+    public function setFacture(Facture $facture): self
+    {
+        $this->facture = $facture;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $facture->getContrat()) {
+            $facture->setContrat($this);
         }
 
         return $this;

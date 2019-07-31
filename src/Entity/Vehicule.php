@@ -29,12 +29,6 @@ class Vehicule
     private $caracteristiques;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Contrat", inversedBy="vehicule")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $contrat;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="vehicules")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -47,19 +41,26 @@ class Vehicule
     private $etat;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Modele", mappedBy="vehicule")
-     */
-    private $modele;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Disponibilite", mappedBy="vehicule")
      */
     private $disponibilites;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Contrat", mappedBy="vehicule")
+     */
+    private $contrats;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Modele", inversedBy="vehicules")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $modele;
 
     public function __construct()
     {
         $this->modele = new ArrayCollection();
         $this->disponibilites = new ArrayCollection();
+        $this->contrats = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -185,6 +186,44 @@ class Vehicule
                 $disponibilite->setVehicule(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Contrat[]
+     */
+    public function getContrats(): Collection
+    {
+        return $this->contrats;
+    }
+
+    public function addContrat(Contrat $contrat): self
+    {
+        if (!$this->contrats->contains($contrat)) {
+            $this->contrats[] = $contrat;
+            $contrat->setVehicule($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContrat(Contrat $contrat): self
+    {
+        if ($this->contrats->contains($contrat)) {
+            $this->contrats->removeElement($contrat);
+            // set the owning side to null (unless already changed)
+            if ($contrat->getVehicule() === $this) {
+                $contrat->setVehicule(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function setModele(?Modele $modele): self
+    {
+        $this->modele = $modele;
 
         return $this;
     }

@@ -72,9 +72,9 @@ class Reservation
     private $client;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Contrat", mappedBy="reservation")
+     * @ORM\OneToOne(targetEntity="App\Entity\Contrat", mappedBy="reservation", cascade={"persist", "remove"})
      */
-    private $contrats;
+    private $contrat;
 
     public function __construct()
     {
@@ -232,6 +232,23 @@ class Reservation
             if ($contrat->getReservation() === $this) {
                 $contrat->setReservation(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getContrat(): ?Contrat
+    {
+        return $this->contrat;
+    }
+
+    public function setContrat(Contrat $contrat): self
+    {
+        $this->contrat = $contrat;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $contrat->getReservation()) {
+            $contrat->setReservation($this);
         }
 
         return $this;

@@ -91,3 +91,11 @@ nav{
         line-height: inherit;
     }
 }
+
+.flash-notice{
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    background-color: black;
+    width: 100%;
+}

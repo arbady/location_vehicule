@@ -49,15 +49,15 @@ class Facture
     private $paye;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Contrat", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $contrat;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\ModeDePaiement", mappedBy="facture")
      */
     private $mode_paiement;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Contrat", inversedBy="facture", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $contrat;
 
     public function __construct()
     {
