@@ -79,9 +79,7 @@ class ClientController extends AbstractController
                 'Super ! le client a été bien modifié!'
             );
 
-            return $this->redirectToRoute('client_index', [
-                'id' => $client->getId(),
-            ]);
+            return $this->redirectToRoute('client_index');
         }
 
         return $this->render('client/edit.html.twig', [

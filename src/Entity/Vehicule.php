@@ -4,10 +4,15 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\VehiculeRepository")
+ * @ORM\Table(name="vehicule")
+ * @UniqueEntity("matricule")
  */
 class Vehicule
 {
@@ -19,9 +24,17 @@ class Vehicule
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Champ vide.")
+     * @Assert\Length(max=5)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $matricule;
+    /*public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint('matricule', new Assert\NotBlank([
+            'message' => 'Champ ne peut pas etre vide',
+        ]));
+    }*/
 
     /**
      * @ORM\Column(type="string", length=255)

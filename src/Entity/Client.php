@@ -29,6 +29,11 @@ class Client
     private $prenom;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $sexe;
+
+    /**
      * @ORM\Column(type="date")
      */
     private $date_naissance;
@@ -99,6 +104,18 @@ class Client
     public function setPrenom(string $prenom): self
     {
         $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getSexe(): ?string
+    {
+        return $this->sexe;
+    }
+
+    public function setSexe(string $sexe): self
+    {
+        $this->sexe = $sexe;
 
         return $this;
     }

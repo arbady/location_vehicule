@@ -2,6 +2,9 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
+#admin:
+ # path: /admin
+  #controller: App\Controller\SecuriteController::index
 home:
   path: /
   controller: App\Controller\HomeController::index

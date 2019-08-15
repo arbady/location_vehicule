@@ -20,8 +20,12 @@
                 <td>{{ client.prenom }}</td>
             </tr>
             <tr>
+                <th>Sexe</th>
+                <td>{{ client.sexe }}</td>
+            </tr>
+            <tr>
                 <th>Date_naissance</th>
-                <td>{{ client.dateNaissance ? client.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ client.dateNaissance ? client.dateNaissance|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Adresse</th>
@@ -33,7 +37,7 @@
             </tr>
             <tr>
                 <th>Date_inscription</th>
-                <td>{{ client.dateInscription ? client.dateInscription|date('Y-m-d') : '' }}</td>
+                <td>{{ client.dateInscription ? client.dateInscription|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Email</th>

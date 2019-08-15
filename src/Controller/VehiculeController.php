@@ -69,9 +69,7 @@ class VehiculeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('vehicule_index', [
-                'id' => $vehicule->getId(),
-            ]);
+            return $this->redirectToRoute('vehicule_index');
         }
 
         return $this->render('vehicule/edit.html.twig', [

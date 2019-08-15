@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Modele;
-use App\Form\ModeleType;
+use App\Form\Modele1Type;
 use App\Repository\ModeleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class ModeleController extends AbstractController
     public function new(Request $request): Response
     {
         $modele = new Modele();
-        $form = $this->createForm(ModeleType::class, $modele);
+        $form = $this->createForm(Modele1Type::class, $modele);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,15 +63,13 @@ class ModeleController extends AbstractController
      */
     public function edit(Request $request, Modele $modele): Response
     {
-        $form = $this->createForm(ModeleType::class, $modele);
+        $form = $this->createForm(Modele1Type::class, $modele);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('modele_index', [
-                'id' => $modele->getId(),
-            ]);
+            return $this->redirectToRoute('modele_index');
         }
 
         return $this->render('modele/edit.html.twig', [

@@ -1,0 +1,176 @@
+easy_admin:
+
+  edit:
+   actions: ['-show', 'delete']
+  list:
+   actions:
+     - { name: 'edit', icon: 'pencil' }
+     - { name: 'show', icon: 'eye' }
+     - { name: 'delete', icon: 'trash' }
+
+  user:
+    display_name: true
+    display_avatar: false
+
+    # this method/property must return the string representation of the user
+    # (Symfony will look for getFullName(), isFullName(), ..., and 'fullName' property)
+    name_property_path: 'fullName'
+
+    # this method/property must return the absolute URL of the user avatar image
+    # (Symfony will look for getGravatar(), isGravatar(), ..., and 'gravatar' property)
+    avatar_property_path: 'gravatar'
+
+  site_name: 'MYCAAG'
+
+  design:
+    brand_color: '#1ABC9C'
+
+    # the value of this option can be any valid CSS color
+    #brand_color: 'red'
+    #brand_color: 'rgba(26, 188, 156, 0.85)'
+
+    # if the color includes a '%', you must double it to escape it in the YAML file
+    #brand_color: 'hsl(0, 100%%, 50%%);'
+
+    menu:
+      - { entity: 'User', icon: 'user' }
+      - { entity: 'Agence', label: 'Agence', icon: 'building' }
+      - { entity: 'Vehicule', label: 'Vehicule', icon: 'car' }
+      - { entity: 'Categorie', label: 'Categorie', icon: 'tag' }
+      - { entity: 'Marque', label: 'Marque', icon: 'tag' }
+      - { entity: 'Modele', label: 'Modele', icon: 'tag' }
+      - { entity: 'Reservation', label: 'Reservation', icon: 'calendar' }
+      - { entity: 'Etat', label: 'Etat', icon: 'tag' }
+      - { entity: 'Contrat', label: 'Contrat', icon: 'sign' }
+      - { entity: 'Client', label: 'Client', icon: 'user' }
+      - { entity: 'Facture', label: 'Facture', icon: 'tag' }
+      - { entity: 'Disponibilite', label: 'Disponibilité', icon: 'tag' }
+      - { entity: 'Permis', label: 'Permis', icon: 'tag' }
+
+    assets:
+      favicon: 'image/favicon-32x32.png'
+      #css:
+       # - 'css/jquery-ui-1.12.1.custom/jquery-ui.min.css'
+       # - 'css/jquery-ui-1.12.1.custom/jquery-ui.structure.min.css'
+       # - 'css/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css'
+       # - 'css/admin.css'
+      #js:
+        #- 'js/jquery-ui-1.12.1.custom/jquery-ui.min.js'
+
+  entities:
+    User:
+      class: App\Entity\User
+      label: 'Users'
+      list:
+        title: "Most recent users"
+      help: 'Global message displayed in all views'
+      #form:
+       # fields:
+        #  - { property: 'photo', type: 'file_upload' }
+      form:
+        fields:
+          - { type: 'group', columns: 4, label: 'Basic information' }
+          - nom
+          - prenom
+          - sexe
+          - { type: 'group', label: 'Contact information', icon: 'phone', columns: 6 }
+          - {property: 'email', type: 'email' }
+          - {property: 'password', type: 'password'}
+          - {property: 'telephone', type: 'tel'}
+          - adresse
+          - {property: 'date_naissance', type: 'App\Form\MyCustomDateType', label: 'Date de naissance'}
+          - {property: 'date_inscription', type: 'App\Form\MyCustomDateType', label: "Date d'inscription"}
+          - roles
+    Agence:
+      class: App\Entity\Agence
+      label: 'Agences'
+      list:
+        title: "Most recent agences"
+      form:
+        fields:
+          - { type: 'group', columns: 4, label: 'Basic information' }
+          - code
+          - aeroport
+          - { type: 'group', label: 'Contact information', icon: 'phone', columns: 6 }
+          - adresse
+          - ville
+          - code_postal
+          - pays
+    Vehicule:
+      class: App\Entity\Vehicule
+      label: 'Vehicules'
+      list:
+        title: "Most recent vehicles"
+    Categorie:
+      class: App\Entity\Categorie
+      label: 'Categories'
+      list:
+        title: "Most recent categories"
+      form:
+        fields:
+          - type_cat
+          - cout_par_jour
+    Marque:
+      class: App\Entity\Marque
+      label: 'Marques'
+      list:
+        title: "Most recent marques"
+      form:
+        fields:
+          - nom
+    Modele:
+      class: App\Entity\Modele
+      label: 'Modeles'
+      list:
+        title: "Most recent models"
+      form:
+        fields:
+          - nom
+    Etat:
+      class: App\Entity\Etat
+      label: 'Etat'
+      list:
+        title: "Most recent states"
+    Client:
+      class: App\Entity\Client
+      label: 'Clients'
+      list:
+        title: "Most recent clients"
+      form:
+        fields:
+          - { type: 'group', columns: 4, label: 'Basic information' }
+          - nom
+          - prenom
+          - sexe
+          - { type: 'group', label: 'Contact information', icon: 'phone', columns: 6 }
+          - {property: 'email', type: 'email' }
+          - {property: 'password', type: 'password'}
+          - {property: 'telephone', type: 'tel'}
+          - adresse
+          - {property: 'date_naissance', type: 'App\Form\MyCustomDateType', label: 'Date de naissance'}
+          - {property: 'date_inscription', type: 'App\Form\MyCustomDateType', label: "Date d'inscription"}
+    Contrat:
+      class: App\Entity\Contrat
+      label: 'Contrats'
+      list:
+        title: "Most recent contrats"
+    Facture:
+      class: App\Entity\Facture
+      label: 'Factures'
+      list:
+        title: "Most recent factures"
+    Reservation:
+      class: App\Entity\Reservation
+      label: 'Reservations'
+      list:
+        title: "Most recent reservations"
+    Disponibilite:
+      class: App\Entity\Disponibilite
+      label: 'Disponibilité'
+      list:
+        title: "Most recent disponibility"
+    Permis:
+      class: App\Entity\Permis
+      label: 'Permis'
+      list:
+        title: "Most recent permis"

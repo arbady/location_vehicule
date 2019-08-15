@@ -69,9 +69,7 @@ class EtatController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('etat_index', [
-                'id' => $etat->getId(),
-            ]);
+            return $this->redirectToRoute('etat_index');
         }
 
         return $this->render('etat/edit.html.twig', [

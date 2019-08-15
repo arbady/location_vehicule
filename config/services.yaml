@@ -23,5 +23,12 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    # config/packages/framework.yaml
+    #framework:
+       # validation: { enabled: true }
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    app.security.login_form_authenticator:
+        class: AppBundle\Security\LoginFormAuthenticator
+        autowire: true
