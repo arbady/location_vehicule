@@ -1,12 +1,16 @@
 .slide{
     left: 30%;
     /*z-index: -1;*/
-    margin-top: -1.2%;
+    margin-top: -48.2%;
     margin-bottom: 10%;
     width: 70%;
 }
 
 .d-block{
     height: 600px;
+}
 
+#texte2{
+    text-align: center;
+    margin-left: 10%;
 }

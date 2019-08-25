@@ -2,8 +2,124 @@
 
 {% block title %}Welcome to MYCAAG!{% endblock %}
 
+{#{% block head %}#}
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">#}
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>#}
+{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>#}
+{#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>#}
+{#{% endblock %}#}
+
 {% block body %}
+
     {% include 'nav_bar.html.twig' %}
+
+    <section class="listings" id="listings">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <div class="card bg-warning" id="bg-warning">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3>Trouvez un véhicule de location</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label class="text-uppercase">Lieu</label>
+                                                    <select class="form-control" name="id_agence" id="conditionsselect1">
+                                                        <option>
+                                                            -- Selectionnez un lieu --
+                                                        </option>
+                                                        {% for agence in tab_agences %}
+                                                            <option value="{{ agence.id }}">
+                                                                {{ agence.ville|capitalize }}
+                                                            </option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+
+                                                <div>
+                                                    <label class="text-uppercase" for="date-picker-example">Depart</label>
+                                                    <div class="form-group" id="memeLigne">
+                                                        <input placeholder="Select" type="date" id="datepicker" class="form-control datepicker">
+                                                        <input type="time" class="form-control" id="timepicker" name="usr_time">
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <label class="text-uppercase" for="date-picker-example">Retour</label>
+                                                    <div class="form-group" id="memeLigne">
+                                                        <input placeholder="Select" type="date" id="datepicker" class="form-control datepicker">
+                                                        <input type="time" class="form-control" id="timepicker" name="usr_time">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="text-uppercase">Type de vehicule</label>
+                                                    <select class="form-control" name="id_cat" id="conditionsselect1">
+                                                        <option>
+                                                            -- Selectionnez un type --
+                                                        </option>
+                                                        {% for categorie in tab_cat %}
+                                                            <option value="{{ categorie.id }}">
+                                                                {{ categorie.typeCat|capitalize }}
+                                                            </option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="defaultUnchecked1" name="retour">
+                                                        <label class="custom-control-label" for="defaultUnchecked1">Retour au même endroit</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="defaultUnchecked2" name="age">
+                                                        <label class="custom-control-label" for="defaultUnchecked2">25 - 69
+                                                            <i tabindex="0" class="fa fa-question-circle" id="tooltip">
+                                                                <span class="tooltiptext">
+                                                                    <p>And here's some amazing content. It's very engaging. Right</p>
+                                                                </span>
+                                                            </i>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <hr>
+                                                <div class="pb-3">
+                                                <button type="btn" class="btn btn-primary">Rechercher</button>
+                                                <button type="btn" class="btn btn-primary" id="btn-reset">Reset All</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{#    <script>#}
+{#        $( function() {#}
+{#            $( "#datepicker" ).datepicker({ minDate: -20, maxDate: "+1M +15D" });#}
+{#        } );#}
+{#    </script>#}
+    <script>
+        $('.popover-dismiss').popover({
+            trigger: 'focus'
+        })
+    </script>
     {% include 'caroussel1.html.twig' %}
 {#{% include 'bandeau_promos.html.twig' %}#}
     {% include 'caroussel2.html.twig' %}

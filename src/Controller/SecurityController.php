@@ -3,6 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\UserType;
+use App\Repository\PermisRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,39 +36,79 @@ class SecurityController extends AbstractController
     /**
      * @Route("/profile", name="app_profile")
      */
-    public function profile(AuthenticationUtils $authenticationUtils): Response
+    public function profile(AuthenticationUtils $authenticationUtils, UserRepository $userRepository): Response
     {
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
 
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
-        return $this->render('profile/profile.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+
+        $user = $userRepository->findBy(['email' => $lastUsername])[0];
+//        dd($user->getPermis());
+        return $this->render('profile/profile.html.twig', [
+            'last_username' => $lastUsername,
+            'user' => $user,
+            'error' => $error
+        ]);
     }
 
     /**
      * @Route("/register", name="app_register")
      */
-    public function register(Request $request, LoginFormAuthenticator $authenticator, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $authenticatorHandler): Response
+    public function register(Request $request, LoginFormAuthenticator $authenticator, PermisRepository $permisRepository, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $authenticatorHandler): Response
     {
         if ($request->isMethod('POST')) {
             $user = new User();
             $user->setNom($request->request->get('nom'));
             $user->setPrenom($request->request->get('prenom'));
             $user->setSexe($request->request->get('sexe'));
-//            $user->setDateNaissance($dateTime->diff($dateTime));
+//            dd($request->request->get('date_naissance'));
+            $user->setDateNaissance(date_create_from_format('Y-m-d',$request->request->get('date_naissance')));
+
             $user->setEmail($request->request->get('email'));
             $user->setPassword($passwordEncoder->encodePassword($user, $request->request->get('password')));
 //            $user->setDateInscription($request->request->get('date_inscription'));
 //            $user->setDateNaissance(\DateTime::createFromFormat('Y-m-d', "2018-09-09"));
+            $user->setDateInscription(date_create_from_format('Y-m-d',$request->request->get('date_inscription')));
             $user->setAdresse($request->request->get('adresse'));
 //            dd($user);
-            $user->setTelephone($request->request->get('telephone'));
+            $user->setTelephone(strval($request->request->get('telephone')));
             $user->setRoles(['ROLE_ALLOWED_TO_SWITCH']);
+
+            $permisA = $request->request->get('permisA');
+            $permisB = $request->request->get('permisB');
+            $permisC = $request->request->get('permisC');
+            $permisE = $request->request->get('permisE');
+            $permisG = $request->request->get('permisG');
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+
+            if ($permisA){
+                $permis = $permisRepository->findBy(['id' => 1])[0] ;
+                $user->addPermi($permis);
+            }
+            if ($permisB){
+                $permis = $permisRepository->findBy(['id' => 2])[0] ;
+                $user->addPermi($permis);
+            }
+            if ($permisC){
+                $permis = $permisRepository->findBy(['id' => 3])[0] ;
+                $user->addPermi($permis);
+            }
+            if ($permisE){
+                $permis = $permisRepository->findBy(['id' => 4])[0] ;
+                $user->addPermi($permis);
+            }
+            if ($permisG){
+                $permis = $permisRepository->findBy(['id' => 5])[0] ;
+                $user->addPermi($permis);
+            }
+            $em->persist($user);
+            $em->flush();
+//            dd($user);
             //return $this->redirectToRoute('home');
             return $authenticatorHandler
                 ->authenticateUserAndHandleSuccess(

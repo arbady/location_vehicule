@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -82,9 +83,14 @@ class User implements UserInterface
     private $reservations;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Permis", mappedBy="user")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Permis")
      */
     private $permis;
+
+    public function __construct()
+    {
+        $this->permis = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -295,6 +301,18 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getUser(): ?self
+    {
+        return $this->user;
+    }
+
+    public function setUser(?self $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Permis[]
      */
@@ -307,7 +325,6 @@ class User implements UserInterface
     {
         if (!$this->permis->contains($permi)) {
             $this->permis[] = $permi;
-            $permi->setUser($this);
         }
 
         return $this;
@@ -317,12 +334,13 @@ class User implements UserInterface
     {
         if ($this->permis->contains($permi)) {
             $this->permis->removeElement($permi);
-            // set the owning side to null (unless already changed)
-            if ($permi->getUser() === $this) {
-                $permi->setUser(null);
-            }
         }
 
         return $this;
+    }
+
+    public function  __toString()
+    {
+        return  $this->nom;
     }
 }

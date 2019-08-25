@@ -1,0 +1,64 @@
+h3{
+    font-size:20px;
+    font-weight:bold;
+    text-align: center;
+}
+
+#bg-warning{
+    margin-top: 3%;
+    margin-left: -8.7%;
+    width: 120%;
+    height: 100.2%;
+}
+
+#btn-reset{
+    margin-left: 67%;
+    margin-top: -25%;
+    /*width: 50%;*/
+    /*height: 50%;*/
+}
+
+#datepicker{
+    font-weight: 300;
+    width: 59%
+}
+
+#timepicker{
+    width: 38%;
+    margin-left: 3%;
+}
+
+#memeLigne{
+    display: flex;
+}
+
+#tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+#tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: white;
+    color: black;
+    font-size: 12px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: normal;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+#tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}

@@ -75,7 +75,7 @@ class Categorie
 
     /**
      * @return Collection|Reservation[]
-     */
+    */
     public function getReservations(): Collection
     {
         return $this->reservations;
@@ -133,5 +133,10 @@ class Categorie
         }
 
         return $this;
+    }
+
+    public function  __toString()
+    {
+        return  $this->type_cat;
     }
 }

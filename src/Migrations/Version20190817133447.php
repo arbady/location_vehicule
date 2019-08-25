@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190814215313 extends AbstractMigration
+final class Version20190817133447 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -33,7 +33,7 @@ final class Version20190814215313 extends AbstractMigration
         $this->addSql('CREATE TABLE mode_de_paiement (id INT AUTO_INCREMENT NOT NULL, facture_id INT NOT NULL, description VARCHAR(255) NOT NULL, INDEX IDX_AC92AFA97F2DEE08 (facture_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE modele (id INT AUTO_INCREMENT NOT NULL, marque_id INT NOT NULL, nom VARCHAR(255) NOT NULL, INDEX IDX_100285584827B9B2 (marque_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE penalisation (id INT AUTO_INCREMENT NOT NULL, contrat_id INT NOT NULL, description LONGTEXT NOT NULL, date_penal DATE NOT NULL, montant_a_payer DOUBLE PRECISION NOT NULL, montant_tot_htva DOUBLE PRECISION NOT NULL, montant_tot_tva DOUBLE PRECISION NOT NULL, INDEX IDX_A190BDC61823061F (contrat_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE permis (id INT AUTO_INCREMENT NOT NULL, user_id INT NOT NULL, date_debut_permis DATE NOT NULL, date_fin_permis DATE NOT NULL, categorie_permis VARCHAR(2) NOT NULL, INDEX IDX_17389453A76ED395 (user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE permis (id INT AUTO_INCREMENT NOT NULL, user_id INT NOT NULL, categorie_permis VARCHAR(2) NOT NULL, INDEX IDX_17389453A76ED395 (user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE reservation (id INT AUTO_INCREMENT NOT NULL, agence_id INT NOT NULL, categorie_id INT NOT NULL, user_id INT NOT NULL, date_res DATE NOT NULL, date_debut_loc DATE NOT NULL, date_fin_loc DATE NOT NULL, montant_tot_tva DOUBLE PRECISION NOT NULL, acompte DOUBLE PRECISION NOT NULL, acompte_paye TINYINT(1) NOT NULL, statut_res TINYINT(1) NOT NULL, INDEX IDX_42C84955D725330D (agence_id), INDEX IDX_42C84955BCF5E72D (categorie_id), INDEX IDX_42C84955A76ED395 (user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(255) NOT NULL, prenom VARCHAR(255) NOT NULL, sexe VARCHAR(255) NOT NULL, date_naissance DATE NOT NULL, email VARCHAR(180) NOT NULL, password VARCHAR(255) NOT NULL, date_inscription DATE NOT NULL, adresse VARCHAR(255) NOT NULL, telephone VARCHAR(255) NOT NULL, roles JSON NOT NULL, reset_token VARCHAR(255) DEFAULT NULL, UNIQUE INDEX UNIQ_8D93D649E7927C74 (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE vehicule (id INT AUTO_INCREMENT NOT NULL, categorie_id INT NOT NULL, etat_id INT NOT NULL, modele_id INT NOT NULL, matricule VARCHAR(255) NOT NULL, caracteristiques VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_292FFF1D12B2DC9C (matricule), INDEX IDX_292FFF1DBCF5E72D (categorie_id), INDEX IDX_292FFF1DD5E86FF (etat_id), INDEX IDX_292FFF1DAC14B70A (modele_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');

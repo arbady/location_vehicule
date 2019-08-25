@@ -69,6 +69,11 @@ class Vehicule
      */
     private $modele;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $images;
+
     public function __construct()
     {
         $this->modele = new ArrayCollection();
@@ -141,13 +146,13 @@ class Vehicule
         return $this;
     }
 
-    /**
-     * @return Collection|Modele[]
-     */
-    public function getModele(): Collection
-    {
-        return $this->modele;
-    }
+//    /**
+//     * @return Collection|Modele[]
+//     */
+//    public function getModele(): Collection
+//    {
+//        return $this->modele;
+//    }
 
     public function addModele(Modele $modele): self
     {
@@ -234,9 +239,31 @@ class Vehicule
         return $this;
     }
 
+    public function getModele(): ?Modele
+    {
+        return $this->modele;
+    }
+
     public function setModele(?Modele $modele): self
     {
         $this->modele = $modele;
+
+        return $this;
+    }
+
+    public function  __toString()
+    {
+        return  $this->matricule;
+    }
+
+    public function getImages(): ?string
+    {
+        return $this->images;
+    }
+
+    public function setImages(?string $images): self
+    {
+        $this->images = $images;
 
         return $this;
     }

@@ -78,6 +78,7 @@ easy_admin:
           - {property: 'password', type: 'password'}
           - {property: 'telephone', type: 'tel'}
           - adresse
+          - permis
           - {property: 'date_naissance', type: 'App\Form\MyCustomDateType', label: 'Date de naissance'}
           - {property: 'date_inscription', type: 'App\Form\MyCustomDateType', label: "Date d'inscription"}
           - roles
@@ -101,15 +102,19 @@ easy_admin:
       label: 'Vehicules'
       list:
         title: "Most recent vehicles"
+#      form:
+#        fields:
+#          - matricule
+#          - caracteristiques
     Categorie:
       class: App\Entity\Categorie
       label: 'Categories'
       list:
         title: "Most recent categories"
-      form:
-        fields:
-          - type_cat
-          - cout_par_jour
+#      form:
+#        fields:
+#          - type_cat
+#          - cout_par_jour
     Marque:
       class: App\Entity\Marque
       label: 'Marques'
@@ -123,14 +128,18 @@ easy_admin:
       label: 'Modeles'
       list:
         title: "Most recent models"
-      form:
-        fields:
-          - nom
+#      form:
+#        fields:
+#          - nom
+#          - marque
     Etat:
       class: App\Entity\Etat
       label: 'Etat'
       list:
         title: "Most recent states"
+      form:
+        fields:
+          - description
     Client:
       class: App\Entity\Client
       label: 'Clients'
@@ -147,6 +156,7 @@ easy_admin:
           - {property: 'password', type: 'password'}
           - {property: 'telephone', type: 'tel'}
           - adresse
+          - permis
           - {property: 'date_naissance', type: 'App\Form\MyCustomDateType', label: 'Date de naissance'}
           - {property: 'date_inscription', type: 'App\Form\MyCustomDateType', label: "Date d'inscription"}
     Contrat:

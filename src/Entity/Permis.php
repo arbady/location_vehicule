@@ -17,54 +17,9 @@ class Permis
     private $id;
 
     /**
-     * @ORM\Column(type="date")
-     */
-    private $date_debut_permis;
-
-    /**
-     * @ORM\Column(type="date")
-     */
-    private $date_fin_permis;
-
-    /**
      * @ORM\Column(type="string", length=2)
      */
     private $categorie_permis;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="permis")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getDateDebutPermis(): ?\DateTimeInterface
-    {
-        return $this->date_debut_permis;
-    }
-
-    public function setDateDebutPermis(\DateTimeInterface $date_debut_permis): self
-    {
-        $this->date_debut_permis = $date_debut_permis;
-
-        return $this;
-    }
-
-    public function getDateFinPermis(): ?\DateTimeInterface
-    {
-        return $this->date_fin_permis;
-    }
-
-    public function setDateFinPermis(\DateTimeInterface $date_fin_permis): self
-    {
-        $this->date_fin_permis = $date_fin_permis;
-
-        return $this;
-    }
 
     public function getCategoriePermis(): ?string
     {
@@ -78,15 +33,13 @@ class Permis
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getId(): ?int
     {
-        return $this->user;
+        return $this->id;
     }
 
-    public function setUser(?User $user): self
+    public function  __toString()
     {
-        $this->user = $user;
-
-        return $this;
+        return  $this->categorie_permis;
     }
 }

@@ -1,37 +1,412 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Vehicule index{% endblock %}
 {% block stylesheet %} {% endblock %}
 {% block body %}
-    <h1>Vehicule index</h1>
+{#    {% include 'index.html.twig' %}#}
+{#    <table class="table">#}
+{#        <thead>#}
+{#            <tr>#}
+{#                <th>Id</th>#}
+{#                <th>Matricule</th>#}
+{#                <th>Caracteristiques</th>#}
+{#                <th>actions</th>#}
+{#            </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#        {% for vehicule in vehicules %}#}
+{#            <tr>#}
+{#                <td>{{ vehicule.id }}</td>#}
+{#                <td>{{ vehicule.matricule }}</td>#}
+{#                <td>{{ vehicule.caracteristiques }}</td>#}
+{#                <td>#}
+{#                    <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}">show</a>#}
+{#                    <a href="{{ path('vehicule_edit', {'id': vehicule.id}) }}">edit</a>#}
+{#                </td>#}
+{#            </tr>#}
+{#        {% else %}#}
+{#            <tr>#}
+{#                <td colspan="4">no records found</td>#}
+{#            </tr>#}
+{#        {% endfor %}#}
+{#        </tbody>#}
+{#    </table>#}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Matricule</th>
-                <th>Caracteristiques</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for vehicule in vehicules %}
-            <tr>
-                <td>{{ vehicule.id }}</td>
-                <td>{{ vehicule.matricule }}</td>
-                <td>{{ vehicule.caracteristiques }}</td>
-                <td>
-                    <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}">show</a>
-                    <a href="{{ path('vehicule_edit', {'id': vehicule.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+{#    <a href="{{ path('vehicule_new') }}">Create new</a>#}
 
-    <a href="{{ path('vehicule_new') }}">Create new</a>
+<div class="container">
+    <h2 class="my-5 h3 text-center">Choisissez une catégorie de vehicules</h2>
+    <hr class="mb-5">
+    <div class="row">
+        <div class="col">
+            <div style="display: inline-block; margin-left: 0">
+                <div>
+                    <input type="radio" class="radio-inline" name="radio" id="radio0" />
+                    <label for="radio0">Voitures</label>
+                </div>
+                <div>
+                    <input type="radio" class="radio-inline" name="radio" id="radio1" />
+                    <label for="radio1">Utilitaires</label>
+                </div>
+                <div>
+                    <input type="radio" class="radio-inline" name="radio" id="radio2" />
+                    <label for="radio2">2 Roues</label>
+                </div>
+                <div>
+                    <input type="radio" class="radio-inline" name="radio" id="radio3" />
+                    <label for="radio3">Luxes</label>
+                </div>
+            </div>
+{#            <select class="mySelect" name="id_agence" id="conditionsselect1">#}
+{#                <option>#}
+{#                    -- Filtrer par lieu --#}
+{#                </option>#}
+{#                {% for agence in tab_agences %}#}
+{#                    <option value="{{ agence.id }}">#}
+{#                        {{ agence.ville|capitalize }}#}
+{#                    </option>#}
+{#                {% endfor %}#}
+{#            </select>#}
+        </div>
+        <div class="col">
+            <select class="mySelect" name="id_agence" id="conditionsselect1">
+                <option>
+                    -- Filtrer par lieu --
+                </option>
+                {% for agence in tab_agences %}
+                    <option value="{{ agence.id }}">
+                        {{ agence.ville|capitalize }}
+                    </option>
+                {% endfor %}
+            </select>
+        <div class="view">
+            <p class="grid">
+                <img id="face" style="margin-left: 165%; margin-top: -60%" alt="berline" src={{ asset('image/berline.jpg') }}>
+                <h3 class="text" style="margin-left: 175%; margin-top: -25%">Berline</h3>
+        </div>
+        </div>
+        <div class="col" id="group">
+            <p class="grid">
+                <img style="margin-left: 160%; margin-top: 4%" alt="break" src={{ asset('image/break.jpg') }}>
+            <h3 class="text" style="margin-left: 175%">Break</h3>
+        </div>
+        <div class="col">
+            <p class="grid">
+                <img style="margin-left: 135%; margin-top: 6%" alt="coupe" src={{ asset('image/coupé.jpg') }}>
+                <h3 class="text" style="margin-left: 145%">Coupé</h3>
+        </div>
+        <div class="col">
+            <p class="grid">
+                <img style="margin-left: 100%; margin-top: 1%" alt="SUV" src={{ asset('image/SUV.jpg') }}>
+                <h3 class="text" style="margin-left: 118%">SUV</h3>
+        </div>
+        <div class="col">
+            <p class="grid">
+                <img style="margin-left: 60%; margin-top: 9%;" alt="cabriolet" src={{ asset('image/cabriolet.jpg') }}>
+                <h3 class="text" style="margin-left: 65%">Cabriolet</h3>
+        </div>
+        <div class="col">
+            <p class="grid">
+                <img alt="monospace" src={{ asset('image/monospace.jpg') }}>
+                <h3 class="text" style="margin-top: -1%">Monospace</h3>
+        </div>
+    </div>
+</div>
+
+{#    #}{# total items count #}
+{#    <div class="count">#}
+{#        {{ pagination.getTotalItemCount }}#}
+{#    </div>#}
+{#    <table>#}
+{#        <tr>#}
+{#            #}{# sorting of properties based on query components #}
+{#            <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</th>#}
+{#            <th{% if pagination.isSorted('a.Title') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Title', 'a.title') }}</th>#}
+{#            <th>{{ knp_pagination_sortable(pagination, 'Release', ['a.date', 'a.time']) }}</th>#}
+{#        </tr>#}
+
+{#        #}{# table body #}
+{#        {% for article in pagination %}#}
+{#            <tr {% if loop.index is odd %}class="color"{% endif %}>#}
+{#                <td>{{ article.id }}</td>#}
+{#                <td>{{ article.title }}</td>#}
+{#                <td>{{ article.date | date('Y-m-d') }}, {{ article.time | date('H:i:s') }}</td>#}
+{#            </tr>#}
+{#        {% endfor %}#}
+{#    </table>#}
+{#    #}{# display navigation #}
+{#    <div class="navigation">#}
+{#        {{ knp_pagination_render(pagination) }}#}
+{#    </div>#}{# total items count #}
+{#    <div class="count">#}
+{#        {{ pagination.getTotalItemCount }}#}
+{#    </div>#}
+{#    <table>#}
+{#        <tr>#}
+{#            #}{# sorting of properties based on query components #}
+{#            <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</th>#}
+{#            <th{% if pagination.isSorted('a.Title') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Title', 'a.title') }}</th>#}
+{#            <th>{{ knp_pagination_sortable(pagination, 'Release', ['a.date', 'a.time']) }}</th>#}
+{#        </tr>#}
+
+{#        #}{# table body #}
+{#        {% for article in pagination %}#}
+{#            <tr {% if loop.index is odd %}class="color"{% endif %}>#}
+{#                <td>{{ article.id }}</td>#}
+{#                <td>{{ article.title }}</td>#}
+{#                <td>{{ article.date | date('Y-m-d') }}, {{ article.time | date('H:i:s') }}</td>#}
+{#            </tr>#}
+{#        {% endfor %}#}
+{#    </table>#}
+{#    #}{# display navigation #}
+{#    <div class="navigation">#}
+{#        {{ knp_pagination_render(pagination) }}#}
+{#    </div>#}
+
+<div class="container">
+
+    <hr class="mb-5">
+
+    <!--Section: More-->
+    <section>
+        <!--First row-->
+        <div class="row features-small mt-5 wow fadeIn">
+
+            <!--Grid column-->
+            <div class="col-xl-4 col-lg-6">
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-2">
+                        <i class="fas fa-car fa-2x mb-1 indigo-text" aria-hidden="true"></i>
+                    </div>
+                    {%  for vehicule in vehicules %}
+                    <div class="col-10 mb-2 pl-3">
+                        <h5 class="feature-title font-bold mb-1">{{ vehicule.modele.nom }} | Modele</h5>
+                        <p class="grey-text mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                        <a href="{{ path('home') }}" class="btn btn-dark">Reserver
+                            <i class="fas fa-calendar"></i>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!--/Grid row-->
+            </div>
+            <!--/Grid column-->
+
+{#            <!--Grid column-->#}
+{#            <div class="col-xl-4 col-lg-6">#}
+{#                <!--Grid row-->#}
+{#                <div class="row">#}
+{#                    <div class="col-2">#}
+{#                        <i class="fas fa-car fa-2x mb-1 indigo-text" aria-hidden="true"></i>#}
+{#                    </div>#}
+{#                    <div class="col-10 mb-2">#}
+{#                        <h5 class="feature-title font-bold mb-1">Marque | Modele</h5>#}
+{#                        <p class="grey-text mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>#}
+{#                        <a href="{{ path('home') }}" class="btn btn-primary">Reserver#}
+{#                            <i class="fas fa-calendar"></i>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!--/Grid row-->#}
+{#            </div>#}
+{#            <!--/Grid column-->#}
+
+{#            <!--Grid column-->#}
+{#            <div class="col-xl-4 col-lg-6">#}
+{#                <!--Grid row-->#}
+{#                <div class="row">#}
+{#                    <div class="col-2">#}
+{#                        <i class="fas fa-car fa-2x mb-1 indigo-text" aria-hidden="true"></i>#}
+{#                    </div>#}
+{#                    <div class="col-10 mb-2">#}
+{#                        <h5 class="feature-title font-bold mb-1">Marque | Modele</h5>#}
+{#                        <p class="grey-text mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>#}
+{#                        <a href="{{ path('home') }}" class="btn btn-primary">Reserver#}
+{#                            <i class="fas fa-calendar"></i>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!--/Grid row-->#}
+{#            </div>#}
+{#            <!--/Grid column-->#}
+
+{#            <!--Grid column-->#}
+{#            <div class="col-xl-4 col-lg-6">#}
+{#                <!--Grid row-->#}
+{#                <div class="row">#}
+{#                    <div class="col-2">#}
+{#                        <i class="fas fa-car fa-2x mb-1 indigo-text" aria-hidden="true"></i>#}
+{#                    </div>#}
+{#                    <div class="col-10 mb-2 pl-3">#}
+{#                        <h5 class="feature-title font-bold mb-1">Marque | Modele</h5>#}
+{#                        <p class="grey-text mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>#}
+{#                        <a href="{{ path('home') }}" class="btn btn-primary">Reserver#}
+{#                            <i class="fas fa-calendar"></i>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!--/Grid row-->#}
+{#            </div>#}
+{#            <!--/Grid column-->#}
+
+{#            <!--Grid column-->#}
+{#            <div class="col-xl-4 col-lg-6">#}
+{#                <!--Grid row-->#}
+{#                <div class="row">#}
+{#                    <div class="col-2">#}
+{#                        <i class="fas fa-car fa-2x mb-1 indigo-text" aria-hidden="true"></i>#}
+{#                    </div>#}
+{#                    <div class="col-10 mb-2">#}
+{#                        <h5 class="feature-title font-bold mb-1">Marque | Modele</h5>#}
+{#                        <p class="grey-text mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>#}
+{#                        <a href="{{ path('home') }}" class="btn btn-primary">Reserver#}
+{#                            <i class="fas fa-calendar"></i>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!--/Grid row-->#}
+{#            </div>#}
+{#            <!--/Grid column-->#}
+
+{#            <!--Grid column-->#}
+{#            <div class="col-xl-4 col-lg-6">#}
+{#                <!--Grid row-->#}
+{#                <div class="row">#}
+{#                    <div class="col-2">#}
+{#                        <i class="fas fa-car fa-2x mb-1 indigo-text" aria-hidden="true"></i>#}
+{#                    </div>#}
+{#                    <div class="col-10 mb-2">#}
+{#                        <h5 class="feature-title font-bold mb-1">Marque | Modele</h5>#}
+{#                        <p class="grey-text mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>#}
+{#                        <a href="{{ path('home') }}" class="btn btn-primary">Reserver#}
+{#                            <i class="fas fa-calendar"></i>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!--/Grid row-->#}
+{#            </div>#}
+{#            <!--/Grid column-->#}
+
+{#            <!--Grid column-->#}
+{#            <div class="col-xl-4 col-lg-6">#}
+{#                <!--Grid row-->#}
+{#                <div class="row">#}
+{#                    <div class="col-2">#}
+{#                        <i class="fas fa-car fa-2x mb-1 indigo-text" aria-hidden="true"></i>#}
+{#                    </div>#}
+{#                    <div class="col-10 mb-2 pl-3">#}
+{#                        <h5 class="feature-title font-bold mb-1">Marque | Modele</h5>#}
+{#                        <p class="grey-text mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>#}
+{#                        <a href="{{ path('home') }}" class="btn btn-primary">Reserver#}
+{#                            <i class="fas fa-calendar"></i>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!--/Grid row-->#}
+{#            </div>#}
+{#            <!--/Grid column-->#}
+
+{#            <!--Grid column-->#}
+{#            <div class="col-xl-4 col-lg-6">#}
+{#                <!--Grid row-->#}
+{#                <div class="row">#}
+{#                    <div class="col-2">#}
+{#                        <i class="fas fa-car fa-2x mb-1 indigo-text" aria-hidden="true"></i>#}
+{#                    </div>#}
+{#                    <div class="col-10 mb-2">#}
+{#                        <h5 class="feature-title font-bold mb-1">Marque | Modele</h5>#}
+{#                        <p class="grey-text mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>#}
+{#                        <a href="{{ path('home') }}" class="btn btn-primary">Reserver#}
+{#                            <i class="fas fa-calendar"></i>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!--/Grid row-->#}
+{#            </div>#}
+{#            <!--/Grid column-->#}
+
+{#            <!--Grid column-->#}
+{#            <div class="col-xl-4 col-lg-6">#}
+{#                <!--Grid row-->#}
+{#                <div class="row">#}
+{#                    <div class="col-2">#}
+{#                        <i class="fas fa-car fa-2x mb-1 indigo-text" aria-hidden="true"></i>#}
+{#                    </div>#}
+{#                    <div class="col-10 mb-2">#}
+{#                        <h5 class="feature-title font-bold mb-1">Marque | Modele</h5>#}
+{#                        <p class="grey-text mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>#}
+{#                        <a href="{{ path('home') }}" class="btn btn-primary">Reserver#}
+{#                            <i class="fas fa-calendar"></i>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!--/Grid row-->#}
+{#            </div>#}
+            <!--/Grid column-->
+
+            </div>
+        </section>
+    </div>
+
+    <style>
+        .grid{
+            text-align:center;
+            margin-top:5px;
+        }
+        /*#face {*/
+        /*    !*width: 30px;*!*/
+        /*    !*height: 30px;"*!*/
+        /*transition: transform .2s;*/
+        /*}*/
+        /*#face:hover {*/
+        /*    -ms-transform: scale(1.5); !* IE 9 *!*/
+        /*    -webkit-transform: scale(1.5); !* Safari 3-8 *!*/
+        /*    transform: scale(1.5);*/
+        /*    background-color: transparent;*/
+        /*}*/
+        .text{
+            font-weight: unset;
+            font-size: 15px;
+        }
+        .mySelect{
+        /*    display: block;*/
+        /*    width: 100%;*/
+            margin-top: 15%;
+            height: calc(1.5em + .75rem + 2px);
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+        .mySelect:focus {
+            color: #495057;
+            background-color: #fff;
+            /* border-color: #80bdff; */
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        }
+        .text{
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        $("#radio0").click(function () {
+            console.log(this).val().toLowerCase();
+            if (){}
+        })
+        $("#radio1").click(function () {
+            console.log(this);
+        })
+    </script>
 {% endblock %}
+
+
