@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+    </head>
+    <body>
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            {% if is_granted('ROLE_USER') %}
+                {% include 'header_cli.html.twig' %}
+            {% endif %}
+        {% else %}
+            {% include 'header_ano.html.twig' %}
+        {% endif %}
+    </body>
+</html>

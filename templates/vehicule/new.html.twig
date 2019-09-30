@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>Create new Vehicule</h1>
-
+    <span style="color: red">{{ erreur }}</span>
     {{ include('vehicule/_form.html.twig') }}
 
     <a href="{{ path('vehicule_index') }}">back to list</a>

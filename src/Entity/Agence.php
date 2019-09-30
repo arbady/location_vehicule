@@ -5,9 +5,11 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Onurb\Doctrine\ORMMetadataGrapher\Mapping as Grapher;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AgenceRepository")
+ * @Grapher\Color("khaki")
  */
 class Agence
 {
@@ -19,7 +21,7 @@ class Agence
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=5)
      */
     private $code;
 
@@ -64,28 +66,45 @@ class Agence
         $this->disponibilites = new ArrayCollection();
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getCode(): ?int
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
+    public function getCode(): ?string
     {
         return $this->code;
     }
 
-    public function setCode(int $code): self
+    /**
+     * @Grapher\IsDisplayedMethod()
+     * @param string $code
+     * @return Agence
+     */
+    public function setCode(string $code): self
     {
         $this->code = $code;
 
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getAdresse(): ?string
     {
         return $this->adresse;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setAdresse(string $adresse): self
     {
         $this->adresse = $adresse;
@@ -93,11 +112,17 @@ class Agence
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getAeroport(): ?string
     {
         return $this->aeroport;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setAeroport(string $aeroport): self
     {
         $this->aeroport = $aeroport;
@@ -105,11 +130,17 @@ class Agence
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getVille(): ?string
     {
         return $this->ville;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setVille(string $ville): self
     {
         $this->ville = $ville;
@@ -117,11 +148,17 @@ class Agence
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getCodePostal(): ?int
     {
         return $this->code_postal;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setCodePostal(int $code_postal): self
     {
         $this->code_postal = $code_postal;
@@ -129,11 +166,17 @@ class Agence
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getPays(): ?string
     {
         return $this->pays;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setPays(string $pays): self
     {
         $this->pays = $pays;
@@ -143,12 +186,16 @@ class Agence
 
     /**
      * @return Collection|Reservation[]
+     * @Grapher\IsDisplayedMethod()
      */
     public function getReservations(): Collection
     {
         return $this->reservations;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function addReservation(Reservation $reservation): self
     {
         if (!$this->reservations->contains($reservation)) {
@@ -159,6 +206,9 @@ class Agence
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function removeReservation(Reservation $reservation): self
     {
         if ($this->reservations->contains($reservation)) {
@@ -174,12 +224,16 @@ class Agence
 
     /**
      * @return Collection|Disponibilite[]
+     * @Grapher\IsDisplayedMethod()
      */
     public function getDisponibilites(): Collection
     {
         return $this->disponibilites;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function addDisponibilite(Disponibilite $disponibilite): self
     {
         if (!$this->disponibilites->contains($disponibilite)) {
@@ -190,6 +244,9 @@ class Agence
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function removeDisponibilite(Disponibilite $disponibilite): self
     {
         if ($this->disponibilites->contains($disponibilite)) {
@@ -203,6 +260,9 @@ class Agence
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function  __toString()
     {
         return  $this->adresse;

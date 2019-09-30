@@ -6,7 +6,9 @@ use App\Entity\Vehicule;
 use App\Form\VehiculeType;
 use App\Repository\AgenceRepository;
 use App\Repository\CategorieRepository;
+use App\Repository\ReservationRepository;
 use App\Repository\VehiculeRepository;
+use Doctrine\Common\Persistence\ObjectManager;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,23 +21,60 @@ use Symfony\Component\Routing\Annotation\Route;
 class VehiculeController extends AbstractController
 {
     /**
+     * @param VehiculeRepository
+     */
+    private $repository;
+    /**
+     * @var ObjectManager
+     */
+    private $em;
+
+    public function __construct(VehiculeRepository $repository, ObjectManager $em)
+    {
+        $this->repository = $repository;
+        $this->em = $em;
+    }
+
+    /**
      * @Route("/", name="vehicule_index", methods={"GET"})
-     * @param VehiculeRepository $vehiculeRepository
+     * @param PaginatorInterface $paginator
+     * @param Request $request
+     * @param ReservationRepository $reservations
      * @param AgenceRepository $t_agence
      * @param CategorieRepository $t_cat
      * @return Response
      */
-    public function index(VehiculeRepository $vehiculeRepository, AgenceRepository $t_agence, CategorieRepository $t_cat): Response
+//    public function index(PaginatorInterface $paginator, Request $request, ReservationRepository $reservations, AgenceRepository $t_agence, CategorieRepository $t_cat): Response
+//    {
+//        $tab_agences = $t_agence->findAll();
+//        $tab_cat = $t_cat->findAll();
+//        $tab_res = $reservations->findAll();
+//
+//        $vehicules = $paginator->paginate(
+//            $this->repository->findAll(),
+//            $request->query->getInt('page', 1),
+//            6
+//        );
+//
+//        return $this->render('vehicule/index.html.twig', [
+//            'vehicules' => $vehicules,
+//            'tab_agences' => $tab_agences,
+//            'tab_cat' => $tab_cat,
+//            'reservations' => $tab_res
+//        ]);
+//    }
+    public function index(ReservationRepository $reservations, AgenceRepository $t_agence, CategorieRepository $t_cat, VehiculeRepository $vehiculeRepository): Response
     {
         $tab_agences = $t_agence->findAll();
         $tab_cat = $t_cat->findAll();
-
-//        dump($vehiculeRepository->findAll()) ;
+        $tab_res = $reservations->findAll();
+        $vehicules = $vehiculeRepository->findAll();
 
         return $this->render('vehicule/index.html.twig', [
-            'vehicules' => $vehiculeRepository->findAll(),
+            'vehicules' => $vehicules,
             'tab_agences' => $tab_agences,
-            'tab_cat' => $tab_cat
+            'tab_cat' => $tab_cat,
+            'reservations' => $tab_res
         ]);
     }
 
@@ -50,15 +89,28 @@ class VehiculeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($vehicule);
-            $entityManager->flush();
+            $unique = $vehicule->getMatricule();
 
-            return $this->redirectToRoute('vehicule_index');
+            if($entityManager->getRepository('App\Entity\Vehicule')->findBy(array('matricule' => $unique)))
+            {
+                return $this->render('vehicule/new.html.twig', [
+                    'vehicule' => $vehicule,
+                    'form' => $form->createView(),
+                    'erreur' => "Le code est déjà utilisé",
+                ]);
+            }
+            else{
+                $entityManager->persist($vehicule);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('vehicule_index');
+            }
         }
 
         return $this->render('vehicule/new.html.twig', [
             'vehicule' => $vehicule,
             'form' => $form->createView(),
+            'erreur' => "Le code est déjà utilisé",
         ]);
     }
 
@@ -115,19 +167,17 @@ class VehiculeController extends AbstractController
      */
     public function pagination( VehiculeRepository $vehiculeRepository, PaginatorInterface $paginator, Request $request): Response
     {
-        $pagination = $paginator->paginate(
-
-            $this->$vehiculeRepository->findAll();
-            $pagination = $paginator->paginate(
-//            $query,
-            $request->query->getInt('page', 1),
-            3
-        );
-        dump($pagination);
-        return $this->render('vehicule/index.html.twig', [
-            'vehicule' => $pagination,
-
-        ]);
+//        $vehicules = $paginator->paginate(
+//            $this->repository->findAllVisibleQuery(),
+////            $query,
+//            $request->query->getInt('page', 1),
+//            9
+//        );
+////        dump($pagination);
+//        return $this->render('vehicule/index.html.twig', [
+//            'vehicules' => $pagination
+//
+//        ]);
     }
 
 //    public function listAction(Request $request)

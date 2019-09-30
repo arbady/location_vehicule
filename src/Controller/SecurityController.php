@@ -59,18 +59,24 @@ class SecurityController extends AbstractController
     public function register(Request $request, LoginFormAuthenticator $authenticator, PermisRepository $permisRepository, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $authenticatorHandler): Response
     {
         if ($request->isMethod('POST')) {
+//        $user = new User();
+//        $form = $this->createForm(UserType::class, $user);
+//        $form->handleRequest($request);
+//        if($request->isSubmitted() && $request->isValid()){
             $user = new User();
             $user->setNom($request->request->get('nom'));
             $user->setPrenom($request->request->get('prenom'));
             $user->setSexe($request->request->get('sexe'));
+//            $user->setDateNaissance(date_parse_from_format ('%d/%m/%Y', $request->request->get('date_naissance')));
 //            dd($request->request->get('date_naissance'));
-            $user->setDateNaissance(date_create_from_format('Y-m-d',$request->request->get('date_naissance')));
+//            dd($request->request->get('date_inscription'));
 
+            $user->setDateNaissance(date_create_from_format('m/d/Y', $request->request->get('date_naissance')));
             $user->setEmail($request->request->get('email'));
             $user->setPassword($passwordEncoder->encodePassword($user, $request->request->get('password')));
 //            $user->setDateInscription($request->request->get('date_inscription'));
 //            $user->setDateNaissance(\DateTime::createFromFormat('Y-m-d', "2018-09-09"));
-            $user->setDateInscription(date_create_from_format('Y-m-d',$request->request->get('date_inscription')));
+            $user->setDateInscription(date_create_from_format('m/d/Y',$request->request->get('date_inscription')));
             $user->setAdresse($request->request->get('adresse'));
 //            dd($user);
             $user->setTelephone(strval($request->request->get('telephone')));
@@ -83,6 +89,7 @@ class SecurityController extends AbstractController
             $permisG = $request->request->get('permisG');
 
             $em = $this->getDoctrine()->getManager();
+
             $em->persist($user);
             $em->flush();
 

@@ -3,6 +3,9 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+{#    {% include 'nav_bar_anonyme.html.twig' %}#}
+{#    {% include 'header_ano.html.twig'  %}#}
+
 <form method="post">
     {% if error %}
         {#{{  dump(error) }}#}
@@ -38,7 +41,7 @@
     <section class="login-block">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 login-sec">
+                <div class="col-md-4 login-sec"  style="margin-top: -5%;">
                     <h2 class="text-center">Login Now</h2>
                     {% if app.user %}
                         <div class="checkbox mb-3">You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a> ?</div>
@@ -72,13 +75,13 @@
                     <div class="copy-text"><a href="{{ path('home') }}">Retour à la page d'acceuil <i class="fa fa-home"></i></a></div>
                 </div>
                 <div class="col-md-8 banner-sec">
-                    <div id="carouselExampleIndicators" class="carousel slide1" data-ride="carousel">
+                    <div id="carouselExampleIndicators" class="carousel slide1" data-ride="carousel"  style="margin-top: -5%;">
                         <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                         </ol>
-                        <div class="carousel-inner" role="listbox">
+                        <div class="carousel-inner" role="listbox" style="z-index: 0">
                             <div class="carousel-item active">
                                 <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
                                 <div class="carousel-caption d-none d-md-block">

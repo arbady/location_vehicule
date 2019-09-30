@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Onurb\Doctrine\ORMMetadataGrapher\Mapping as Grapher;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ModeDePaiementRepository")
+ * @Grapher\Color("khaki")
  */
 class ModeDePaiement
 {
@@ -27,16 +29,25 @@ class ModeDePaiement
      */
     private $facture;
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setDescription(string $description): self
     {
         $this->description = $description;
@@ -44,11 +55,17 @@ class ModeDePaiement
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getFacture(): ?Facture
     {
         return $this->facture;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setFacture(?Facture $facture): self
     {
         $this->facture = $facture;

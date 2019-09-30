@@ -5,9 +5,11 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Onurb\Doctrine\ORMMetadataGrapher\Mapping as Grapher;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EtatRepository")
+ * @Grapher\Color("khaki")
  */
 class Etat
 {
@@ -33,16 +35,25 @@ class Etat
         $this->vehicules = new ArrayCollection();
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setDescription(string $description): self
     {
         $this->description = $description;
@@ -52,12 +63,16 @@ class Etat
 
     /**
      * @return Collection|Vehicule[]
+     * @Grapher\IsDisplayedMethod()
      */
     public function getVehicules(): Collection
     {
         return $this->vehicules;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function addVehicule(Vehicule $vehicule): self
     {
         if (!$this->vehicules->contains($vehicule)) {
@@ -68,6 +83,9 @@ class Etat
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function removeVehicule(Vehicule $vehicule): self
     {
         if ($this->vehicules->contains($vehicule)) {
@@ -81,6 +99,9 @@ class Etat
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function  __toString()
     {
         return  $this->description;

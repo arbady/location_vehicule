@@ -1,47 +1,449 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Reservation index{% endblock %}
-
+{% block title %}Vehicule index{% endblock %}
+{% block stylesheet %} {% endblock %}
 {% block body %}
-    <h1>Reservation index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Date_res</th>
-                <th>Date_debut_loc</th>
-                <th>Date_fin_loc</th>
-                <th>Montant_tot_tva</th>
-                <th>Acompte</th>
-                <th>Acompte_paye</th>
-                <th>Statut_res</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for reservation in reservations %}
-            <tr>
-                <td>{{ reservation.id }}</td>
-                <td>{{ reservation.dateRes ? reservation.dateRes|date('Y-m-d') : '' }}</td>
-                <td>{{ reservation.dateDebutLoc ? reservation.dateDebutLoc|date('Y-m-d') : '' }}</td>
-                <td>{{ reservation.dateFinLoc ? reservation.dateFinLoc|date('Y-m-d') : '' }}</td>
-                <td>{{ reservation.montantTotTva }}</td>
-                <td>{{ reservation.acompte }}</td>
-                <td>{{ reservation.acomptePaye ? 'Yes' : 'No' }}</td>
-                <td>{{ reservation.statutRes ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('reservation_show', {'id': reservation.id}) }}">show</a>
-                    <a href="{{ path('reservation_edit', {'id': reservation.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="9">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 
-    <a href="{{ path('reservation_new') }}">Create new</a>
+    <script src="{{ asset('js/reservation.js') }}"></script>
+
+{#    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}#}
+
+    <!-- Card-1 -->
+    <div class="card card-11">
+
+        <!-- Card image -->
+        <div class="view overlay">
+            <img class="card-img-top" src="{{asset('image/' ~ vehicule.images)}}" alt="Card image cap">
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+    </div>
+    <!-- Card-1 -->
+
+    <!-- Card-2 -->
+    <div class="card card-22">
+
+        <!-- Card content -->
+        <div class="card-body txt">
+
+            {% if vehicule.categorie=='2roues' %}
+                <!-- Title -->
+                <h4 class="card-title pink-text text-center" style="padding-bottom: 20px;">Description</h4>
+                <p>{{ vehicule.caracteristiques }}</p>
+            {% else %}
+                <!-- Title -->
+                <h4 class="card-title pink-text text-center" style="padding-bottom: 10px;">Caractéristiques</h4>
+
+                <!-- Text -->
+                <ul class="card-text caract" style="margin-left: 30%;">
+                    {#                            <i class="fas fa-car-side fa-2x mb-1 indigo-text"></i>&nbsp;&nbsp;&nbsp;#}
+                    <li>Nombre de place : {{ vehicule.nbPlace }}</li>
+                    <li>Nombre de porte : {{ vehicule.nbPorte }}</li>
+                    <li>Transmission : {{ vehicule.transmission }}</li>
+                    <li>Carburant : {{ vehicule.carburant }}</li>
+                    <li>Air-Co : {{ vehicule.airCo }}</li>
+                    <li>GPS : {{ vehicule.gps }}</li>
+                </ul>
+            {% endif %}
+        </div>
+
+    </div>
+    <!-- Card-2 -->
+
+{#    <h1 class="text-center mt-5 mb-4 text-light font-weight-bold">Form with Multiple Steps</h1>#}
+    <form id="regForm" class="form-with-stepper" action="{{ path('reservation_new') }}" method="post">
+
+        <div class="tab">
+            <h3 class="pink-text text-center">ETAPE 1</h3>
+            <h5 class="mt-4 mb-0 text-center">Temps de location : </h5>
+            <!-- Material input -->
+{#            <div class="md-form">#}
+{#                <input type="text" id="form1" class="form-control" oninput="this.className = 'form-control'" name="fname">#}
+{#                <label for="form1">First name</label>#}
+{#            </div>#}
+            <div class="custom-control custom-checkbox" style="margin: 5% 18%;">
+                <input type="checkbox" class="custom-control-input" id="defaultUnchecked1" name="retour" />
+                <label class="custom-control-label text-res" for="defaultUnchecked1" style="font-size: 14px">Retour à un endroit différent ?</label>
+            </div>
+
+{#            <div class="md-form">#}
+{#                <input type="text" id="form1" class="form-control" oninput="this.className = 'form-control'" name="lname">#}
+{#                <label for="form1">Last name</label>#}
+{#            </div>#}
+
+            <div class="form-group cache" id="cache" style="margin-top: 5%">
+                <select class="custom-select-sm form-control" name="id_agence" id="conditionsselect1" required autofocus>
+                    <option selected style="text-align: center">-- Selectionnez un lieu de retour --</option>
+                    {% for agence in tab_agences %}
+                        <option value="{{ agence.id }}">
+                            {{ agence.ville|capitalize }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            {# ========================================================#}
+            <p class="hideELt" id="catVehic">{{ vehicule.categorie }}</p>
+            <p class="hideELt" id="prixVehic">{{ vehicule.categorie.coutParJour }}</p>
+            <p class="hideELt" id="retourEndDiff"></p>
+            <input class="hideELt" id="id_vehicule" name="id_vehicule" value="{{ vehicule.id }}" />
+            <p class="hideELt" id="lieuRetour">{% for dispo in vehicule.disponibilites %}{{ dispo.agence.ville }}{% endfor %}</p>
+            {#==========================================================#}
+
+            <div class="form-group" id="memeLigne" style="margin: 5% 10%;">
+                <input placeholder="Select date" id="datepicker1" type="text" class="custom-select-sm form-control datepicker1" />
+                <input type="hidden" id="date1" name="date1">
+                <input placeholder="Select time" id="timepicker1" type="text" class="custom-select-sm form-control timepicker1" name="usr_time1"  data-language='fr' />
+            </div>
+            <div class="form-group" id="memeLigne" style="margin-left: 10%">
+                <input placeholder="Select date" type="text" class="custom-select-sm form-control datepicker2" id="datepicker2" />
+                <input type="hidden" id="date2" name="date2">
+                <input placeholder="Select time" type="text" class="custom-select-sm form-control timepicker2" id="timepicker2" name="usr_time2" />
+            </div>
+        </div>
+
+        {#=====================================================================================#}
+
+        <div class="tab">
+            <h3 class="pink-text text-center">ETAPE 2</h3>
+            <h5 class="mt-4 mb-0 text-center">Options supplémentaires :</h5>
+            <!-- Material input -->
+{#            <div class="md-form">#}
+{#                <input type="email" id="form1" class="form-control" oninput="this.className = 'form-control'" name="email">#}
+{#                <label for="form1">E-mail</label>#}
+{#            </div>#}
+
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="defaultUnchecked2" name="option1" />
+                <label class="custom-control-label text-res" for="defaultUnchecked2" style="font-size: 14px">
+                    Couverture dommages <span class="hide-show1"><b>| 3 euros</b></span>
+                </label>
+            </div>
+
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="defaultUnchecked3" name="option2" />
+                <label class="custom-control-label text-res" for="defaultUnchecked3" style="font-size: 14px">
+                    Couverture vol <span class="hide-show2" style=""><b>| 4 euros</b></span>
+                </label>
+            </div>
+
+            <div>
+                <input type="radio" class="radio-inline" name="radio1" id="PayOnline" style="margin-top: 1%" checked />
+                <label class="text" id="payOnline" for="PayOnline">Payer en ligne</label>
+            </div>
+
+            <div>
+                <input type="radio" class="radio-inline" name="radio2" id="PayAgence" style="margin-top: 1%" />
+                <label class="text" id="PayAgence" for="PayAgence">Payer en agence</label>
+            </div>
+
+{#            <div class="md-form">#}
+{#                <input type="tel" id="form1" class="form-control" oninput="this.className = 'form-control'" name="phone">#}
+{#                <label for="form1">Phone</label>#}
+{#            </div>#}
+        </div>
+
+        <div class="tab">
+            <h3 class="pink-text text-center">ETAPE 3</h3>
+            <h5 class="mt-4 mb-0 text-center">Details de la réservation :</h5>
+
+{#            <div class="md-form">#}
+{#                <input type="text" id="form1" class="form-control" oninput="this.className = 'form-control'" name="uname">#}
+{#                <label for="form1">Username</label>#}
+{#            </div>#}
+{#            <div class="md-form">#}
+{#                <input id="form1" class="form-control" oninput="this.className = 'form-control'" name="password"#}
+{#                       type="password">#}
+{#                <label for="form1">Password</label>#}
+{#            </div>#}
+
+            <div id="details"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+
+                <button class="btn btn-blue-grey btn-rounded prevBtn" type="button" id="prevBtn"
+                        onclick="nextPrev(-1)" style="background: #F57F17 !important">Previous</button>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-success btn-rounded nextBtn" type="button" id="nextBtn"
+                        onclick="nextPrev(1)" style="background: #F57F17 !important">Next</button>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <span class="step" data-number="0"></span>
+            <span class="step" data-number="1"></span>
+            <span class="step" data-number="2"></span>
+{#            <span class="step" data-number="3"></span>#}
+        </div>
+    </form>
+    <div class="container registration-successful">
+        <div class="text-center pt-4">
+
+            <h2 class="text-center display-4 mt-4 font-weight-bold">Registered!</h2>
+
+        </div>
+    </div>
+
+    <script>
+        let info = {lieuRetour:"", depart:"", heureDepart:"", retour:"",
+            heureRetour:"", catVehic:"", retourEndDiff:false, couvDom:false,
+            couvVol:false, payOnline:"", payAgence:"", prixCat:0, prixTot:0};
+
+        let currentTab = 0;
+        showTab(currentTab);
+
+        $("#cache").hide();
+
+        $('.datepicker1').datepicker({
+            minDate: new Date(),
+            startDate: "today",
+            format: "mm/dd/yyyy",
+            language: "fr",
+            todayHighlight: true
+        });
+        $('.timepicker1').timepicker();
+        // $('.timepicker1').datetimepicker({
+        //     pickDate: false,
+        //     pickSeconds: false
+        // });
+
+        $('.datepicker2').datepicker({
+            minDate: new Date(),
+            weekStart: 0,
+            // format: "dd/mm/yyyy",
+            format: "mm/dd/yyyy",
+            language: "fr",
+            todayHighlight: true
+        });
+        $('.timepicker2').timepicker();
+
+        function showTab(number) {
+            let $tabs = $('.tab');
+            let $openTab = $($tabs[number]);
+            let $prevBtn = $('#prevBtn');
+            let $nextBtn = $('#nextBtn');
+
+            $openTab.css("display", "block");
+
+            number == 0 ? $prevBtn.css("display", "none") : $prevBtn.css("display", "inline");
+            if (number == ($tabs.length - 1) ){
+                $nextBtn.text("Submit");
+                $nextBtn.attr('type', 'submit');
+                $nextBtn.attr('value', 'submit');
+            }
+            else {
+                $nextBtn.text("Next");
+            }
+
+            fixStepIndicator(number);
+        }
+
+        function fixStepIndicator(number) {
+            $steps = $('.step');
+            $currentStep = $($steps[number]);
+            $steps.each(function (e) {
+                $this = $(this);
+                $this.removeClass('active');
+            });
+            $currentStep.addClass("active");
+        }
+
+        //Faire disparaitre le montant
+
+        $('.hide-show1').hide();
+        $('#defaultUnchecked2').click(function () {
+            $('.hide-show1').show('slow', 'swing');
+        });
+
+        $('.hide-show2').hide();
+        $('#defaultUnchecked3').click(function () {
+            $('.hide-show2').show('slow', 'swing');
+        });
+
+        $("#conditionsselect1").click(function () {
+            info.lieuRetour = $(this).val();
+            console.log(info);
+        });
+
+        $('#datepicker1').datepicker({
+            uiLibrary: 'bootstrap4',
+            locale: 'fr_fr',
+            format: 'dd mmm yyyy'
+        });
+
+        $('#datepicker1').on("change", function() {
+            console.log(this);
+            info.depart = new Date($(this).datepicker().value());
+            $('#date1').val($(this).datepicker().value());
+            console.log(info)
+        });
+
+        $('#datepicker2').on("change", function() {
+            info.retour = new Date($(this).datepicker().value());
+            $('#date2').val($(this).datepicker().value());
+            console.log(info)
+        });
+
+        $("input[type=text]").on("change", function() {
+            if (this.id == 'timepicker1'){
+                info.heureDepart = new Date(this.valueAsDate);
+            }
+            if (this.id == 'timepicker2'){
+                info.heureRetour = this.valueAsDate;
+            }
+            console.log(info)
+        });
+
+        $("#defaultUnchecked1").click(function () {
+            if ($(this).prop("checked")){
+                info.retourEndDiff = true;
+                $("#cache").show('slow', 'swing');
+            }
+            else{
+                info.retourEndDiff = false;
+                $("#cache").hide('slow', 'swing');
+                console.log(info)
+            }
+        });
+
+        $("#payOnline").click(function () {
+            info.payOnline = $(this).val();
+            console.log(info)
+        });
+        $("#payAgence").click(function () {
+            info.payAgence = $(this).val();
+            console.log(info)
+        });
+        $("#defaultUnchecked2").click(function () {
+            info.couvDom = $(this).val();
+            console.log(info)
+        });
+        $("#defaultUnchecked3").click(function () {
+            info.couvVol = $(this).val();
+            console.log(info)
+        });
+
+        function calcul(){
+            var affDetails = "";
+            var prixVehic = $('#prixVehic').html();
+            var catVehic = $('#catVehic').html();
+            var lieuRetour = $('#lieuRetour').html();
+            var retourEndDiff = $('#retourEndDiff').html();
+
+            info.prixCat = prixVehic;
+
+            var date1 = new Date($('#datepicker1').val());
+            day = date1.getDate();
+            month = date1.getMonth() + 1;
+            year = date1.getFullYear();
+            info.depart = [day, month, year].join('/');
+
+            if (info.heureDepart){
+                var heure = info.heureDepart.getHours();
+                var minute = info.heureDepart.getMinutes();
+                date1.setHours(heure);
+                date1.setMinutes(minute);
+                console.log(date1);
+            }
+
+            var date2 = new Date($('#datepicker2').val());
+            day = date2.getDate();
+            month = date2.getMonth() + 1;
+            year = date2.getFullYear();
+            info.retour = [day, month, year].join('/');
+
+            if (info.heureRetour){
+                var heure = info.heureRetour.getHours();
+                var minute = info.heureRetour.getMinutes();
+                date2.setHours(heure);
+                date2.setMinutes(minute);
+                console.log(date2);
+            }
+            console.log(info);
+
+            var diffMs = date2 - date1;
+            var diffDays = Math.floor(diffMs / 86400000); // days
+            var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
+            var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+            // alert(diffDays + " days, " + diffHrs + " hours, " + diffMins + " minutes until Christmas 2009 =)");
+            console.log(diffHrs);
+
+            //Affichages
+
+            if (catVehic != ""){
+                affDetails+="<p class='taille'><b class=''>Catégorie du véhicule :</b> <span class='texte-droite'>" +catVehic+"</span></p>";
+            }
+
+            if (retourEndDiff != true){
+                affDetails+="<p class='taille'><b>Lieu de départ :</b> </p>";
+                affDetails+="<p class='taille'><b>Retour à :</b> <span class='texte-droite'>"+lieuRetour+"</span></p>";
+            }
+
+            if (diffDays !=""){
+                affDetails+="<p class='taille'><b>nombre de jour :</b><span class='texte-droite'> " +diffDays+" Jour(s)</span></p>";
+            }
+
+            if (diffHrs !=""){
+                affDetails+="<p class='taille'><b>nombre d'heure :</b> <span class='texte-droite'>" +diffHrs+" Heure(s)</span></p>";
+            }
+
+            if (prixVehic !=0){
+                affDetails+="<p class='taille'><b>Coût par jour :</b> <span class='texte-droite'>" +prixVehic+ " Euros / Jour </span></p>";
+            }
+
+            if (prixVehic !=0){
+                affDetails+="<p class='taille'><b>Couverture dommages : </b></p>";
+                affDetails+="<p class='taille'><b>Couverture vol :</b> </p>";
+                affDetails+="<p class='taille'><b>Coût total à payer (TVA) :</b> </p>";
+            }
+
+            $('#details').html(affDetails);
+        };
+
+        function nextPrev(number) {
+            let $tabs = $('.tab');
+            //   (number == 1 && !validateForm()) ? (return false) : "";
+            if (number == 1 && !validateForm()) return false;
+            if (number == 1){
+                calcul();
+            }
+
+            $($tabs[currentTab]).css("display", "none");
+            currentTab = currentTab + number;
+            if (currentTab >= $tabs.length) {
+                $('#regForm').css('display', 'none');
+                $('.registration-successful').css('display', 'block');
+                return false;
+            }
+            showTab(currentTab);
+        }
+
+        function validateForm() {
+            let $tabs = $('.tab');
+            let $currentTabInputs = $($tabs[currentTab].getElementsByTagName("input"));
+            let i = 0;
+            let valid = true;
+            $currentTabInputs.each(function (e) {
+                let $currentTabInput = $($currentTabInputs[e])
+                if ($currentTabInput.val() == "") {
+                    $currentTabInput.addClass('invalid');
+                    valid = false;
+                }
+            });
+            valid ? $($('.step')[currentTab]).addClass('finish') : false;
+            return valid;
+        }
+
+    </script>
+{#    {% else %}#}
+{#        <p><a href="path{{ ('app_login') }}">Se connecter</a></p>#}
+{#    {% endif %}#}
 {% endblock %}

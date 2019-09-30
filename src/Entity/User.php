@@ -7,9 +7,11 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Form\FormTypeInterface;
+use Onurb\Doctrine\ORMMetadataGrapher\Mapping as Grapher;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @Grapher\Color("khaki")
  */
 class User implements UserInterface
 {
@@ -90,18 +92,28 @@ class User implements UserInterface
     public function __construct()
     {
         $this->permis = new ArrayCollection();
+        $this->reservations = new ArrayCollection();
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getNom(): ?string
     {
         return $this->nom;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
@@ -109,11 +121,17 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getPrenom(): ?string
     {
         return $this->prenom;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setPrenom(string $prenom): self
     {
         $this->prenom = $prenom;
@@ -121,11 +139,17 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getSexe(): ?string
     {
         return $this->sexe;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setSexe(string $sexe): self
     {
         $this->sexe = $sexe;
@@ -133,11 +157,17 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getDateNaissance(): ?\DateTimeInterface
     {
         return $this->date_naissance;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setDateNaissance(\DateTimeInterface $date_naissance): self
     {
         $this->date_naissance = $date_naissance;
@@ -145,11 +175,17 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -157,11 +193,17 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getDateInscription(): ?\DateTimeInterface
     {
         return $this->date_inscription;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setDateInscription(\DateTimeInterface $date_inscription): self
     {
         $this->date_inscription = $date_inscription;
@@ -169,11 +211,17 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getAdresse(): ?string
     {
         return $this->adresse;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setAdresse(string $adresse): self
     {
         $this->adresse = $adresse;
@@ -181,11 +229,17 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getTelephone(): ?string
     {
         return $this->telephone;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setTelephone(string $telephone): self
     {
         $this->telephone = $telephone;
@@ -195,7 +249,7 @@ class User implements UserInterface
 
     /**
      * A visual identifier that represents this user.
-     *
+     * @Grapher\IsDisplayedMethod()
      * @see UserInterface
      */
     public function getUsername(): string

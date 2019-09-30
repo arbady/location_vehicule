@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Onurb\Doctrine\ORMMetadataGrapher\Mapping as Grapher;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PenalisationRepository")
+ * @Grapher\Color("khaki")
  */
 class Penalisation
 {
@@ -47,16 +49,25 @@ class Penalisation
      */
     private $contrat;
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setDescription(string $description): self
     {
         $this->description = $description;
@@ -64,11 +75,17 @@ class Penalisation
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getDatePenal(): ?\DateTimeInterface
     {
         return $this->date_penal;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setDatePenal(\DateTimeInterface $date_penal): self
     {
         $this->date_penal = $date_penal;
@@ -76,11 +93,17 @@ class Penalisation
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getMontantAPayer(): ?float
     {
         return $this->montant_a_payer;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setMontantAPayer(float $montant_a_payer): self
     {
         $this->montant_a_payer = $montant_a_payer;
@@ -88,11 +111,17 @@ class Penalisation
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getMontantTotHtva(): ?float
     {
         return $this->montant_tot_htva;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setMontantTotHtva(float $montant_tot_htva): self
     {
         $this->montant_tot_htva = $montant_tot_htva;
@@ -100,11 +129,17 @@ class Penalisation
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getMontantTotTva(): ?float
     {
         return $this->montant_tot_tva;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setMontantTotTva(float $montant_tot_tva): self
     {
         $this->montant_tot_tva = $montant_tot_tva;
@@ -112,11 +147,17 @@ class Penalisation
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getContrat(): ?Contrat
     {
         return $this->contrat;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setContrat(?Contrat $contrat): self
     {
         $this->contrat = $contrat;

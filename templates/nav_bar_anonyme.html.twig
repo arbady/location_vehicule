@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <script src="{{ asset('js/navBar_ano.js') }}"></script>
+    </head>
+    <body>
+        <div class="wrapper" id="main">
+            <header>
+                <nav class="myNav" style="margin-top: -10%; position:fixed;">
+                    <div class="menu-icon">
+                        <i class="fa fa-bars fa-2x"></i>
+                    </div>
+                    <div class="logo">
+                        <a href="{{ path('home') }}">
+                            <img width="70px" height="70px" src="{{ asset('image/logo1.jpg') }}" />
+                        </a>
+                    </div>
+                    <div class="menu">
+                        <ul class="myUl">
+                            <li><a class="myA" href="{{ path('reservation_index') }}">Réservation</a></li>
+                            <li><a class="myA" href="{{ path('vehicule_index') }}">Véhicule</a></li>
+                            <li><a class="myA" href="{{ path('agence_index') }}">Agence</a></li>
+                            <li><a class="myA" href="{{ path('app_login') }}">MyCAAG</a></li>
+                            <li><a href="{{ path('agence_new') }}">Déconnexion</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <div class="content"></div>
+        </div>
+    </body>
+</html>

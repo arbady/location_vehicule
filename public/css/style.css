@@ -1,0 +1,724 @@
+/*============================
+   css de la navBar anonyme
+=============================*/
+.content {
+    width: 94%;
+    margin: 4em auto;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: justify;
+}
+.logo {
+    line-height: 60px;
+    position: absolute;
+    /*position: fixed;*/
+    float: left;
+    margin: 30px 46px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+nav {
+    /*position: fixed;*/
+    width: 100%;
+    /*height: 20%;*/
+    line-height: 60px;
+    background: #d2d2d2;
+    z-index: 999;
+    /*opacity: 0.5;*/
+}
+nav ul {
+    line-height: 60px;
+    list-style: none;
+    background: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    color: #fff;
+    text-align: right;
+    margin: 0;
+    padding: 0 40px 0 0;
+    transition: 1s;
+}
+nav.black ul {
+    background: #000;
+}
+nav ul li {
+    display: inline-block;
+    padding: 16px 40px;;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+.myA:hover{
+    /*background: whitesmoke;*/
+    color: #FF8F00;
+}
+.menu-icon {
+    line-height: 60px;
+    width: 100%;
+    background: #000;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 15px 24px;
+    cursor: pointer;
+    color: #fff;
+    display: none;
+}
+/*.transp{*/
+/*    background: #d2d2d2 !important;*/
+/*    opacity: 0.5% !important;*/
+/*}*/
+
+@media(max-width: 786px) {
+
+    .logo {
+        position: fixed;
+        top: 0;
+        margin-top: 16px;
+    }
+
+    nav ul {
+        max-height: 0px;
+        background: #000;
+    }
+
+    nav.black ul {
+        background: #000;
+    }
+
+    .showing {
+        max-height: 34em;
+    }
+
+    nav ul li {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 24px;
+        text-align: center;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+}
+
+/*============================
+        css de l'agence
+=============================*/
+.mySelect-agence{
+    margin-top: 0% !important;
+    height: calc(1.5em + .75rem + 2px) !important;
+    padding: .375rem .75rem !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    line-height: 1.5;
+    color: #495057 !important;
+    /*background-color: red !important;*/
+    background-color: #fff !important;
+    background-clip: padding-box !important;
+    border: 1px solid #ced4da !important;
+    border-radius: .25rem !important;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
+}
+.mySelect-agence:focus {
+    color: #495057 !important;
+    background-color: #fff !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem #ef740b !important;
+}
+.titre-card{
+    color: #ef740b !important;
+}
+.text-card{
+    font-size: 15px;
+}
+/*============================
+        css de la réservation
+=============================*/
+/** {*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*body {*/
+/*    margin: 0;*/
+/*    height: 95vh;*/
+/*    background-size: cover;*/
+/*    background-repeat: no-repeat;*/
+/*    background-image: url('https://images.pexels.com/photos/768972/pexels-photo-768972.jpeg');*/
+/*}*/
+
+.registration-successful {
+    display: none;
+    margin: 0px auto;
+    background: #fff;
+    height: 300px;
+    width: 500px;
+    border-radius: 10px;
+    border: 2px solid #F57F17;
+    color: #F57F17 !important;
+}
+.header {
+    font-size: 50px;
+}
+
+.form-with-stepper {
+    background-color: #ffffff;
+    margin: 0px auto;
+    font-family: Roboto;
+    padding: 40px;
+    width: 40%;
+    min-width: 300px;
+    border-radius: 10px;
+}
+.form-with-stepper .tab input.invalid {
+    background-color: #ffdddd;
+}
+
+.tab {
+    display: none;
+}
+
+.btn {
+    width: 100%;
+
+    font-size: 1.1rem;
+    border: 2px solid transparent;
+}
+.prevBtn:hover {
+    background-color: #f8f9fa !important;
+    color: #78909c;
+    border: 2px solid #78909c;
+}
+.nextBtn:hover {
+    background-color: #f8f9fa !important;
+    color: #F57F17;
+    /*color: #28a745;*/
+    border: 2px solid #F57F17;
+    /*border: 2px solid #28a745;*/
+}
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+.step.finish {
+    /*background-color: #28a745;*/
+    background: radial-gradient(#FFF176, #F57F17);
+}
+.card-11{
+    width: 30% !important;
+    margin-left: 1% !important;
+    margin-bottom: -30% !important;
+    margin-top: 10% !important;
+}
+.card-22{
+    width: 30% !important;
+    margin-top: 12.9% !important;
+    float: right !important;
+    right: 1% !important
+}
+.taille{
+    font-size: 15px
+}
+.texte-droite{
+    float: right;
+    margin-right: 15%;
+}
+#details{
+    margin-left: 10%;
+    margin-top: 3%;
+}
+
+/*============================
+        css du vehicule
+=============================*/
+body {
+    /*background: radial-gradient(#ffb27b, #f5ae86);*/
+}
+.grid{
+    text-align:center !important;
+    margin-top:5px !important;
+}
+.esp-pag{
+    margin-bottom: 12% !important;
+}
+ul.pagination{
+    margin-left: 26.5% !important;
+}
+.text{
+    font-weight: unset !important;
+    font-size: 15px !important;
+}
+/*.mySelect{*/
+/*    !*    display: block;*!*/
+/*    !*    width: 100%;*!*/
+/*    margin-top: 15%;*/
+/*    height: calc(1.5em + .75rem + 2px);*/
+/*    padding: .375rem .75rem;*/
+/*    font-size: 1rem;*/
+/*    font-weight: 400;*/
+/*    line-height: 1.5;*/
+/*    color: #495057;*/
+/*    background-color: #fff;*/
+/*    background-clip: padding-box;*/
+/*    border: 1px solid #ced4da;*/
+/*    border-radius: .25rem;*/
+/*    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;*/
+/*}*/
+.mySelect:focus {
+    color: #495057 !important;
+    background-color: #fff !important;
+    /* border-color: #80bdff; */
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem #FFF176 !important;
+}
+.text{
+    cursor: pointer;
+}
+.myBtn{
+    background: #FF6F00 !important;
+    color: white !important;
+    width: 43% !important
+}
+.coul-text-veh{
+    color: #FF6F00 !important;
+}
+
+/*============================
+        css du caroussel
+=============================*/
+
+.slide{
+    /*left: 30%;*/
+    z-index: 0;
+    margin-top: -52.2%;
+    margin-bottom: 10%;
+    width: 100%;
+}
+.d-block{
+    height: 600px;
+}
+.d-block1{
+    height: 300px;
+}
+#texte2{
+    text-align: center;
+    margin-left: 10%;
+}
+#carousel-example-3{
+    left: 5.66%;
+    position: relative;
+    /*z-index: -1;*/
+    margin-top: -9.5%;
+    margin-bottom: 10%;
+    width: 23.9%;
+}
+.carousel-inner{
+    margin-top: 0%;
+}
+
+/*============================
+        css du bandeau
+=============================*/
+@import url('https://fonts.googleapis.com/css?family=Gilda+Display|Julius+Sans+One&display=swap');
+
+#plan1{
+    background-color: lightgray;
+    text-align: center;
+    width: 100%;
+    margin-top: -5%;
+    margin-bottom: 10%;
+    /*height: 100px;*/
+}
+
+#texte1{
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: bold;
+    color: #010000;
+    z-index: 1;
+    margin-top: -5%;
+}
+
+/* Prevent scrollbars to appear when waves go out of bound */
+.sonar-wrapper {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    padding: 8rem 0;
+}
+
+/* The circle */
+.sonar-emitter {
+    position: relative;
+    margin: 0 auto;
+    width: 25px;
+    height: 25px;
+    border-radius: 9999px;
+    background-color: HSL(45,100%,50%);
+}
+
+/* the 'wave', same shape and size as its parent */
+.sonar-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    background-color: HSL(45,100%,50%);
+    opacity: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/*
+  Animate!
+  NOTE: add browser prefixes where needed.
+*/
+.sonar-wave {
+    animation: sonarWave 3s linear infinite;
+}
+
+@keyframes sonarWave {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+/*============================
+        css de la base
+=============================*/
+/*body{
+    margin-top: 50%;
+}*/
+
+nav{
+    /*position: fixed;*/
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    margin-top: -5%;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: #83d7dd;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#nav-link{
+    color: black;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3d84ff;}
+
+/*============================
+        css du scroll-top
+=============================*/
+@media screen and (min-width: 200px) {
+    .scroll-top-wrapper {
+        position: fixed;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        text-align: center;
+        z-index: 99999999;
+        background-color: #777777;
+        color: #eeeeee;
+        width: 50px;
+        height: 48px;
+        line-height: 48px;
+        right: 10px;
+        bottom: 50px;
+        padding-top: 2px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .scroll-top-wrapper:hover {
+        /*background-color: #801252;*/
+        background: radial-gradient(#FFF176, #F57F17);
+    }
+
+    .scroll-top-wrapper.show {
+        visibility: visible;
+        cursor: pointer;
+        opacity: 1.0;
+    }
+
+    .scroll-top-wrapper i.fa {
+        line-height: inherit;
+    }
+}
+
+/*============================
+      css du flash notice
+=============================*/
+.flash-notice{
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    background-color: black;
+    width: 100%;
+}
+
+/*============================
+        css du footer
+=============================*/
+@import url('https://fonts.googleapis.com/css?family=Gilda+Display|Julius+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Martel&display=swap');
+
+#container-fluid {
+    position: relative;
+    left: 0%;
+    bottom: -20%;
+    width: 100%;
+    /*background-color: #3a3a3a;*/
+    background-color: #000000;
+    color: white;
+    /*text-align: center;*/
+}
+
+#social-network{
+    color: white;
+}
+.fa-facebook-f:hover{
+    color: #2d35ff;
+}
+.fa-twitter:hover{
+    color:deepskyblue;
+}
+.fa-google-plus-g:hover{
+    color:red;
+}
+.fa-linkedin-in:hover{
+    color:dodgerblue;
+}
+.fa-instagram:hover{
+    color:orangered;
+}
+
+.font-fam{
+    /*font-family: 'Gilda Display', serif;*/
+    font-family: 'Martel', serif !important;
+    font-size: 12px !important;
+    color: dimgray !important;
+}
+
+#font-fam{
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 13px;
+}
+
+.mb-0{
+    font-family: 'Martel', serif;
+    font-size: 14px;
+}
+
+.mr-3{
+    color: white;
+}
+
+.link{
+    /*color: #e0a800;*/
+    color: dimgray;
+    font-size: 12px !important;
+    line-height: 20px !important;
+}
+.pDep{
+    font-family: 'Martel', serif !important;
+    color: white !important;
+    font-size: 12px !important;
+}
+
+.link:hover{
+    color: #e0a800;
+    /*color: #dddddd;*/
+    text-decoration: none;
+}
+
+#plan{
+    background-color: gray;
+    text-align: center;
+    width: 100%;
+}
+
+/*============================
+       css du home_index
+=============================*/
+h3{
+    font-size:20px;
+    font-weight:bold;
+    text-align: center;
+}
+.text-res{
+    color: black;
+    font-size: small;
+}.titre{
+    color: black;
+    font-size: x-large;
+    font-weight: bold;
+}
+#bg-warning{
+    margin-top: -14%;
+    margin-left: 10%;
+    width: 140%;
+    height: 95%;
+    background-color: gray !important;
+    opacity: 0.8;
+}
+#btn-reset{
+    margin-left: 56%;
+    margin-top: -24%;
+    /*width: 50%;*/
+    /*height: 50%;*/
+}
+#datepicker{
+    font-weight: 300;
+    width: 59%
+}
+#timepicker{
+    width: 38%;
+    margin-left: 3%;
+}
+#memeLigne{
+    display: flex;
+}
+#tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+#tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: white;
+    color: black;
+    font-size: 12px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: normal;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+#tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+.barreHorizontal{
+    /*margin-top: 2%;*/
+    margin-top: -5%;
+    margin-bottom: 5%;
+    background: orange !important;
+    /*background: radial-gradient(#FFF176, #F57F17) !important;*/
+    width: 50%;
+    height: 1px;
+}
+.barreHorizontal2{
+    /*margin-top: 2%;*/
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background: orange !important;
+    /*background: radial-gradient(#FFF176, #F57F17) !important;*/
+    width: 50%;
+    height: 1px;
+}
+
+/*============================
+       css du login
+=============================*/
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+/*.login-block{*/
+/*    background: #DE6262;  !* fallback for old browsers *!*/
+/*    background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);  !* Chrome 10-25, Safari 5.1-6 *!*/
+/*    background: linear-gradient(to bottom, #FFB88C, #DE6262); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+/*    float:left;*/
+/*    width:100%;*/
+/*    padding : 50px 0;*/
+/*}*/
+/*.banner-sec{background:url(https://static.pexels.com/photos/33972/pexels-photo.jpg)  no-repeat left bottom; background-size:cover; min-height:500px; border-radius: 0 10px 10px 0; padding:0;}*/
+/*.container{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}*/
+/*.carousel-inner{border-radius:0 10px 10px 0;}*/
+.carousel-caption{text-align:left; left:5%;}
+.login-sec{padding: 50px 30px; position:relative;}
+.login-sec .copy-text{position:absolute; width:80%; bottom:100px; font-size:15px; text-align:center; font-weight: bold;}
+.login-sec .copy-text i{color:#FEB58A;}
+.login-sec .copy-text a{color:#E36262;}
+.login-sec h2{margin-bottom:30px; font-weight:800; font-size:30px; color: #DE6262;}
+.login-sec h2:after{content:" "; width:100px; height:5px; background:#FEB58A; display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
+.btn-login{background: #DE6262; color:#fff; font-weight:600;}
+.banner-text{width:70%; position:absolute; bottom:40px; padding-left:20px;}
+.banner-text h2{color:#fff; font-weight:600;}
+.banner-text h2:after{content:" "; width:100px; height:5px; background:#FFF; display:block; margin-top:20px; border-radius:3px;}
+.banner-text p{color:#fff;}
+.slide1{
+    left: 15%;
+    /*z-index: -1;*/
+    margin-top: 2%;
+    margin-bottom: 10%;
+    width: 100%;
+}
+.checkbox{
+    text-align: center;
+    color: #DE6262;
+}

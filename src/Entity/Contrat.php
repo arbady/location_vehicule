@@ -5,9 +5,11 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Onurb\Doctrine\ORMMetadataGrapher\Mapping as Grapher;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContratRepository")
+ * @Grapher\Color("khaki")
  */
 class Contrat
 {
@@ -86,16 +88,25 @@ class Contrat
         $this->penalisations = new ArrayCollection();
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getNumContrat(): ?int
     {
         return $this->num_contrat;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setNumContrat(int $num_contrat): self
     {
         $this->num_contrat = $num_contrat;
@@ -103,11 +114,17 @@ class Contrat
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getDateRetourReelle(): ?\DateTimeInterface
     {
         return $this->date_retour_reelle;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setDateRetourReelle(\DateTimeInterface $date_retour_reelle): self
     {
         $this->date_retour_reelle = $date_retour_reelle;
@@ -115,11 +132,17 @@ class Contrat
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getKmDepart(): ?int
     {
         return $this->km_depart;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setKmDepart(int $km_depart): self
     {
         $this->km_depart = $km_depart;
@@ -127,11 +150,17 @@ class Contrat
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getKmRetour(): ?int
     {
         return $this->km_retour;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setKmRetour(int $km_retour): self
     {
         $this->km_retour = $km_retour;
@@ -139,11 +168,17 @@ class Contrat
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getDateContrat(): ?\DateTimeInterface
     {
         return $this->date_contrat;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setDateContrat(\DateTimeInterface $date_contrat): self
     {
         $this->date_contrat = $date_contrat;
@@ -151,11 +186,17 @@ class Contrat
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getMontantTotHtva(): ?float
     {
         return $this->montant_tot_htva;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setMontantTotHtva(float $montant_tot_htva): self
     {
         $this->montant_tot_htva = $montant_tot_htva;
@@ -163,11 +204,17 @@ class Contrat
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getMontantTotTva(): ?float
     {
         return $this->montant_tot_tva;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setMontantTotTva(float $montant_tot_tva): self
     {
         $this->montant_tot_tva = $montant_tot_tva;
@@ -175,11 +222,17 @@ class Contrat
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getSigne(): ?bool
     {
         return $this->signe;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setSigne(bool $signe): self
     {
         $this->signe = $signe;
@@ -187,11 +240,17 @@ class Contrat
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getPenalisation(): ?Penalisation
     {
         return $this->penalisation;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setPenalisation(?Penalisation $penalisation): self
     {
         $this->penalisation = $penalisation;
@@ -205,11 +264,17 @@ class Contrat
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getReservation(): ?Reservation
     {
         return $this->reservation;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setReservation(?Reservation $reservation): self
     {
         $this->reservation = $reservation;
@@ -219,12 +284,16 @@ class Contrat
 
     /**
      * @return Collection|Vehicule[]
+     * @Grapher\IsDisplayedMethod()
      */
     public function getVehicule(): Collection
     {
         return $this->vehicule;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function addVehicule(Vehicule $vehicule): self
     {
         if (!$this->vehicule->contains($vehicule)) {
@@ -235,6 +304,9 @@ class Contrat
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function removeVehicule(Vehicule $vehicule): self
     {
         if ($this->vehicule->contains($vehicule)) {
@@ -250,12 +322,16 @@ class Contrat
 
     /**
      * @return Collection|Penalisation[]
+     * @Grapher\IsDisplayedMethod()
      */
     public function getPenalisations(): Collection
     {
         return $this->penalisations;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function addPenalisation(Penalisation $penalisation): self
     {
         if (!$this->penalisations->contains($penalisation)) {
@@ -266,6 +342,9 @@ class Contrat
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function removePenalisation(Penalisation $penalisation): self
     {
         if ($this->penalisations->contains($penalisation)) {
@@ -279,6 +358,9 @@ class Contrat
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setVehicule(?Vehicule $vehicule): self
     {
         $this->vehicule = $vehicule;
@@ -286,11 +368,17 @@ class Contrat
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getFacture(): ?Facture
     {
         return $this->facture;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setFacture(Facture $facture): self
     {
         $this->facture = $facture;

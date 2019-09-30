@@ -42,7 +42,7 @@ easy_admin:
       - { entity: 'Reservation', label: 'Reservation', icon: 'calendar' }
       - { entity: 'Etat', label: 'Etat', icon: 'tag' }
       - { entity: 'Contrat', label: 'Contrat', icon: 'sign' }
-      - { entity: 'Client', label: 'Client', icon: 'user' }
+#      - { entity: 'Client', label: 'Client', icon: 'user' }
       - { entity: 'Facture', label: 'Facture', icon: 'tag' }
       - { entity: 'Disponibilite', label: 'Disponibilité', icon: 'tag' }
       - { entity: 'Permis', label: 'Permis', icon: 'tag' }
@@ -102,10 +102,14 @@ easy_admin:
       label: 'Vehicules'
       list:
         title: "Most recent vehicles"
-#      form:
-#        fields:
-#          - matricule
-#          - caracteristiques
+      form:
+        fields:
+          - matricule
+          - caracteristiques
+          - images
+          - categorie
+          - etat
+          - modele
     Categorie:
       class: App\Entity\Categorie
       label: 'Categories'
@@ -128,10 +132,10 @@ easy_admin:
       label: 'Modeles'
       list:
         title: "Most recent models"
-#      form:
-#        fields:
-#          - nom
-#          - marque
+      form:
+        fields:
+          - nom
+          - marque
     Etat:
       class: App\Entity\Etat
       label: 'Etat'
@@ -140,25 +144,25 @@ easy_admin:
       form:
         fields:
           - description
-    Client:
-      class: App\Entity\Client
-      label: 'Clients'
-      list:
-        title: "Most recent clients"
-      form:
-        fields:
-          - { type: 'group', columns: 4, label: 'Basic information' }
-          - nom
-          - prenom
-          - sexe
-          - { type: 'group', label: 'Contact information', icon: 'phone', columns: 6 }
-          - {property: 'email', type: 'email' }
-          - {property: 'password', type: 'password'}
-          - {property: 'telephone', type: 'tel'}
-          - adresse
-          - permis
-          - {property: 'date_naissance', type: 'App\Form\MyCustomDateType', label: 'Date de naissance'}
-          - {property: 'date_inscription', type: 'App\Form\MyCustomDateType', label: "Date d'inscription"}
+#    Client:
+#      class: App\Entity\Client
+#      label: 'Clients'
+#      list:
+#        title: "Most recent clients"
+#      form:
+#        fields:
+#          - { type: 'group', columns: 4, label: 'Basic information' }
+#          - nom
+#          - prenom
+#          - sexe
+#          - { type: 'group', label: 'Contact information', icon: 'phone', columns: 6 }
+#          - {property: 'email', type: 'email' }
+#          - {property: 'password', type: 'password'}
+#          - {property: 'telephone', type: 'tel'}
+#          - adresse
+#          - permis
+#          - {property: 'date_naissance', type: 'App\Form\MyCustomDateType', label: 'Date de naissance'}
+#          - {property: 'date_inscription', type: 'App\Form\MyCustomDateType', label: "Date d'inscription"}
     Contrat:
       class: App\Entity\Contrat
       label: 'Contrats'

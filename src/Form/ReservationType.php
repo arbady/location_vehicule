@@ -21,7 +21,8 @@ class ReservationType extends AbstractType
             ->add('statut_res')
             ->add('agence')
             ->add('categorie')
-            ->add('client')
+            ->add('user')
+            ->add('contrat')
         ;
     }
 

@@ -10,7 +10,7 @@
             <!-- Start Footer -->
             <footer id="container-fluid" class="page-footer font-small unique-color-dark">
 
-                <div style="background-color: #801252;">
+                <div style="background: radial-gradient(#FFF176, #F57F17); height: 50px;">
                     <div class="container">
 
                         <!-- Grid row-->
@@ -23,27 +23,27 @@
                             <!-- Grid column -->
 
                             <!-- Grid column -->
-                            <div class="col-md-6 col-lg-7 text-center text-md-right">
+                            <div class="col-md-6 col-lg-7 text-center text-md-right" style="margin-top: -1.1%">
 
                                 <!-- Facebook -->
                                 <a id="social-network" class="fb-ic" href="www.facebook.com">
-                                    <i class="fab fa-facebook-f white-text mr-4"> </i>
+                                    <i class="fab fa-facebook-f black-text mr-4"> </i>
                                 </a>
                                 <!-- Twitter -->
                                 <a id="social-network" class="tw-ic" href="www.twitter.com">
-                                    <i class="fab fa-twitter white-text mr-4"> </i>
+                                    <i class="fab fa-twitter black-text mr-4"> </i>
                                 </a>
                                 <!-- Google +-->
                                 <a id="social-network" class="gplus-ic" href="https://aboutme.google.com/u/0/">
-                                    <i class="fab fa-google-plus-g white-text mr-4"> </i>
+                                    <i class="fab fa-google-plus-g black-text mr-4"> </i>
                                 </a>
                                 <!--Linkedin -->
                                 <a id="social-network" class="li-ic" href="www.linkedin.com">
-                                    <i class="fab fa-linkedin-in white-text mr-4"> </i>
+                                    <i class="fab fa-linkedin-in black-text mr-4"> </i>
                                 </a>
                                 <!--Instagram-->
                                 <a id="social-network" class="ins-ic" href="www.instagram.com">
-                                    <i class="fab fa-instagram white-text"> </i>
+                                    <i class="fab fa-instagram black-text"> </i>
                                 </a>
                             </div>
                             <!-- Grid column -->
@@ -146,18 +146,20 @@
                 <!--Plan du site-->
                 <div id="plan" class="col-md-8 col-lg-6 col-xl-12 mx-auto mb-md-0 mb-8">
                     <div class="footer-PlanDuSite text-center py-3">
-                        <img id="imgt" src="image/drapeau.jpg" alt="drapeau_belge" style="width:3%; height: auto;">
-                        <a class="font-fam link" href="#" style="color: #fff;">Plan du site</a> |
-                        <a class="font-fam link" href="#" style="color: #fff;">Faq</a> |
-                        <a class="font-fam link" href="#" style="color: #fff;">Besoin d'un hotel ?</a> |
-                        <a class="font-fam">© 2019 Copyright :</a>
-                        <a class="font-fam" href="https://mycaag.com" style="color: #fff;"> MYCAAG</a>
+                        <img id="imgt" src="{{ asset('image/drapeau.jpg') }}" alt="drapeau_belge" style="width:3%; height: auto;">
+                        <a class="pDep" href="#" style="color: #fff;">Plan du site</a> |
+                        <a class="pDep" href="#" style="color: #fff;">Faq</a> |
+                        <a class="pDep" href="#" style="color: #fff;">Besoin d'un hotel ?</a> |
+                        <a class="pDep">© 2019 Copyright :</a>
+                        <a class="pDep" href="{{ path('home') }}" style="color: #fff;"> MYCAAG</a>
                     </div>
                 </div>
                 <!--Plan du site-->
             </footer>
             <!-- Footer -->
         {% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+{#            <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>#}
+        {% endblock %}
     </body>
 </html>

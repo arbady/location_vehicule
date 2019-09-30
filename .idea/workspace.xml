@@ -2,154 +2,112 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22554ca1-66af-4225-bb71-1bcffeb7493e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/assets.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/prod/webpack_encore.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/webpack_encore.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/addons/datatables-select.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/addons/datatables-select.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/addons/datatables.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/addons/datatables.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/addons/directives.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/addons/directives.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/addons/flag.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/addons/flag.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/addons/rating.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/addons/rating.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/addons/zmd.hierarchical-display.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/addons/zmd.hierarchical-display.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/home_index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/mdb.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/mdb.lite.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/mdb.lite.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/mdb.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/modules/animations-extended.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/modules/animations-extended.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/style.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Bold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Bold.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Light.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Light.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Light.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Medium.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Medium.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Medium.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Thin.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Thin.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Thin.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/font/roboto/Roboto-Thin.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/flags.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/lightbox/default-skin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/lightbox/default-skin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/lightbox/preloader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/overlays/01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/overlays/02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/overlays/03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/overlays/04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/overlays/05.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/overlays/06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/overlays/07.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/overlays/08.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/overlays/09.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/sample.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/svg/arrow_left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/svg/arrow_right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/svg/flags.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/addons/datatables-select.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/addons/datatables-select.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/addons/datatables.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/addons/datatables.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/addons/imagesloaded.pkgd.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/addons/jquery.zmd.hierarchical-display.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/addons/jquery.zmd.hierarchical-display.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/addons/masonry.pkgd.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/addons/progressBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/addons/progressBar.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/addons/rating.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/addons/rating.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/jquery-3.4.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/mdb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/mdb.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/modules/bs-custom-file-input.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/modules/chart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/modules/enhanced-modals.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/modules/forms-free.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/modules/jquery.easing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/modules/scrolling-navbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/modules/treeview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/modules/velocity.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/modules/velocity.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/modules/waves.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/modules/wow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/_custom-styles.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/_custom-variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/addons/_datatables-select.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/addons/_datatables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/addons/_directives.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/addons/_flags.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/addons/_hierarchical-display.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/addons/_rating.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/core/_colors.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/core/_global.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/core/_helpers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/core/_masks.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/core/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/core/_typography.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/core/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/core/_waves.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/core/bootstrap/_functions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/core/bootstrap/_rfs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/core/bootstrap/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_animations-basic.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_badges.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_cards.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_carousels.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_depreciated.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_dropdowns.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_footers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_input-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_list-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_loader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_modals.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_msc.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_navbars.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_pagination.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_steppers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_switch.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_tables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/_treeview.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/modules/animations-extended/_module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/free/modules/animations-extended/animations-extended.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/mdb.lite.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/mdb.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190817133906.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190817134632.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190823121022.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/dev/yuml.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/knp_paginator.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/routes/dev/yuml.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/arbady.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/boostrap-mdb.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap-datetimepicker.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/materialize.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/materialize.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/register.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/vehicule.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/css/datepicker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/css/datepicker.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/datepicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/datepicker.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/i18n/datepicker.cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/i18n/datepicker.da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/i18n/datepicker.de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/i18n/datepicker.en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/i18n/datepicker.es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/i18n/datepicker.fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/i18n/datepicker.fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/i18n/datepicker.hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/i18n/datepicker.nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/i18n/datepicker.pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/i18n/datepicker.pt-BR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/i18n/datepicker.pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/i18n/datepicker.ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/i18n/datepicker.sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dist/js/i18n/datepicker.zh.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/206-berline.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/A3-cabriolet.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/ClassS-berline.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/GrandLand-suv.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/Renault-Wind-cabrioletjpg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/Zafira-monospace.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/agence.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/astra-break.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/audiA3-coupe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/audi_q8-suv.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/auris-berline.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/b16-trot.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/brabus-suv.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/clio-berline.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/cmax-ford.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/compte.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/ducati-moster 959.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/ducato-utilitaire.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/fiat-500-berline.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/fiat_tipo-luxe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/fiesta-berline.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/focus-berline.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/giulieta-luxe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/golf 7-berline.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/harley.D-electraGlide.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/honda_hornet_600.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/jetta-coupe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/kadjar-suv.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/logo1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/megane-berline.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/megane-cabriolet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/micra-berline.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/mini-hardtop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/mkd octane-trot.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/nissan_murano-luxe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/peugeot-3008-suv.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/serie1-berline.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/serie8-cabriolet.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/serie8-luxe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/touareg-suv.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/toyota-proace-monospace.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/vel3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/vito-monospace.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/yaris-berline.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/base.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/bootstrap-datetimepicker.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/bootstrap-select.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/bootstrap-select.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/defaults-fr_FR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/defaults-fr_FR.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/materialize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/materialize.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/moveit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/navBar_ano.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/reservation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/vehicule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190829200514.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190829203417.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190917152346.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190918164910.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190925230329.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/header.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/header_ano.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/header_cli.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/nav_bar_anonyme.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/profile/edit_profile.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yuml-mapping.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/location_vehicule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/location_vehicule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
@@ -157,7 +115,16 @@
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/easy_admin.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/easy_admin.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/swiftmailer.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/base.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/caroussel1.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/caroussel1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/caroussel3.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/home_index.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home_index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/mdb.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/mdb.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/Calque 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/Calque 3.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/Calque 4.png" beforeDir="false" />
@@ -165,7 +132,7 @@
       <change beforePath="$PROJECT_DIR$/public/image/Calque 6.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/FireShot Capture 074 - Location de voitures _ Europcar Belgique - www.europcar.be.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/FireShot Capture 075 - Accueil - www.dockx.be.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/Web 1920 – 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/SUV.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/public/image/SUV.JPG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/Web 1920 – 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/Web 1920 – 3.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/Web 1920 – 4.png" beforeDir="false" />
@@ -174,58 +141,95 @@
       <change beforePath="$PROJECT_DIR$/public/image/android-chrome-192x192.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/android-chrome-512x512.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/apple-touch-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/berline.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/public/image/berline.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/break.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/public/image/break.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/cabriolet.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/public/image/cabriolet.JPG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/car1.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/car2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/car3.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/car4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/drapeau.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/cat1.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/cat2.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/cat3.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/cat4.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/cat5.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/cat6.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/cat7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/coupé.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/public/image/coupé.JPG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/favicon-16x16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/favicon-32x32.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/favicon.ico" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/gif.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/images.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/images2IMM0A4A.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/images3C6E6YTN.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/imagesCBCNBVFP.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/imagesF1T6VT4R.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/imagesG7SX15I6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/imagesPK3652A3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/imagesTHYWDZD6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/imagesW0Y1975P.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/imagesWI859X12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/imagesXUFOHTKH.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/imagesYRPHNHTJ.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/imagesZPCIFVS3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/luxe.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/monospace.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/public/image/monospace.JPG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/mot1.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/moto.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/moto1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/photo-1450705354661-932f7b21aa51.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/scooter.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/scooter1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/scooter2.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/site.webmanifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/slide1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/slide2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/slide2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/slide3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/slide3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/trot1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/image/trot2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/trot3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/vel1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/vel2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/velo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/velo1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/trott.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/vehicule-de-categorie-f-de-type-minibus-renault-trafic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/video/gif.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CategorieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CategorieController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ClientController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ReservationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReservationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/VehiculeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VehiculeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Agence.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Agence.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Categorie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Client.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Contrat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Contrat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Disponibilite.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Disponibilite.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Etat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Etat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Facture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Facture.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Marque.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Marque.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/ModeDePaiement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ModeDePaiement.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Modele.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Modele.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Penalisation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Penalisation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Permis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Permis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reservation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Vehicule.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Vehicule.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190814215313.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20190817133447.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ReservationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ReservationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ClientRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/VehiculeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/VehiculeRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/agence/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/agence/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/agence/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/agence/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/caroussel1.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/caroussel1.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/caroussel2.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/caroussel2.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/client/_delete_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/client/_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/client/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/client/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/client/new.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/client/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/nav_bar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nav_bar.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/profile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reservation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reservation/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reservation/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reservation/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/forgotten_password.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/forgotten_password.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/reset_password.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/reset_password.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/vehicule/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/vehicule/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vehicule/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/vehicule/new.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -272,6 +276,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="tsconfig.json" />
         <option value="JavaScript File" />
         <option value="CSS File" />
       </list>
@@ -372,7 +377,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
       <path value="$PROJECT_DIR$/vendor/zendframework/zend-eventmanager" />
       <path value="$PROJECT_DIR$/vendor/symfony/cache" />
       <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
@@ -405,6 +409,10 @@
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu-bundle" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/vendor/onurb/doctrine-yuml-bundle" />
+      <path value="$PROJECT_DIR$/vendor/onurb/doctrine-metadata-grapher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
     </include_path>
   </component>
   <component name="ProjectId" id="1PPOHSdCvhb0pZzf4AeIPzGARAM" />
@@ -417,7 +425,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/css" />
+    <property name="js.last.introduce.type" value="CONST" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -428,20 +437,21 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp\www\location_vehicule\public" />
+      <recent name="C:\wamp\www\location_vehicule\templates\profile" />
+      <recent name="C:\wamp\www\location_vehicule\templates" />
+      <recent name="C:\wamp\www\location_vehicule\src\Form" />
+      <recent name="C:\wamp\www\location_vehicule\templates\vehicule" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp\www\location_vehicule\templates" />
       <recent name="C:\wamp\www\location_vehicule\public" />
       <recent name="C:\wamp\www\location_vehicule\assets" />
       <recent name="C:\wamp\www\location_vehicule\public\build" />
-      <recent name="C:\wamp\www\location_vehicule\templates" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp\www\location_vehicule\public\css" />
-      <recent name="C:\wamp\www\location_vehicule\src\Form" />
-      <recent name="C:\wamp\www\location_vehicule\templates" />
-      <recent name="C:\wamp\www\location_vehicule\templates\bundles\EasyAdminBundle\default" />
-      <recent name="C:\wamp\www\location_vehicule\templates\security" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -494,12 +504,27 @@
       <workItem from="1565895903786" duration="131125000" />
       <workItem from="1566569027039" duration="5457000" />
       <workItem from="1566598199988" duration="3549000" />
-      <workItem from="1566653982300" duration="25785000" />
+      <workItem from="1566653982300" duration="35036000" />
+      <workItem from="1566741796255" duration="173025000" />
+      <workItem from="1567423314888" duration="12448000" />
+      <workItem from="1567453448806" duration="192699000" />
+      <workItem from="1568232586617" duration="232882000" />
+      <workItem from="1569532592983" duration="19791000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

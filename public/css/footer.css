@@ -4,16 +4,16 @@
 #container-fluid {
     position: relative;
     left: 0%;
-    bottom: -20%;
-    width: 100%;
+    bottom: -20% !important;
+    width: 100% !important;
     /*background-color: #3a3a3a;*/
-    background-color: #000000;
-    color: white;
+    background-color: #000000 !important;
+    color: white !important;
     /*text-align: center;*/
 }
 
 #social-network{
-    color: white;
+    color: white !important;
 }
 .fa-facebook-f:hover{
     color: #2d35ff;
@@ -33,38 +33,42 @@
 
 .font-fam{
     /*font-family: 'Gilda Display', serif;*/
-    font-family: 'Martel', serif;
-    font-size: 12px;
-    color: dimgray;
+    font-family: 'Martel', serif !important;
+    font-size: 12px !important;
+    color: dimgray !important;
 }
 
 #font-fam{
-    font-family: 'Julius Sans One', sans-serif;
-    font-size: 13px;
+    font-family: 'Julius Sans One', sans-serif !important;
+    font-size: 13px !important;
 }
 
 .mb-0{
-    font-family: 'Martel', serif;
-    font-size: 14px;
+    font-family: 'Martel', serif !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    color: black !important;
 }
 
 .mr-3{
-    color: white;
+    color: white !important;
 }
 
 .link{
     /*color: #e0a800;*/
-    color: dimgray;
+    color: dimgray !important;
+    font-size: 12px !important;
+    line-height: 20px !important;
 }
 
 .link:hover{
-    color: #e0a800;
+    color: #e0a800 !important;
     /*color: #dddddd;*/
     text-decoration: none;
 }
 
 #plan{
-    background-color: gray;
-    text-align: center;
-    width: 100%;
+    background-color: gray !important;
+    text-align: center !important;
+    width: 100% !important;
 }

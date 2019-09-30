@@ -5,9 +5,11 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Onurb\Doctrine\ORMMetadataGrapher\Mapping as Grapher;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ModeleRepository")
+ * @Grapher\Color("khaki")
  */
 class Modele
 {
@@ -39,16 +41,25 @@ class Modele
         $this->vehicules = new ArrayCollection();
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getNom(): ?string
     {
         return $this->nom;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
@@ -56,11 +67,17 @@ class Modele
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getVehicule(): ?Vehicule
     {
         return $this->vehicule;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setVehicule(?Vehicule $vehicule): self
     {
         $this->vehicule = $vehicule;
@@ -68,11 +85,17 @@ class Modele
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getMarque(): ?Marque
     {
         return $this->marque;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setMarque(?Marque $marque): self
     {
         $this->marque = $marque;
@@ -82,12 +105,16 @@ class Modele
 
     /**
      * @return Collection|Vehicule[]
+     * @Grapher\IsDisplayedMethod()
      */
     public function getVehicules(): Collection
     {
         return $this->vehicules;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function addVehicule(Vehicule $vehicule): self
     {
         if (!$this->vehicules->contains($vehicule)) {
@@ -98,6 +125,9 @@ class Modele
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function removeVehicule(Vehicule $vehicule): self
     {
         if ($this->vehicules->contains($vehicule)) {
@@ -111,6 +141,9 @@ class Modele
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function  __toString()
     {
         return  $this->nom;

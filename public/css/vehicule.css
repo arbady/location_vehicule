@@ -1,0 +1,90 @@
+.grid{
+    text-align:center;
+    /*text-decoration: none;*/
+    /*margin-top:5px;*/
+    /*box-shadow: unset;*/
+}
+#text-anim{
+    color: black;
+    text-align: center;
+    /*cursor: pointer;*/
+    font-weight: unset;
+    font-size: 15px;
+    /*width: 300px;*/
+}
+.mySelect{
+    margin-top: 6%;
+    margin-left: -25%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057 !important;
+    background-color: #fff !important;
+    background-clip: padding-box;
+    border: 1px solid #ced4da !important;
+    border-radius: .25rem !important;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
+    /*z-index: 1;*/
+}
+.mySelect:focus {
+    color: #495057 !important;
+    background-color: #fff !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem #F57F17 !important;
+}
+#mySelect1{
+    margin-left: -50%;
+}
+.card:hover{
+    box-shadow: 0 4px 8px 0 #F57F17;
+}
+.myCard{
+    cursor: pointer;
+    /*box-shadow: unset;*/
+}
+.card-body-cascade{
+    margin-top: -20%;
+    z-index: 1;
+}
+.caract{
+    margin-top: 0%;
+}
+.origines{
+    margin-top: 0%;
+}
+.plusdInfo{
+    float: right;
+}
+.col-decalé{
+    margin-left: 90%;
+    margin-top: -80%;
+}
+.cont-line{
+    margin-top: 8%;
+}
+.hideELt{
+    display: none;
+}
+.smal{
+    font-size: 15px;
+}
+.coul-btn{
+    background: orange !important;
+}
+/*=====================
+    Modal du véhicule
+=======================*/
+#marqueModele{
+    margin-left: 20% !important;
+    text-decoration: none;
+    color: #e91e63 !important;
+    font-weight: bold;
+}
+#caracteristique{
+    font-size: 20px;
+}
+#origine{
+    font-size: 20px;
+}

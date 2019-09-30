@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Onurb\Doctrine\ORMMetadataGrapher\Mapping as Grapher;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DisponibiliteRepository")
+ * @Grapher\Color("khaki")
  */
 class Disponibilite
 {
@@ -19,7 +21,7 @@ class Disponibilite
     /**
      * @ORM\Column(type="date")
      */
-    private $date;
+    private $date_dispo;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Agence", inversedBy="disponibilites")
@@ -33,28 +35,43 @@ class Disponibilite
      */
     private $vehicule;
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
+    public function getDateDispo(): ?\DateTimeInterface
     {
-        return $this->date;
+        return $this->date_dispo;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
+    public function setDateDispo(\DateTimeInterface $date_dispo): self
     {
-        $this->date = $date;
+        $this->date_dispo = $date_dispo;
 
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getAgence(): ?Agence
     {
         return $this->agence;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setAgence(?Agence $agence): self
     {
         $this->agence = $agence;
@@ -62,11 +79,17 @@ class Disponibilite
         return $this;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function getVehicule(): ?Vehicule
     {
         return $this->vehicule;
     }
 
+    /**
+     * @Grapher\IsDisplayedMethod()
+     */
     public function setVehicule(?Vehicule $vehicule): self
     {
         $this->vehicule = $vehicule;

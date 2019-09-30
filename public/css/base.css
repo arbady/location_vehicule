@@ -1,6 +1,6 @@
-/*body{
-    margin-top: 50%;
-}*/
+body{
+    margin-top: 10%;
+}
 
 nav{
     position: fixed;
@@ -78,7 +78,8 @@ nav{
     }
 
     .scroll-top-wrapper:hover {
-        background-color: #801252;
+        /*background-color: #801252;*/
+        background: radial-gradient(#FFF176, #F57F17);
     }
 
     .scroll-top-wrapper.show {

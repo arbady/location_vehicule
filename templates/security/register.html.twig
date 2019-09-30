@@ -3,89 +3,82 @@
 {% block title %}Register !{% endblock %}
 
 {% block body %}
-    <section class="login-block">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 login-sec">
-                    <h2 class="text-center">Register</h2>
-                    <form class="login-form" method="post">
 
-                        <div class="form-group">
-                            <label for="inputNom" class="text-uppercase">Nom</label>
+{#    {% include 'nav_bar_anonyme.html.twig' %}#}
+{#    {% include 'header_ano.html.twig'  %}#}
+
+    <script src="{{ asset('js/register.js') }}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{asset('css/register.css')}}">
+
+    <form class="login-form" method="post" action="">
+        <div class="modal-wrap">
+            <div class="modal-header"><span class="is-active"></span><span></span><span></span></div>
+            <div class="modal-bodies">
+                <div class="modal-body modal-body-step-1 is-showing" style="margin-top: 0%; padding-bottom: 3%;">
+                    <div class="title">Etape 1</div>
+                    <div class="description">Salut, procédez par votre enregistrement !</div>
+                        <div class="md-form">
                             <input type="text" name="nom" id="inputNom" class="form-control" placeholder="Entrer le nom" required autofocus>
                         </div>
-
-                        <div class="form-group">
-                            <label for="inputPrenom" class="sr-only">Prenom</label>
+                        <div class="md-form">
                             <input type="text" name="prenom" id="inputPrenom" class="form-control" placeholder="Entrer le prenom" required autofocus>
                         </div>
-
-                        <div  class="form-group">
-                            <label for="inputSexe" class="sr-only">Sexe</label>
-                            <input type="text" name="sexe" id="inputSexe" class="form-control" placeholder="Entrer le sexe" required autofocus>
-                        </div>
-
-                        <div  class="form-group">
-                            <label for="inputDateNaiss" class="sr-only">Date de naissance</label>
-                            <input type="date" name="date_naissance" id="inputDate" class="form-control" placeholder="Entrer la Date de naissance" required autofocus>
-                        </div>
-
-                        <div  class="form-group">
-                            <label for="inputEmail" class="sr-only">Email</label>
+                        <div class="md-form">
                             <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Entrer l'Email" required autofocus>
                         </div>
-
-                        <div  class="form-group">
-                            <label for="inputPassword" class="sr-only">Password</label>
-                            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        <div class="md-form">
+                            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Entrer le mot de passe" required autofocus>
                         </div>
-
-                        <div  class="form-group">
-                            <label for="inputDateInsc" class="sr-only">Date d'inscription'</label>
-                            <input type="date" name="date_inscription" id="inputDateInsc" class="form-control" placeholder="Entrer la Date d'inscription" required autofocus>
+                        <div class="text-center">
+                            <div class="button" style="margin-top: 5%">Commencer</div>
                         </div>
-
-                        <div  class="form-group">
-                            <label for="inputAdresse" class="sr-only">Adresse</label>
-                            <input type="text" name="adresse" id="inputAdresse" class="form-control" placeholder="Entrer l'adresse" required autofocus>
-                        </div>
-
-                        <div  class="form-group">
-                            <label for="inputTel" class="sr-only">Telephone</label>
-                            <input type="number" name="tel" id="inputTel" class="form-control" placeholder="Entrer le numéro de telephone" required autofocus>
-                        </div>
-
-                            <label for="inputPermis" class="sr-only">Permis</label>
-                            <!-- Default unchecked -->
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="defaultUnchecked1" name="permisA">
-                                <label class="custom-control-label" for="defaultUnchecked1">Permis A</label>
-                            </div>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="defaultUnchecked2" name="permisB">
-                                <label class="custom-control-label" for="defaultUnchecked2">Permis B</label>
-                            </div>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="defaultUnchecked3" name="permisC">
-                                <label class="custom-control-label" for="defaultUnchecked3">Permis C</label>
-                            </div>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="defaultUnchecked4" name="permisE">
-                                <label class="custom-control-label" for="defaultUnchecked4">Permis E</label>
-                            </div>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="defaultUnchecked5" name="permisG">
-                                <label class="custom-control-label" for="defaultUnchecked5">Permis G</label>
-                            </div>
-
-                            <button class="btn btn-lg btn-primary" type="submit">
-                                Register
-                            </button>
-                    </form>
                 </div>
-                <div class="copy-text"><a href="{{ path('home') }}">Retour à la page d'acceuil <i class="fa fa-home"></i></a></div>
+                <div class="modal-body modal-body-step-2" style="margin-top: 0%; padding-bottom: 3%;">
+                    <div class="title">Etape 2</div>
+                    <div class="description">Allé, encore un petit effort !</div>
+                        <select class="selectpicker form-control" multiple title="choisir le sexe" name="sexe" id="inputSexe" style="margin-left: 0%;" required autofocus>
+                            <option>Homme</option>
+                            <option>Femme</option>
+                        </select>
+                        <div class="md-form">
+                            <input type="text" name="adresse" id="inputAdresse" class="form-control" placeholder="Entrer l'adresse" style="margin-top: 5%" required autofocus>
+                        </div>
+                        <div class="md-form">
+                            <input class="datepicker form-control" placeholder="Date de naissance" type="text" id="datepicker" name="date_naissance" required autofocus>
+                        </div>
+                        <div class="md-form">
+                            <input type="number" name="tel" id="inputTel" class="form-control" placeholder="Entrer le numéro de telephone" style="margin-top: 5%" required autofocus>
+                        </div>
+                        <div class="text-center fade-in" style="margin-top: 5%">
+                            <div class="btn btn-primary previous action-button" value="Previous" style="background: #FF6F00 !important; color: white; width: 40%">
+                                <a style="color: white" href="{{ path('app_register') }}">Précedent</a>
+{#                                <a style="color: white" href="javascript:history.go(-1)">Précedent</a>#}
+                            </div>
+                            <div class="btn btn-primary button" style="background: #FF6F00 !important; color: white; width: 40%; padding-top: 4%">Suivant</div>
+                        </div>
+                </div>
+                <div class="modal-body modal-body-step-3">
+                    <div class="title">Etape 3</div>
+                    <div class="description">Et enfin ...</div>
+                        <div class="md-form" style="margin-left: 10%">
+                            <input class="datepicker form-control" placeholder="Date d'inscription" type="text" id="datepicker1" name="date_inscription" required autofocus>
+                        </div>
+                        <select class="selectpicker form-control" multiple data-actions-box="true" id="select">
+                            <option type="checkbox" id="defaultUnchecked1" name="permisA">Permis A</option>
+                            <option type="checkbox" id="defaultUnchecked2" name="permisB">Permis B</option>
+                            <option type="checkbox" id="defaultUnchecked3" name="permisC">Permis C</option>
+                            <option type="checkbox" id="defaultUnchecked4" name="permisE">Permis E</option>
+                            <option type="checkbox" id="defaultUnchecked5" name="permisG">Permis G</option>
+                        </select>
+                        <div class="text-center" style="margin-top: 10%">
+                            <div class="btn btn-primary previous action-button" value="Previous" style="background: #FF6F00 !important; color: white; width: 40%">
+                                <a style="color: white" href="{{ path('app_register') }}">Précédent</a>
+                            </div>
+                            <button class="btn btn-primary" type="submit" style="background: #FF6F00 !important; color: white">S'enregistrer</button>
+                        </div>
+                </div>
             </div>
-            <div class="copy-text"><a href="{{ path('home') }}">Retour à la page d'acceuil <i class="fa fa-home"></i></a></div>
         </div>
-    </section>
+    </form>
 {% endblock %}

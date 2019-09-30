@@ -19,6 +19,14 @@ class VehiculeRepository extends ServiceEntityRepository
         parent::__construct($registry, Vehicule::class);
     }
 
+    /**
+     * @return Query
+     */
+    public function findAllVisibleQuery(): Query {
+        return $this->findAllVisibleQuery()
+            ->getQuery();
+    }
+
     // /**
     //  * @return Vehicule[] Returns an array of Vehicule objects
     //  */

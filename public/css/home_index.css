@@ -1,3 +1,4 @@
+body,html{}
 h3{
     font-size:20px;
     font-weight:bold;
@@ -5,10 +6,14 @@ h3{
 }
 
 #bg-warning{
+    z-index: 0;
     margin-top: 3%;
     margin-left: -8.7%;
     width: 120%;
     height: 100.2%;
+    /*background-color: rgba(128, 18, 82, 0.66) !important;*/
+    /*background: radial-gradient(#ffb27b, #f5ae86);*/
+    background: radial-gradient(#FFF176, #F57F17) !important;
 }
 
 #btn-reset{

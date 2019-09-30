@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://mdbootstrap.com/live/_doc/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{{asset('css/mdb.min.css')}}">
+
+    <!-- SideNav slide-out button -->
+    <div data-activates="slide-out" class="navbar-brand button-collapse"><i class="material-icons">menu</i></div>
+    <!--/. SideNav slide-out button -->
+
+    <!-- SCRIPTS -->
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://mdbootstrap.com/live/_doc/js/jquery.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://mdbootstrap.com/live/_doc/js/bootstrap.min.js"></script>
+
+    <!-- Material Design Bootstrap -->
+    <script type="text/javascript" src="https://mdbootstrap.com/live/_doc/js/mdb.min.js"></script>
+
+    <script src="{{ asset('js/navBar_ano.js') }}"></script>
+
+</head>
+
+<body>
+
+<!-- Sidebar navigation -->
+<ul id="slide-out" class="side-nav admin-side-nav dark-side-nav transp">
+    <!-- Side navigation links -->
+    <ul class="collapsible collapsible-accordion">
+        <li><a href="{{ path('home') }}" class="waves-effect waves-light"><i class="fa fa-home"></i> HOME</a></li>
+        <li><a href="{{ path('reservation_index') }}" class="waves-effect waves-light"><i class="fa fa-calendar"></i> RESERVATION</a></li>
+        <li><a href="{{ path('vehicule_index') }}" class="waves-effect waves-light"><i class="fa fa-car"></i> VEHICULES</a></li>
+        <li><a href="{{ path('agence_index') }}" class="waves-effect waves-light"><i class="fas fa-city"></i> AGENCES</a></li>
+{#        <li><a href="#" class="waves-effect waves-light"><i class="fa fa-user"></i> MYCAAG</a></li>#}
+        <li><a href="{{ path('app_login') }}" class="waves-effect waves-light"><i class="fa fa-connectdevelop"></i> SE CONNECTER</a></li>
+        <li><a href="{{ path('agence_new') }}" class="waves-effect waves-light"><i class="fa fa-question"></i> AIDE</a></li>
+    </ul>
+    <!--/. Side navigation links -->
+</ul>
+<!--/. Sidebar navigation -->
+
+<!--Navbar-->
+<nav class="double-navbar navbar navbar-fixed-top unique-color z-depth-1 myNav1" role="navigation" style="background: transparent !important;">
+    <div class="container-fluid myNav" style="background: #d2d2d2;">
+        <div class="navbar-header pull-left">
+            <!-- SideNav slide-out button -->
+            <a href="" data-activates="slide-out" class="button-collapse "><i class="fa fa-bars"></i></a>
+            <!--/. SideNav slide-out button -->
+        </div>
+
+        <!-- logo -->
+        <div class="logo">
+            <a href="{{ path('home') }}">
+                <img width="70px" height="70px" src="{{ asset('image/logo1.jpg') }}" />
+            </a>
+        </div>
+
+        <!-- Navbar Icons -->
+        <ul class="list-inline pull-right text-center myUl">
+            <li><a href="{{ path('reservation_index') }}" class="waves-effect waves-light myA" style="margin-top: 50%;"><span>Reservation</span></a></li>
+            <li><a href="{{ path('vehicule_index') }}" class="waves-effect waves-light myA" style="margin-top: 60%;"><span>Véhicules</span></a></li>
+            <li><a href="{{ path('agence_index') }}" class="waves-effect waves-light myA" style="margin-top: 65%;"><span>Agences</span></a></li>
+            <li><a href="{{ path('app_login') }}" class="waves-effect waves-light myA" style="margin-top: 58%;"><span>Inscription</span></a></li>
+
+        </ul>
+        <!--/. Navbar Icons -->
+    </div>
+</nav>
+<!--/.Navbar-->
+<div class="container">
+    <div class="space-50" style="height: 300px"></div>
+    <h1 class="white-text">Scorll Down</h1>
+    <div class="space-50" style="height: 900px"></div>
+</div>
+</body>
+
+<script>
+    // Initialize collapse button
+    $(".button-collapse").sideNav();
+    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+    $('.collapsible').collapsible();
+</script>
+
+<style>
+    /*body {*/
+    /*    background: url("http://mdbootstrap.com/images/regular/nature/img%20(23).jpg") no-repeat center center fixed;*/
+    /*    background-size: cover;*/
+    /*}*/
+</style>
+</html>
