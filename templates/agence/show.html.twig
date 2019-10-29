@@ -3,44 +3,266 @@
 {% block title %}Agence{% endblock %}
 
 {% block body %}
-    <h1>Agence</h1>
+{#    <h1>Agence</h1>#}
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ agence.id }}</td>
-            </tr>
-            <tr>
-                <th>Code</th>
-                <td>{{ agence.code }}</td>
-            </tr>
-            <tr>
-                <th>Adresse</th>
-                <td>{{ agence.adresse }}</td>
-            </tr>
-            <tr>
-                <th>Aeroport</th>
-                <td>{{ agence.aeroport }}</td>
-            </tr>
-            <tr>
-                <th>Ville</th>
-                <td>{{ agence.ville }}</td>
-            </tr>
-            <tr>
-                <th>Code_postal</th>
-                <td>{{ agence.codePostal }}</td>
-            </tr>
-            <tr>
-                <th>Pays</th>
-                <td>{{ agence.pays }}</td>
-            </tr>
-        </tbody>
-    </table>
+{#    <table class="table">#}
+{#        <tbody>#}
+{#            <tr>#}
+{#                <th>Id</th>#}
+{#                <td>{{ agence.id }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Code</th>#}
+{#                <td>{{ agence.code }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Adresse</th>#}
+{#                <td>{{ agence.adresse }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Aeroport</th>#}
+{#                <td>{{ agence.aeroport }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Ville</th>#}
+{#                <td>{{ agence.ville }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Code_postal</th>#}
+{#                <td>{{ agence.codePostal }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Pays</th>#}
+{#                <td>{{ agence.pays }}</td>#}
+{#            </tr>#}
+{#        </tbody>#}
+{#    </table>#}
 
-    <a href="{{ path('agence_index') }}">back to list</a>
+{#    <a href="{{ path('agence_index') }}">back to list</a>#}
 
-    <a href="{{ path('agence_edit', {'id': agence.id}) }}">edit</a>
+{#    <a href="{{ path('agence_edit', {'id': agence.id}) }}">edit</a>#}
 
-    {{ include('agence/_delete_form.html.twig') }}
+{#    {{ include('agence/_delete_form.html.twig') }}#}
+{#{% endblock %}#}
+
+    <script src="{{ asset('js/vehicule.js') }}"></script>
+
+    <div class="container">
+        <h2 class="my-5 h3 text-center" id="test">Choisissez une catégorie de vehicules</h2>
+        <hr class="mb-5" style="margin-top: -2%">
+        <div class="row" style="margin-top: -3%">
+
+            <div class="card-group" style="display: flex">
+                <div class="col">
+                    <div class="card myCard filter" style="box-shadow: unset" id="berline">
+                        <p class="grid">
+                            <img id="face" alt="berline" src={{ asset( 'image/berline.jpg') }}>
+                        <h3 id="text-anim">Berline</h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card myCard filter" style="box-shadow: unset" id="break">
+                        <p class="grid">
+                            <img alt="break" src={{ asset( 'image/break.jpg') }}>
+                        <h3 id="text-anim">Break</h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card myCard filter" style="box-shadow: unset" id="coupe">
+                        <p class="grid">
+                            <img alt="coupe" src={{ asset( 'image/coupé.jpg') }}>
+                        <h3 id="text-anim">Coupé</h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card myCard filter" style="box-shadow: unset" id="SUV">
+                        <p class="grid">
+                            <img alt="SUV" src={{ asset( 'image/SUV.jpg') }}>
+                        <h3 id="text-anim">SUV</h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card myCard filter" style="box-shadow: unset" id="cabriolet">
+                        <p class="grid">
+                            <img alt="cabriolet" src={{ asset( 'image/cabriolet.jpg') }}>
+                        <h3 id="text-anim">Cabriolet</h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card myCard filter" style="box-shadow: unset" id="monospace">
+                        <p class="grid">
+                            <img alt="monospace" src={{ asset( 'image/monospace.jpg') }}>
+                        <h3 id="text-anim">Monospace</h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card myCard filter" style="box-shadow: unset" id="utilitaires">
+                        <p class="grid">
+                            <img alt="utilitaire" src={{ asset( 'image/utilitaire.jpg') }}>
+                        <h3 id="text-anim">Utilitaire</h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card myCard filter" style="box-shadow: unset" id="2roues">
+                        <p class="grid">
+                            <img alt="2roues" src={{ asset( 'image/2roues.jpg') }}>
+                        <h3 id="text-anim">2 Roues</h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card myCard filter" style="box-shadow: unset" id="luxe">
+                        <p class="grid">
+                            <img alt="luxe" src={{ asset( 'image/luxe.jpg') }}>
+                        <h3 id="text-anim">Luxe</h3>
+                    </div>
+                </div>
+            </div>
+
+            {#        <div class="col" style="margin-left: 23%;">#}
+            {#            <div style="display: inline-block; margin-left: 0">#}
+            {#                {% for vehicule in tableau_par_agences %} {{ vehicule.matricule }}{% endfor %}#}
+            {#            </div>#}
+            {#        </div>#}
+        </div>
+    </div>
+    </div>
+
+    <div class="container cont-line">
+
+        <hr class="mb-5" style="margin-top: -8%;">
+
+        {% if tableau_par_agences is empty %}
+            <p style="text-align: center">Pas de Vehicule</p>
+        {% endif %}
+
+        <!--Section: More-->
+        <section>
+            <!--First row-->
+            <div class="row esp-pag">
+
+                {% for vehicule in tableau_par_agences %}
+                    <!-- Si je voudrai caché un véhicule se trouvant en etat "Garage"-->
+                    {% if vehicule.etat.description == "Au garage" %}
+                        <!-- Afficher tous les véhicules en Etat "En agence" et "En location" -->
+                    {% else %} {#
+            <p>Pays : {% for vehicule in vehiculenibilites %}{{ vehicule.agence.pays }}{% endfor %}</p>#}
+                        <!-- Card Narrower -->
+                        <div class="col-12 col-xl-4 col-lg-3 col-sm-12 col-md-4 mb-4 myFliter {{ vehicule.categorie }}" data-name="{{ vehicule.categorie }}">
+                            <div class="card" id="{{ 'card' ~ vehicule.id }}">
+
+                                <!-- Card image -->
+                                <p class="marque-modele hideELt">{{ vehicule.modele.marque.nom }} | {{ vehicule.modele.nom }}</p>
+                                <p class="caract hideELt">{{ vehicule.caracteristiques }}</p>
+
+                                {% for dispo in vehicule.disponibilites  %}
+                                    {% if dispo.agence.id == vehicule.lieuVehic %}
+                                        <p class="origine1 hideELt"><b>Pays</b> : {{ dispo.agence.pays }} </p>
+                                        <p class="origine2 hideELt"><b>Ville</b> : {{ dispo.agence.ville }} </p>
+                                        <p class="origine3 hideELt"><b>Aéroport</b> : {{ dispo.agence.aeroport }} </p>
+                                    {% endif %}
+                                {% endfor %}
+
+                                <div class="card-body ">
+                                    <img  class="card-img-top card-image" src="{{asset( 'image/' ~ vehicule.images)}}" alt="Card_image_cap" width="70px" height="200px">
+                                    <a>
+                                        <div class="mask rgba-white-slight"></div>
+                                    </a>
+                                </div>
+                                <!-- Card content -->
+                                <!-- Label -->
+                                <div class="card-body card-body-cascade">
+
+                                    <p class="pink-text pb-2 pt-1 font-weight-bold">
+
+                        <span class="pink-text pb-2 pt-1 coul-text-veh" style="float:left;">
+                            {{ vehicule.modele.marque.nom }} | {{ vehicule.modele.nom }}
+                        </span>
+                                        <span class="pink-text pb-2 pt-1 coul-text-veh" style="float:right;">
+                            {{ vehicule.categorie.CoutParJour }}&nbsp;&euro;/Jour
+                        </span>
+                                    </p>
+
+                                    <hr class="mb-5" style="margin-top: 10%">
+
+                                    {% if vehicule.categorie=='2roues' %}
+
+                                        <p class="caract" style="font-size: 17.1px">{{ vehicule.caracteristiques }}</p>
+
+                                    {% else %}
+
+                                        <!-- Text -->
+                                        <ul class="card-text descr">
+                                            <li>Nombre de place : {{ vehicule.nbPlace }}</li>
+                                            <li>Nombre de porte : {{ vehicule.nbPorte }}</li>
+                                            <li>Transmission : {{ vehicule.transmission }}</li>
+                                            <li>Carburant : {{ vehicule.carburant }}</li>
+                                            <li>Air-Co : {{ vehicule.airCo }}</li>
+                                            <li>GPS : {{ vehicule.gps }}</li>
+                                        </ul>
+
+                                    {% endif %}
+
+                                    <hr class="mb-5" style="margin-top: 5%">
+                                    {% if vehicule.etat.description == "En agence" %}
+                                        <!-- Button -->
+                                        <a class="btn btn-unique myBtn" id="{{ 'reserver' ~ vehicule.id }}" href="{{ path( 'reservation_index', { id: vehicule.id}) }}">Reserver</a>
+                                        <a class="btn btn-unique myBtn plusdInfo" id="{{ 'vehicule' ~ vehicule.id }}" style=" ">+ d'infos</a>
+
+                                    {% elseif vehicule.etat.description == "En location" %}
+                                        <a class="btn btn-unique myBtn" id="{{ 'reserver' ~ vehicule.id }}" href="{{ path( 'reservation_index', { id:vehicule.id}) }}">Reserver</a>
+                                        <a class="btn btn-unique myBtn plusdInfo" id="{{ 'vehicule' ~ vehicule.id }}" style=" ">+ d'infos</a>
+
+                                    {% else %}
+                                        <p style="line-height: 1.38 !important;">Ce véhicule est indisponible jusqu'à une date </p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header ">
+                        <h5 class="modal-title text-center" id="marqueModele"></h5>
+                        {#                    <h1 class="modal-title " id="marqueModele ">{{ vehicule.modele | vehicule.modele.marque }}</h1>#}
+                        <button type="button" class="close" data-dismiss="modal " aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <h3 id="caracteristique"></h3>
+                        <p class="text-center smal" id="pays"></p>
+                        <p class="text-center smal" id="ville"></p>
+                        <p class="text-center smal" id="aeroport"></p>
+                        <img id="imageVehicule">
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer" id="btn-res-modal">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {#    {% endfor %}#}
+        {#    {% endfor %}#}
+        {#    <nav class="container pagination " style="z-index: 0; margin-left: -1% ">#}
+        {#        <div class="pagination ">#}
+        {#            {{ knp_pagination_render(vehicules) }}#}
+        {#        </div>#}
+        {#    </nav>#}
+    </div>
+
 {% endblock %}

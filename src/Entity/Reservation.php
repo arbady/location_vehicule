@@ -56,13 +56,38 @@ class Reservation
     private $statut_res;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Agence", inversedBy="reservations")
+     * @ORM\Column(type="string", length=50)
+     */
+    private $agence_retour;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $couverture_dommage;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $couverture_vol;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $tranche_age;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $toutPaye;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Agence", inversedBy="reservations", cascade ={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $agence;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="reservations")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="reservations", cascade ={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $categorie;
@@ -328,6 +353,70 @@ class Reservation
         if ($this !== $contrat->getReservation()) {
             $contrat->setReservation($this);
         }
+
+        return $this;
+    }
+
+    public function denyAccessUnlessGranted(string $string)
+    {
+    }
+
+    public function getToutPaye(): ?bool
+    {
+        return $this->toutPaye;
+    }
+
+    public function setToutPaye(bool $toutPaye): self
+    {
+        $this->toutPaye = $toutPaye;
+
+        return $this;
+    }
+
+    public function getAgenceRetour(): ?string
+    {
+        return $this->agence_retour;
+    }
+
+    public function setAgenceRetour(string $agence_retour): self
+    {
+        $this->agence_retour = $agence_retour;
+
+        return $this;
+    }
+
+    public function getCouvertureDommage(): ?int
+    {
+        return $this->couverture_dommage;
+    }
+
+    public function setCouvertureDommage(?int $couverture_dommage): self
+    {
+        $this->couverture_dommage = $couverture_dommage;
+
+        return $this;
+    }
+
+    public function getCouvertureVol(): ?int
+    {
+        return $this->couverture_vol;
+    }
+
+    public function setCouvertureVol(?int $couverture_vol): self
+    {
+        $this->couverture_vol = $couverture_vol;
+
+        return $this;
+    }
+
+    public function getTrancheAge(): ?int
+    {
+        return $this->tranche_age;
+    }
+
+    public function setTrancheAge(?int $tranche_age): self
+    {
+        $this->tranche_age = $tranche_age;
 
         return $this;
     }

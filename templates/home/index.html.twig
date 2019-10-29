@@ -27,11 +27,12 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <form>
+{#                                            <form action="form_index" method="post" onsubmit="return date_validation();">#}
+                                            <form action="form_index" method="post">
                                                 <div class="form-group">
                                                     <label class="custom-select-sm text-uppercase text-res">Lieu</label>
-                                                    <select class="custom-select-sm form-control" name="id_agence" id="conditionsselect1" required autofocus>
-                                                        <option selected style="text-align: center">-- Selectionnez un lieu --</option>
+                                                    <select class="custom-select-sm form-control" name="id_agence" id="select1" required autofocus>
+                                                        <option selected value="" style="text-align: center">-- Selectionnez un lieu --</option>
                                                         {% for agence in tab_agences %}
                                                             <option value="{{ agence.id }}">
                                                                 {{ agence.ville|capitalize }}
@@ -43,7 +44,8 @@
                                                 <div>
                                                     <label class="custom-select-sm text-uppercase text-res" for="date-picker-example">Depart</label>
                                                     <div class="form-group" id="memeLigne">
-                                                        <input placeholder="Select date" id="datepicker1" type="text" class="custom-select-sm form-control datepicker1" data-language='fr' />
+                                                        <input placeholder="Select date" type="text" class="custom-select-sm form-control datepicker1" id="date1" name="date1" data-language='fr' />
+{#                                                        <input type="hidden" id="date1" name="date1">#}
                                                         <input placeholder="Select time" id="timepicker1" type="text" class="custom-select-sm form-control timepicker1" name="usr_time1"  data-language='fr' />
                                                     </div>
                                                 </div>
@@ -51,15 +53,16 @@
                                                 <div>
                                                     <label class="custom-select-sm text-uppercase text-res" for="date-picker-example">Retour</label>
                                                     <div class="form-group" id="memeLigne">
-                                                        <input placeholder="Select date" id="datepicker2" type="text" class="custom-select-sm form-control datepicker2" />
+                                                        <input placeholder="Select date" type="text" class="custom-select-sm form-control datepicker2" id="date2" name="date2" />
+{#                                                        <input type="hidden" id="date2" name="date2">#}
                                                         <input placeholder="Select time" id="timepicker2" type="text" class="custom-select-sm form-control timepicker2" name="usr_time2"  data-language='fr' />
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label class="custom-select-sm text-uppercase text-res">Type de vehicule</label>
-                                                    <select class="custom-select-sm form-control" name="id_cat" id="conditionsselect1">
-                                                        <option selected>-- Selectionnez un type --</option>
+                                                    <select class="custom-select-sm form-control" name="id_cat" id="select2">
+                                                        <option selected value="">Tous</option>
                                                         {% for categorie in tab_cat %}
                                                             <option value="{{ categorie.id }}">
                                                                 {{ categorie.typeCat|capitalize }}
@@ -68,23 +71,7 @@
                                                     </select>
                                                 </div>
 
-                                                <div class="custom-select-sm form-group">
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="defaultUnchecked1" name="retour">
-                                                        <label class="custom-control-label text-res" for="defaultUnchecked1">Retour au même endroit</label>
-                                                    </div>
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="defaultUnchecked2" name="age">
-                                                        <label class="custom-control-label text-res" for="defaultUnchecked2">25 - 69
-                                                            <i tabindex="0" class="fa fa-question-circle" id="tooltip">
-                                                                <span class="tooltiptext">
-                                                                    <p>And here's some amazing content. It's very engaging. Right</p>
-                                                                </span>
-                                                            </i>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <hr style="margin-top: 10%">
+                                                <hr style="margin-top: 5%">
                                                 <div class="pb-3" style="margin-top: -5%">
                                                     <button type="btn" class="btn btn-primary button" style="background: #FF6F00 !important; width: 40%"><span class="text-center">Trouver</span></button>
                                                     <button type="btn" class="btn btn-primary button" style="background: #FF6F00 !important; width: 40%" id="btn-reset">Effacer</button>
@@ -104,37 +91,57 @@
 {#    <section></section>#}
 
     <script>
-        $('.datepicker1').datepicker({
-            minDate: new Date(),
-            startDate: "today",
-            format: "mm/dd/yyyy",
-            language: "fr",
-            todayHighlight: true
+
+        $(document).ready(function () {
+
+            var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+
+            $(".datepicker1").datepicker({
+                format: 'dd mmm yyyy',
+                minDate: today,
+                maxDate: function () {
+                return $('.datepicker2').val();
+                },
+                numberOfMonths: 1,
+            });
+
+            $(".datepicker2").datepicker({
+                format: 'dd mmm yyyy',
+                minDate: function () {
+                    if ($('.datepicker1').val()){
+                        return $('.datepicker1').val();
+                    }
+                    else {
+                        return today;
+                    }
+                },
+            });
+
+            $('.timepicker1').timepicker();
+
+            $('.timepicker2').timepicker();
+
+            console.log( document.getElementById("date1"));
+
         });
-        $('.timepicker1').timepicker();
-
-        // $('#datepicker1').datepicker({
-        //     uiLibrary: 'bootstrap4',
-        //     locale: 'fr_fr',
-        //     format: 'dd mmm yyyy'
-        // });
-
-        // $('#datepicker1').on("change", function() {
-        //     console.log(this);
-        //     info.depart = new Date($(this).datepicker().value());
-        //     $('#date1').val($(this).datepicker().value());
-        //     console.log(info)
-        // });
-
-        $('.datepicker2').datepicker({
-            minDate: new Date(),
-            startDate: "today",
-            format: "mm/dd/yyyy",
-            language: "fr",
-            todayHighlight: true
-        });
-        $('.timepicker2').timepicker();
-
+        // function date_validation(){
+        //
+        //    const date1 = document.getElementById("date1").value;
+        //    const date2 = document.getElementById("date2").value;
+        //     console.log(date1);
+        //     console.log(date2);
+        //
+        //     if( new Date(date2) < new Date(date1)){
+        //
+        //         alert("gogole");
+        //         return false;
+        //
+        //     }else{
+        //         alert('true');
+        //         return false;
+        //     }
+        //
+        // }
     </script>
     {% include 'caroussel1.html.twig' %}
 {#{% include 'bandeau_promos.html.twig' %}#}

@@ -1,165 +1,164 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}
-            <!-- Start Footer -->
-            <footer id="container-fluid" class="page-footer font-small unique-color-dark">
 
-                <div style="background: radial-gradient(#FFF176, #F57F17); height: 50px;">
-                    <div class="container">
+{% block body %}
+    <!-- Start Footer -->
+    <footer id="container-fluid" class="page-footer font-small unique-color-dark">
 
-                        <!-- Grid row-->
-                        <div class="row py-4 d-flex align-items-center">
+        <div style="background: radial-gradient(#FFF176, #F57F17); height: 50px;">
+            <div class="container">
 
-                            <!-- Grid column -->
-                            <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                                <h6 class="mb-0">Rester connecter avec nous sur les réseaux sociaux !</h6>
-                            </div>
-                            <!-- Grid column -->
+                <!-- Grid row-->
+                <div class="row py-4 d-flex align-items-center">
 
-                            <!-- Grid column -->
-                            <div class="col-md-6 col-lg-7 text-center text-md-right" style="margin-top: -1.1%">
-
-                                <!-- Facebook -->
-                                <a id="social-network" class="fb-ic" href="www.facebook.com">
-                                    <i class="fab fa-facebook-f black-text mr-4"> </i>
-                                </a>
-                                <!-- Twitter -->
-                                <a id="social-network" class="tw-ic" href="www.twitter.com">
-                                    <i class="fab fa-twitter black-text mr-4"> </i>
-                                </a>
-                                <!-- Google +-->
-                                <a id="social-network" class="gplus-ic" href="https://aboutme.google.com/u/0/">
-                                    <i class="fab fa-google-plus-g black-text mr-4"> </i>
-                                </a>
-                                <!--Linkedin -->
-                                <a id="social-network" class="li-ic" href="www.linkedin.com">
-                                    <i class="fab fa-linkedin-in black-text mr-4"> </i>
-                                </a>
-                                <!--Instagram-->
-                                <a id="social-network" class="ins-ic" href="www.instagram.com">
-                                    <i class="fab fa-instagram black-text"> </i>
-                                </a>
-                            </div>
-                            <!-- Grid column -->
-                        </div>
-                        <!-- Grid row-->
-
+                    <!-- Grid column -->
+                    <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                        <h6 class="mb-0">Rester connecter avec nous sur les réseaux sociaux !</h6>
                     </div>
-                </div>
+                    <!-- Grid column -->
 
-                <!-- Footer Links -->
-                <div class="container text-center text-md-left mt-5">
+                    <!-- Grid column -->
+                    <div class="col-md-6 col-lg-7 text-center text-md-right" style="margin-top: -1.1%">
 
-                    <!-- Grid row -->
-                    <div class="row mt-3">
-
-                        <!-- Grid column -->
-                        <div class="col-md-4 col-lg-2 col-xl-3 mx-auto mb-4">
-
-                            <!-- Content -->
-                            <h6 class="text-uppercase font-weight-bold" id="font-fam">A propos de MYCAAG</h6>
-                            <hr class="deep-purple accent-2 mb-8 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                            <p class="font-fam">Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                                consectetur
-                                adipisicing elit.</p>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-4 col-lg-2 col-xl-3 mx-auto mb-4">
-
-                            <!-- Links -->
-                            <h6 class="text-uppercase font-weight-bold" id="font-fam">A propos de votre reservation</h6>
-                            <hr class="deep-purple accent-2 mb-8 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                            <p class="font-fam">
-                                <a class="link" href="#!">Voir/Modifier/annuler ma réservation</a>
-                            </p>
-                            <p class="font-fam">
-                                <a class="link" href="#!">Gérer ma réservation</a>
-                            </p>
-                            <p class="font-fam">
-                                <a class="link" href="#!">Imprimer ma facture</a>
-                            </p>
-                            <p class="font-fam">
-                                <a class="link" href="#!">Votre avis nous intéresse</a>
-                            </p>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-3 col-lg-2 col-xl-3 mx-auto mb-4">
-
-                            <!-- Links -->
-                            <h6 class="text-uppercase font-weight-bold" id="font-fam">Informations légales</h6>
-                            <hr class="deep-purple accent-2 mb-8 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                            <p class="font-fam">
-                                <a class="link" href="#!">Politique de confidentialité</a>
-                            </p>
-                            <p class="font-fam">
-                                <a class="link" href="#!">Politique de cookies</a>
-                            </p>
-                            <p class="font-fam">
-                                <a class="link" href="#!">Conditions Générales</a>
-                            </p>
-                            <p class="font-fam">
-                                <a class="link" href="#">Mentions légales</a>
-                            </p>
-
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-                            <!-- Links -->
-                            <h6 class="text-uppercase font-weight-bold" id="font-fam">Contact</h6>
-                            <hr class="deep-purple accent-2 mb-8 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                            <p class="font-fam">
-                                <i class="fas fa-home mr-3"></i> Frameries, 7080, BELGIQUE</p>
-                            <p class="font-fam">
-                                <i class="fas fa-envelope mr-3"></i> arnoldmpoyi@yahoo.fr</p>
-                            <p class="font-fam">
-                                <i class="fas fa-phone mr-3"></i> + 32 466 42 39 30</p>
-                            <p class="font-fam">
-                                <i class="fas fa-print mr-3"></i> + 32 466 42 39 31</p>
-                        </div>
-                        <!-- Grid column -->
-
+                        <!-- Facebook -->
+                        <a id="social-network" class="fb-ic" href="www.facebook.com">
+                            <i class="fab fa-facebook-f black-text mr-4"> </i>
+                        </a>
+                        <!-- Twitter -->
+                        <a id="social-network" class="tw-ic" href="www.twitter.com">
+                            <i class="fab fa-twitter black-text mr-4"> </i>
+                        </a>
+                        <!-- Google +-->
+                        <a id="social-network" class="gplus-ic" href="https://aboutme.google.com/u/0/">
+                            <i class="fab fa-google-plus-g black-text mr-4"> </i>
+                        </a>
+                        <!--Linkedin -->
+                        <a id="social-network" class="li-ic" href="www.linkedin.com">
+                            <i class="fab fa-linkedin-in black-text mr-4"> </i>
+                        </a>
+                        <!--Instagram-->
+                        <a id="social-network" class="ins-ic" href="www.instagram.com">
+                            <i class="fab fa-instagram black-text"> </i>
+                        </a>
                     </div>
-                    <!-- Grid row -->
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row-->
+
+            </div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left mt-5">
+
+            <!-- Grid row -->
+            <div class="row mt-3">
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-2 col-xl-3 mx-auto mb-4">
+
+                    <!-- Content -->
+                    <h6 class="text-uppercase font-weight-bold" id="font-fam">A propos de MYCAAG</h6>
+                    <hr class="deep-purple accent-2 mb-8 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p class="font-fam">Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                        consectetur
+                        adipisicing elit.</p>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-2 col-xl-3 mx-auto mb-4">
+
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold" id="font-fam">A propos de votre reservation</h6>
+                    <hr class="deep-purple accent-2 mb-8 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p class="font-fam">
+                        <a class="link" href="#!">Voir/Modifier/annuler ma réservation</a>
+                    </p>
+                    <p class="font-fam">
+                        <a class="link" href="#!">Gérer ma réservation</a>
+                    </p>
+                    <p class="font-fam">
+                        <a class="link" href="#!">Imprimer ma facture</a>
+                    </p>
+                    <p class="font-fam">
+                        <a class="link" href="#!">Votre avis nous intéresse</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-2 col-xl-3 mx-auto mb-4">
+
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold" id="font-fam">Informations légales</h6>
+                    <hr class="deep-purple accent-2 mb-8 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p class="font-fam">
+                        <a class="link" href="#!">Politique de confidentialité</a>
+                    </p>
+                    <p class="font-fam">
+                        <a class="link" href="#!">Politique de cookies</a>
+                    </p>
+                    <p class="font-fam">
+                        <a class="link" href="#!">Conditions Générales</a>
+                    </p>
+                    <p class="font-fam">
+                        <a class="link" href="#">Mentions légales</a>
+                    </p>
 
                 </div>
-                <!-- Footer Links -->
+                <!-- Grid column -->
 
-                {#<!-- Copyright -->
-                <div class="footer-copyright text-center py-3">© 2018 Copyright:
-                    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
-                </div>
-                <!-- Copyright -->#}
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
-                <!--Plan du site-->
-                <div id="plan" class="col-md-8 col-lg-6 col-xl-12 mx-auto mb-md-0 mb-8">
-                    <div class="footer-PlanDuSite text-center py-3">
-                        <img id="imgt" src="{{ asset('image/drapeau.jpg') }}" alt="drapeau_belge" style="width:3%; height: auto;">
-                        <a class="pDep" href="#" style="color: #fff;">Plan du site</a> |
-                        <a class="pDep" href="#" style="color: #fff;">Faq</a> |
-                        <a class="pDep" href="#" style="color: #fff;">Besoin d'un hotel ?</a> |
-                        <a class="pDep">© 2019 Copyright :</a>
-                        <a class="pDep" href="{{ path('home') }}" style="color: #fff;"> MYCAAG</a>
-                    </div>
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold" id="font-fam">Contact</h6>
+                    <hr class="deep-purple accent-2 mb-8 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p class="font-fam">
+                        <i class="fas fa-home mr-3"></i> Frameries, 7080, BELGIQUE</p>
+                    <p class="font-fam">
+                        <i class="fas fa-envelope mr-3"></i> arnoldmpoyi@yahoo.fr</p>
+                    <p class="font-fam">
+                        <i class="fas fa-phone mr-3"></i> + 32 466 42 39 30</p>
+                    <p class="font-fam">
+                        <i class="fas fa-print mr-3"></i> + 32 466 42 39 31</p>
                 </div>
-                <!--Plan du site-->
-            </footer>
-            <!-- Footer -->
-        {% endblock %}
-        {% block javascripts %}
-{#            <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>#}
-        {% endblock %}
-    </body>
-</html>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+        {#<!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->#}
+
+        <!--Plan du site-->
+        <div id="plan" class="col-md-8 col-lg-6 col-xl-12 mx-auto mb-md-0 mb-8">
+            <div class="footer-PlanDuSite text-center py-3">
+                <img id="imgt" src="{{ asset('image/drapeau.jpg') }}" alt="drapeau_belge" style="width:3%; height: auto;">
+                <a class="pDep" href="#" style="color: #fff;">Plan du site</a> |
+                <a class="pDep" href="#" style="color: #fff;">Faq</a> |
+                <a class="pDep" href="#" style="color: #fff;">Besoin d'un hotel ?</a> |
+                <a class="pDep">© 2019 Copyright :</a>
+                <a class="pDep" href="{{ path('home') }}" style="color: #fff;"> MYCAAG</a>
+            </div>
+        </div>
+        <!--Plan du site-->
+    </footer>
+    <!-- Footer -->
+{% endblock %}
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.toast').toast({delay:50000, animation:true});
+        $('.toast').toast('show');
+    });
+
+</script>
+{#    <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>#}
+

@@ -60,10 +60,16 @@ class Agence
      */
     private $disponibilites;
 
+//    /**
+//     * @ORM\ManyToMany(targetEntity="App\Entity\vehicule", inversedBy="agences")
+//     */
+//    private $vehicule;
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
         $this->disponibilites = new ArrayCollection();
+//        $this->vehicule = new ArrayCollection();
     }
 
     /**
@@ -267,4 +273,30 @@ class Agence
     {
         return  $this->adresse;
     }
+
+//    /**
+//     * @return Collection|vehicule[]
+//     */
+//    public function getVehicule(): Collection
+//    {
+//        return $this->vehicule;
+//    }
+//
+//    public function addVehicule(vehicule $vehicule): self
+//    {
+//        if (!$this->vehicule->contains($vehicule)) {
+//            $this->vehicule[] = $vehicule;
+//        }
+//
+//        return $this;
+//    }
+//
+//    public function removeVehicule(vehicule $vehicule): self
+//    {
+//        if ($this->vehicule->contains($vehicule)) {
+//            $this->vehicule->removeElement($vehicule);
+//        }
+//
+//        return $this;
+//    }
 }

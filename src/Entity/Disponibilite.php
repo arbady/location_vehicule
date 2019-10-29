@@ -19,11 +19,6 @@ class Disponibilite
     private $id;
 
     /**
-     * @ORM\Column(type="date")
-     */
-    private $date_dispo;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Agence", inversedBy="disponibilites")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -36,29 +31,16 @@ class Disponibilite
     private $vehicule;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Date", inversedBy="disponibilites")
+     */
+    private $date;
+
+    /**
      * @Grapher\IsDisplayedMethod()
      */
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    /**
-     * @Grapher\IsDisplayedMethod()
-     */
-    public function getDateDispo(): ?\DateTimeInterface
-    {
-        return $this->date_dispo;
-    }
-
-    /**
-     * @Grapher\IsDisplayedMethod()
-     */
-    public function setDateDispo(\DateTimeInterface $date_dispo): self
-    {
-        $this->date_dispo = $date_dispo;
-
-        return $this;
     }
 
     /**
@@ -96,4 +78,23 @@ class Disponibilite
 
         return $this;
     }
+
+    public function getDate(): ?Date
+    {
+        return $this->date;
+    }
+
+    public function setDate(?Date $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->getVehicule()->getModele()->getMarque()->getNom();
+    }
+
+
 }

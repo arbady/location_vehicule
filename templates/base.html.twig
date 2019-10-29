@@ -40,30 +40,35 @@
         <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
         <script src="{{ asset('js/defaults-fr_FR.min.js') }}"></script>
-
         <!-- Bootstrap core JavaScript -->
         <script type="text/javascript" src="{{ asset('js/base.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-{#        <script src="{{ asset('dist/js/datepicker.min.js') }}"></script>#}
-{#        <script src="{{ asset('dist/js/i18n/datepicker.fr.js') }}"></script>#}
 
-        <!-- Latest compiled and minified JavaScript -->
-{#        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>#}
-{#        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>#}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+        <!-- Material Design Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <!-- Bootstrap core CSS -->
+        <link href="https://mdbootstrap.com/live/_doc/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="{{asset('css/mdb.min.css')}}">
+        <!-- SideNav slide-out button -->
+        <div data-activates="slide-out" class="navbar-brand button-collapse"><i class="material-icons">menu</i></div>
+        <!--/. SideNav slide-out button -->
+        <!-- SCRIPTS -->
+        <!-- JQuery -->
+        <script type="text/javascript" src="https://mdbootstrap.com/live/_doc/js/jquery.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://mdbootstrap.com/live/_doc/js/bootstrap.min.js"></script>
+        <!-- Material Design Bootstrap -->
+        <script type="text/javascript" src="https://mdbootstrap.com/live/_doc/js/mdb.min.js"></script>
 
         <title>
             {% block title %}Welcome!{% endblock %}
         </title>
     </head>
-
-    {% block Flash_message %}
-        {% for message in app.flashes('notice') %}
-            <div class="flash-notice">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endblock %}
 
     <body>
     {% include 'header.html.twig' %}
@@ -104,11 +109,6 @@
                     }
                 });
             </script>
-{#            <script>#}
-{#                function goBack() {#}
-{#                    window.history.back();#}
-{#                }#}
-{#            </script>#}
 
         {% endblock %}
 

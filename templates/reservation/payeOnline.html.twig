@@ -1,0 +1,152 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Reservation{% endblock %}
+
+{% block body %}
+    <h4 style="text-align: center">PAIEMENT EN LIGNE : {{ COUTTOT }} Euros</h4>
+
+{#    <div class="box">#}
+{#        <span class="paypal-logo"><i>Pay</i><i>Pal</i></span><br />#}
+{#        <a href="{{ path('payerOnline', { "paiement": false}) }}" class="paypal-button">#}
+{#            <span class="paypal-button-title">Buy now with</span>#}
+{#            <span class="paypal-logo"><i>Pay</i><i>Pal</i></span>#}
+{#        </a>#}
+{#    </div>#}
+
+{#    #}{#    <a class="btn btn-unique myBtn" href="{{ path('paiementPaypal', { "id":reservation.id }) }} ">Paypal</a>#}
+{#    <a class="btn btn-unique myBtn" href="{{ path('payerOnline', { "paiement": true}) }} ">Paypal</a>#}
+{#    <a class="btn btn-unique myBtn" href="{{ path('payerOnline', { "paiement": true}) }} ">Bancontact</a>#}
+{#    <a class="btn btn-unique myBtn" href="{{ path('payerOnline', { "paiement": false}) }} ">MasterCard</a>#}
+{#    <a class="btn btn-unique myBtn" href="{{ path('payerOnline', { "paiement": false}) }} ">Visa</a>#}
+
+{#    {{ include('reservation/_form.html.twig') }}#}
+
+{#    <a href="{{ path('reservation_index') }}">back to list</a>#}
+    <div id="container">
+
+        <div class="rond">
+            <a href="{{ path('payerOnline', { "paiement": true}) }}"><span class="texte">Yes</span></a>
+        </div>
+        <div class="rond2">
+            <a href="{{ path('payerOnline', { "paiement": false}) }}"><span class="texte">No</span></a>
+        </div>
+
+    </div>
+    <style>
+        #container {
+            width: 100%;
+            height: 100vh;
+            margin-top: -15%;
+            background: radial-gradient(
+                    ellipse at center,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 0, 0, 0.46) 100%
+            );
+        }
+
+        .texte {
+            font-family: Helvetica;
+            color: #fff;
+            position: relative;
+            top: 40%;
+            left: 25%;
+        }
+
+        .rond, .rond2 {
+            width: 75px;
+            height: 75px;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            transition: all 0.3s;
+            float: left;
+            margin: 10px;
+        }
+
+        .rond2 {
+            background-color: #c0392b;
+        }
+        .rond {
+            background-color: #2980b9;
+        }
+
+        .rond:after, .rond2:after {
+            content: '';
+            width: 0px;
+            height: 0px;
+            background-color: #fff;
+            position: absolute;
+            top: 50%;
+            border-radius: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s;
+            z-index: -1;
+        }
+
+        .rond:hover, .rond2:hover {
+            width: 80px;
+            height: 80px;
+        }
+
+        .rond:hover .texte {
+            color: #3498db;
+        }
+
+        .rond2:hover .texte {
+            color: #e74c3c;
+        }
+
+        .rond:hover.rond::after, .rond2:hover.rond2::after {
+            width: 75px;
+            height: 75px;
+        }
+
+    </style>
+
+{#    <style>#}
+{#        .box {#}
+{#            display: flex;#}
+{#            flex-direction: column;#}
+{#            justify-content: center;#}
+{#            align-items: center;#}
+{#            width: 100%;#}
+{#            height: 100vh;#}
+{#        }#}
+
+{#        .paypal-logo {#}
+{#            font-family: Verdana, Tahoma;#}
+{#            font-weight: bold;#}
+{#            font-size: 26px;#}
+{#        }#}
+{#        .paypal-logo i:first-child {#}
+{#            color: #253b80;#}
+{#        }#}
+{#        .paypal-logo i:last-child {#}
+{#            color: #179bd7;#}
+{#        }#}
+{#        .paypal-button {#}
+{#            padding: 15px 30px;#}
+{#            border: 1px solid #ff9933;#}
+{#            border-radius: 5px;#}
+{#            background-image: linear-gradient(#fff0a8, #f9b421);#}
+{#            margin: 0 auto;#}
+{#            display: block;#}
+{#            min-width: 138px;#}
+{#            position: relative;#}
+{#        }#}
+{#        .paypal-button-title {#}
+{#            font-size: 14px;#}
+{#            color: #505050;#}
+{#            vertical-align: baseline;#}
+{#            text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);#}
+{#        }#}
+{#        .paypal-button .paypal-logo {#}
+{#            display: inline-block;#}
+{#            text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);#}
+{#            font-size: 20px;#}
+{#        }#}
+{#    </style>#}
+{% endblock %}

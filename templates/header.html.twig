@@ -11,5 +11,75 @@
         {% else %}
             {% include 'header_ano.html.twig' %}
         {% endif %}
+        {% block Flash_message %}
+            <div class="row">
+                <div style="text-align: center; margin-left: 40%; width: 100%;">
+                    {% for message in app.flashes('notice') %}
+                        <div class="toast" data-autohide="true">
+                            <div class="toast-header">
+                                <img src="{{ asset('image/logo1.jpg') }}"  width="25px" height="25px" alt="">
+                                <strong class="mr-auto">MYCAAG.be</strong>
+                                <small></small>
+                                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="toast-body alert-info">
+                                {{ message }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    {% for message in app.flashes('info') %}
+                        <div class="toast" data-autohide="true">
+                            <div class="toast-header">
+                                <img src="{{ asset('image/logo1.jpg') }}"  width="25px" height="25px" alt="">
+                                <strong class="mr-auto">MYCAAG.be</strong>
+                                <small></small>
+                                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="toast-body alert-info">
+                                {{ message }}
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    {% for message in app.flashes('success') %}
+                        <div class="toast" data-autohide="true">
+                            <div class="toast-header">
+                                <img src="{{ asset('image/logo1.jpg') }}"  width="25px" height="25px" alt="">
+                                <strong class="mr-auto">MYCAAG.be</strong>
+                                <small></small>
+                                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="toast-body alert-info">
+                                {{ message }}
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    {% for message in app.flashes('alert') %}
+                        <div class="toast" data-autohide="true">
+                            <div class="toast-header">
+                                <img src="{{ asset('image/logo1.jpg') }}"  width="25px" height="25px" alt="">
+                                <strong class="mr-auto">MYCAAG.be</strong>
+                                <small></small>
+                                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="toast-body alert-info">
+                                {{ message }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        {% endblock %}
+
     </body>
 </html>

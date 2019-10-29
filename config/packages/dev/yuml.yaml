@@ -1,6 +1,6 @@
 parameters:
   onurb_yuml.extension: png
-  onurb_yuml.style: scruffy
+  onurb_yuml.style: sticky
 #  onurb_yuml.style: filthy, grubby, soiled, grimy, mucky, muddy, slimy, sticky, sullied, spotted, stained, smeared, smudged, disheveled, scruffy, unkempt, rumpled, matted, tousled, bedraggled, tangled, yucky, grungy, disordered, in a muddle, chaotic, confused, disorganized, in disarray, disarranged, untidy, cluttered, in a jumble, like a bomb's hit it, shambolic, intricate, tangled, confused, convoluted, unpleasant, nasty, bitter, acrimonious
   onurb_yuml.direction: LR
   onurb_yuml.scale: huge

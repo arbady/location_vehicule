@@ -6,172 +6,65 @@
 // Et de les faire réapparaître en fonction des critères de recherche
 
 $(document).ready(function () {
-    var selected = [];
+    let selected = [];
+    let filtre_typeCat = "";
+    let filtre_lieu = "";
 
-    $('.card-group').hide();
-    $('#radio0').click(function () {
-        $('.card-group').hide('slow', 'swing');
-    });
-    $('#radio1').click(function () {
-        $('.card-group').show('slow', 'swing');
-    });
-    $('#radio2').click(function () {
-        $('.card-group').hide('slow', 'swing');
-    });
-    $('#radio3').click(function () {
-        $('.card-group').hide('slow', 'swing');
-    });
-    $('#radio4').click(function () {
-        $('.card-group').hide('slow', 'swing');
-    });
+    function filtreGlobale(){
 
-    // Ce script me permet de mettre la catégorie (Tous, Voiture, Utilitaires, 2 Roues, Luxes) choisie en gras
-    // Il me permet également de filtrer mes éléments sur base de ma recherche
-    // console.log(this);
-    $('#radio0').ready(function () {
-        document.getElementById('Tous').style.fontWeight = 'bold';
-        $('#radio0').click(function () {
-            document.getElementById("Tous").style.fontWeight = 'bold';
-            document.getElementById("V").removeAttribute('style');
-            document.getElementById("utilitaires").removeAttribute('style');
-            document.getElementById("2roues").removeAttribute('style');
-            document.getElementById("luxe").removeAttribute('style');
+        var filtre = new RegExp('\\b\\w*'+filtre_lieu+'\\w*\\b');
+        var filtre2 = new RegExp('\\b\\w*'+filtre_typeCat+'\\w*\\b');
 
-            $('.myFliter').each(function (i, j) {
-                $(this).addClass("collapse");
-                for (let item of selected.values()){
-                    if($(this).hasClass(item)){
-                        $(this).removeClass("collapse");
-                        // console.log($(this));
+        // Je selectionne tous les elements qui ont la class myFliter, qui representent les véhicules
+        // Ensuite, je les cache tous avec un 'hide'
+        // Ensuite, j'applique un filtre. Si ce filtre est vrai ('true'), je fais l'action suivante 'show'
+        // Enfin, si je renvoie 'false', je m'arrête (pas de 'show'). Le véhicule reste caché.
+        $('.myFliter').hide('slow', 'swing').filter(function () {
+
+            var data_name = $(this).data('name');
+            let result = true;
+
+            if (filtre_typeCat.length > 0){
+
+                result = false;
+
+                filtre_typeCat.forEach(function (f) {
+
+                    var filtre2 = new RegExp('\\b\\w*'+f+'\\w*\\b');
+                    console.log($(this).data('name'));
+                    console.log(data_name);
+
+                    if (filtre2.test(data_name)){
+                        result = true;
                     }
-                }
-                if($(this).hasClass('utilitaires')){
-                    $(this).removeClass("collapse");
-                    // console.log($(this));
-                }
-                if($(this).hasClass('2roues')){
-                    $(this).removeClass("collapse");
-                    // console.log($(this));
-                }
-                if($(this).hasClass('luxe')){
-                    $(this).removeClass("collapse");
-                    // console.log($(this));
-                }
-                if (selected.length==0){
-                    $(this).removeClass("collapse");
-                }
-            });
-        });
-    });
+                });
+            }
 
-    $('#radio1').click(function () {
-        document.getElementById("V").style.fontWeight = 'bold';
-        document.getElementById("Tous").removeAttribute('style');
-        document.getElementById("utilitaires").removeAttribute('style');
-        document.getElementById("2roues").removeAttribute('style');
-        document.getElementById("luxe").removeAttribute('style');
+            if (filtre.test($(this).data('name')) && result){
+                return true;
+            }else {
+                return false;
+            }
+        }).show('slow', 'swing');
 
-        $('.myFliter').each(function (i, j) {
-            $(this).addClass("collapse");
-            for (let item of selected.values()){
-                if($(this).hasClass(item)){
-                    $(this).removeClass("collapse");
-                    // console.log($(this));
-                }
+        $('.myFliter').each(function () {
+            if ($(this).is(':visible')){
+                console.log(2);
             }
-            if (selected.length==0){
-                $(this).removeClass("collapse");
+            else {
+                console.log(3);
             }
-            if($(this).hasClass('utilitaires')){
-                $(this).addClass("collapse");
-                // console.log($(this));
-            }
-            if($(this).hasClass('2roues')){
-                $(this).addClass("collapse");
-                // console.log($(this));
-            }
-            if($(this).hasClass('luxe')){
-                $(this).addClass("collapse");
-                // console.log($(this));
-            }
-        });
-    });
-
-    $('#radio2').click(function () {
-        document.getElementById("utilitaires").style.fontWeight = 'bold';
-        document.getElementById("V").removeAttribute('style');
-        document.getElementById("2roues").removeAttribute('style');
-        document.getElementById("luxe").removeAttribute('style');
-        document.getElementById("Tous").removeAttribute('style');
-
-        $('.myFliter').each(function (i, j) {
-            $(this).addClass("collapse");
-            if($(this).hasClass('utilitaires')){
-                $(this).removeClass("collapse");
-                // console.log($(this));
-            }
-            if($(this).hasClass('2roues')){
-                $(this).addClass("collapse");
-                // console.log($(this));
-            }
-            if($(this).hasClass('luxe')){
-                $(this).addClass("collapse");
-                // console.log($(this));
-            }
-        });
-    });
-    $('#radio3').click(function () {
-        document.getElementById("2roues").style.fontWeight = 'bold';
-        document.getElementById("utilitaires").removeAttribute('style');
-        document.getElementById("V").removeAttribute('style');
-        document.getElementById("luxe").removeAttribute('style');
-        document.getElementById("Tous").removeAttribute('style');
-
-        $('.myFliter').each(function (i, j) {
-            $(this).addClass("collapse");
-            if($(this).hasClass('2roues')){
-                $(this).removeClass("collapse");
-                // console.log($(this));
-            }
-            if($(this).hasClass('utilitaires')){
-                $(this).addClass("collapse");
-                // console.log($(this));
-            }
-            if($(this).hasClass('luxe')) {
-                $(this).addClass("collapse");
-            }
-        });
-    });
-    $('#radio4').click(function () {
-        document.getElementById("luxe").style.fontWeight = 'bold';
-        document.getElementById("V").removeAttribute('style');
-        document.getElementById("2roues").removeAttribute('style');
-        document.getElementById("utilitaires").removeAttribute('style');
-        document.getElementById("Tous").removeAttribute('style');
-
-        $('.myFliter').each(function (i, j) {
-            $(this).addClass("collapse");
-            if($(this).hasClass('luxe')){
-                $(this).removeClass("collapse");
-                // console.log($(this));
-            }
-            if($(this).hasClass('utilitaires')){
-                $(this).addClass("collapse");
-                // console.log($(this));
-            }
-            if($(this).hasClass('2roues')) {
-                $(this).addClass("collapse");
-            }
-        });
-    });
-
+        })
+    }
 
     // Ce script me permet d'afficher les véhicules en fonction du lieu
-    // $('#mySelect1').click(function () {
-    //     document.getElementById("affAgence").
-    // });
 
+    $('#select1').change(function () {
+        console.log($("#select1 option:selected").val());
 
+        filtre_lieu = $("#select1 option:selected").val();
+        filtreGlobale();
+    });
 
     // Ce script me permet de changer la couleur des icones-catégorie
     // Il me permet également de faire la recherche sur base des critères choisies
@@ -194,27 +87,19 @@ $(document).ready(function () {
         }
         // $('#res').text(selected);
         console.log(selected);
-        $('.myFliter').each(function (i, j) {
-            $(this).addClass("collapse");
-            for (let item of selected.values()){
-                if($(this).hasClass(item)){
-                    $(this).removeClass("collapse");
-                    // console.log($(this));
-                }
-            }
-            if (selected.length==0){
-                $(this).removeClass("collapse");
-            }
-        });
+
+        filtre_typeCat = selected;
+        filtreGlobale();
     });
 
     console.log('vehicule.js');
 // =======================================================
 //                          Script Modal
-//  =========================================================
+//========================================================
     $('[id^=vehicule]').click(function () {
         console.log(this.id);
         var marqueModele = this.id.substr(8,4);
+        var btn_res = "<a class=\"btn btn-unique myBtn\" id=\"reserver3\" href=\"/reservation/?id="+marqueModele+" \">Reserver</a>";
         var nameCard = 'card' + marqueModele;
         console.log(marqueModele);
         console.log(nameCard);
@@ -231,11 +116,13 @@ $(document).ready(function () {
         $('#pays').html(origine1);
         $('#ville').html(origine2);
         $('#aeroport').html(origine3);
+        $('#btn-res-modal').html("");
+        $(btn_res).appendTo("#btn-res-modal");
         $('#myModal').show();
     });
     $('.close').click(function () {
         $('#myModal').hide();
-    })
+    });
 });
 
 

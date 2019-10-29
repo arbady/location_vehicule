@@ -23,6 +23,27 @@
             </a>
         </div>
 
+        {#        Ce code permet d'afficher un accordion pour faire apparaitre les disponibilités du véhicule sélectionnés #}
+
+{#        <div class="card-header" id="headingTwo">#}
+{#            <h2 class="mb-0">#}
+{#                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">#}
+{#                    Voir les disponibilités#}
+{#                </button>#}
+{#            </h2>#}
+{#        </div>#}
+{#        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">#}
+{#            <div class="card-body">#}
+{#                <p>Ce véhicule est indisponible du :</p>#}
+{#                {% for dispo in vehicule.disponibilites %}#}
+{#                    {% if "now"|date('Y-m-d') == dispo.date.date|date('Y-m-d') %}#}
+{#                        <p>#}
+{#                            - {{ dispo.date.date |localizeddate('none', 'none', null, null, 'd MMMM Y') }} au {{ dispo.date.date |localizeddate('none', 'none', null, null, 'd MMMM Y') }}#}
+{#                        </p>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
     </div>
     <!-- Card-1 -->
 
@@ -81,7 +102,7 @@
                 <select class="custom-select-sm form-control" name="id_agence" id="conditionsselect1" required autofocus>
                     <option selected style="text-align: center">-- Selectionnez un lieu de retour --</option>
                     {% for agence in tab_agences %}
-                        <option value="{{ agence.id }}">
+                        <option value="{{ agence.id }}" label="{{ agence.ville }}">
                             {{ agence.ville|capitalize }}
                         </option>
                     {% endfor %}
@@ -89,11 +110,13 @@
             </div>
 
             {# ========================================================#}
-            <p class="hideELt" id="catVehic">{{ vehicule.categorie }}</p>
+            <p class="hideELt" id="catVehic" name="id_categorie">{{ vehicule.categorie }}</p>
             <p class="hideELt" id="prixVehic">{{ vehicule.categorie.coutParJour }}</p>
             <p class="hideELt" id="retourEndDiff"></p>
             <input class="hideELt" id="id_vehicule" name="id_vehicule" value="{{ vehicule.id }}" />
-            <p class="hideELt" id="lieuRetour">{% for dispo in vehicule.disponibilites %}{{ dispo.agence.ville }}{% endfor %}</p>
+            <input class="hideELt" id="id_lieuDepart" name="id_lieuDepart" value="{% for dispo in vehicule.disponibilites %}{% if "now"|date('Y-m-d') == dispo.date.date|date('Y-m-d') %}{{ dispo.agence.id }}{% endif %}{% endfor %}" />
+            <p class="hideELt" id="lieuDepart">{% for dispo in vehicule.disponibilites %}{% if "now"|date('Y-m-d') == dispo.date.date|date('Y-m-d') %}{{ dispo.agence.ville }}{% endif %}{% endfor %}</p>
+            <p class="hideELt" id="users" name="id_user">{{ app.user.nom }} {{ app.user.prenom }}</p>
             {#==========================================================#}
 
             <div class="form-group" id="memeLigne" style="margin: 5% 10%;">
@@ -104,7 +127,7 @@
             <div class="form-group" id="memeLigne" style="margin-left: 10%">
                 <input placeholder="Select date" type="text" class="custom-select-sm form-control datepicker2" id="datepicker2" />
                 <input type="hidden" id="date2" name="date2">
-                <input placeholder="Select time" type="text" class="custom-select-sm form-control timepicker2" id="timepicker2" name="usr_time2" />
+                <input placeholder="Select time" id="timepicker2" type="text" class="custom-select-sm form-control timepicker2" name="usr_time2" />
             </div>
         </div>
 
@@ -118,29 +141,41 @@
 {#                <input type="email" id="form1" class="form-control" oninput="this.className = 'form-control'" name="email">#}
 {#                <label for="form1">E-mail</label>#}
 {#            </div>#}
+            <div class="custom-select-sm form-group" style="margin-top: 36%;">
+                <div class="custom-control custom-checkbox" style="margin-top: -30%;">
+                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked2" name="option1" />
+                    <label class="custom-control-label text-res" for="defaultUnchecked2" >
+                        Couverture dommages <span class="hide-show1"><b>| 3 euros</b></span>
+                    </label>
+                </div>
 
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="defaultUnchecked2" name="option1" />
-                <label class="custom-control-label text-res" for="defaultUnchecked2" style="font-size: 14px">
-                    Couverture dommages <span class="hide-show1"><b>| 3 euros</b></span>
-                </label>
-            </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked3" name="option2" />
+                    <label class="custom-control-label text-res" for="defaultUnchecked3" >
+                        Couverture vol <span class="hide-show2" style=""><b>| 4 euros</b></span>
+                    </label>
+                </div>
 
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="defaultUnchecked3" name="option2" />
-                <label class="custom-control-label text-res" for="defaultUnchecked3" style="font-size: 14px">
-                    Couverture vol <span class="hide-show2" style=""><b>| 4 euros</b></span>
-                </label>
-            </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked4" name="age">
+                    <label class="custom-control-label text-res" for="defaultUnchecked4">25 - 69 <span class="hide-show3" style=""><b>| 5 euros</b></span>
+                        <i tabindex="0" class="fa fa-question-circle" id="tooltip">
+                            <span class="tooltiptext">
+                                <p>And here's some amazing content. It's very engaging. Right</p>
+                            </span>
+                        </i>
+                    </label>
+                </div>
 
-            <div>
-                <input type="radio" class="radio-inline" name="radio1" id="PayOnline" style="margin-top: 1%" checked />
-                <label class="text" id="payOnline" for="PayOnline">Payer en ligne</label>
-            </div>
+                <div style="margin-left: 4.3%; margin-top: 5%;">
+                    <input type="radio" class="radio-inline online" id="PayOnline" name="radio" value="online" style="margin-top: 1%" checked />
+                    <label class="text" id="payOnline" for="PayOnline">Payer en ligne</label>
+                </div>
 
-            <div>
-                <input type="radio" class="radio-inline" name="radio2" id="PayAgence" style="margin-top: 1%" />
-                <label class="text" id="PayAgence" for="PayAgence">Payer en agence</label>
+                <div style="margin-left: 4.3%;">
+                    <input type="radio" class="radio-inline agence" id="PayAgence" name="radio" value="agence" style="margin-top: 1%" />
+                    <label class="text" id="PayAgence" for="PayAgence">Payer en agence</label>
+                </div>
             </div>
 
 {#            <div class="md-form">#}
@@ -166,16 +201,17 @@
             <div id="details"></div>
         </div>
 
-        <div class="row">
+        <div class="row" style="margin-top: 10%;">
             <div class="col-6">
 
                 <button class="btn btn-blue-grey btn-rounded prevBtn" type="button" id="prevBtn"
-                        onclick="nextPrev(-1)" style="background: #F57F17 !important">Previous</button>
+                        onclick="nextPrev(-1)" style="background: #F57F17 !important;">Previous</button>
             </div>
             <div class="col-6">
                 <button class="btn btn-success btn-rounded nextBtn" type="button" id="nextBtn"
                         onclick="nextPrev(1)" style="background: #F57F17 !important">Next</button>
             </div>
+            <button class="btn btn-blue-grey btn-rounded prevBtn" type="submit" id="submm"  style="width: 45%; margin-left: 50%; margin-top: -11%; background: rgb(245, 127, 23) !important; display: inline;">Valider</button>
         </div>
         <div class="text-center mt-5">
             <span class="step" data-number="0"></span>
@@ -184,45 +220,50 @@
 {#            <span class="step" data-number="3"></span>#}
         </div>
     </form>
-    <div class="container registration-successful">
-        <div class="text-center pt-4">
+{#    <div class="container registration-successful">#}
+{#        <div class="text-center pt-4">#}
 
-            <h2 class="text-center display-4 mt-4 font-weight-bold">Registered!</h2>
+{#            <h2 class="text-center display-4 mt-4 font-weight-bold">Registered!</h2>#}
 
-        </div>
-    </div>
+{#        </div>#}
+{#    </div>#}
 
     <script>
-        let info = {lieuRetour:"", depart:"", heureDepart:"", retour:"",
-            heureRetour:"", catVehic:"", retourEndDiff:false, couvDom:false,
-            couvVol:false, payOnline:"", payAgence:"", prixCat:0, prixTot:0};
+        let info = {lieuRetour:"", dateDepart:"", heureDepart:"", dateRetour:"",
+            heureRetour:"", catVehic:"", users:"", retourEndDiff:false, couvDom:0,
+            couvVol:0, age:0, payOnline:true, payAgence:false, prixCat:0, prixTot:0};
 
         let currentTab = 0;
         showTab(currentTab);
 
         $("#cache").hide();
+        $(".hide-show1").hide();
 
-        $('.datepicker1').datepicker({
-            minDate: new Date(),
-            startDate: "today",
-            format: "mm/dd/yyyy",
-            language: "fr",
-            todayHighlight: true
+        let today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+
+        $(".datepicker1").datepicker({
+            format: 'dd mmm yyyy',
+            minDate: today,
+            maxDate: function () {
+                return $('.datepicker2').val();
+            },
+            numberOfMonths: 1,
         });
+
+        $(".datepicker2").datepicker({
+            format: 'dd mmm yyyy',
+            minDate: function () {
+                if ($('.datepicker1').val()){
+                    return $('.datepicker1').val();
+                }
+                else {
+                    return today;
+                }
+            },
+        });
+
         $('.timepicker1').timepicker();
-        // $('.timepicker1').datetimepicker({
-        //     pickDate: false,
-        //     pickSeconds: false
-        // });
 
-        $('.datepicker2').datepicker({
-            minDate: new Date(),
-            weekStart: 0,
-            // format: "dd/mm/yyyy",
-            format: "mm/dd/yyyy",
-            language: "fr",
-            todayHighlight: true
-        });
         $('.timepicker2').timepicker();
 
         function showTab(number) {
@@ -230,19 +271,29 @@
             let $openTab = $($tabs[number]);
             let $prevBtn = $('#prevBtn');
             let $nextBtn = $('#nextBtn');
-
+            let $submitBtn = $('#submm');
             $openTab.css("display", "block");
 
-            number == 0 ? $prevBtn.css("display", "none") : $prevBtn.css("display", "inline");
-            if (number == ($tabs.length - 1) ){
-                $nextBtn.text("Submit");
-                $nextBtn.attr('type', 'submit');
-                $nextBtn.attr('value', 'submit');
+            number === 0 ? $prevBtn.css("display", "none") : $prevBtn.css("display", "inline");
+            // console.log($tabs.length -4);
+            // console.log(number);
+
+            console.log(number);
+            if (number === 2 ){
+                $nextBtn.hide();
+                $submitBtn.show();
+               // $nextBtn.text("Submit");
+                //$nextBtn.attr('type', 'submit');
+                //$nextBtn.attr('value', 'submit');
+
             }
             else {
                 $nextBtn.text("Next");
+                $nextBtn.show();
+                $submitBtn.hide();
+                // $nextBtn.attr('type', '');
+                // $nextBtn.attr('value', '');
             }
-
             fixStepIndicator(number);
         }
 
@@ -256,23 +307,6 @@
             $currentStep.addClass("active");
         }
 
-        //Faire disparaitre le montant
-
-        $('.hide-show1').hide();
-        $('#defaultUnchecked2').click(function () {
-            $('.hide-show1').show('slow', 'swing');
-        });
-
-        $('.hide-show2').hide();
-        $('#defaultUnchecked3').click(function () {
-            $('.hide-show2').show('slow', 'swing');
-        });
-
-        $("#conditionsselect1").click(function () {
-            info.lieuRetour = $(this).val();
-            console.log(info);
-        });
-
         $('#datepicker1').datepicker({
             uiLibrary: 'bootstrap4',
             locale: 'fr_fr',
@@ -280,16 +314,16 @@
         });
 
         $('#datepicker1').on("change", function() {
-            console.log(this);
-            info.depart = new Date($(this).datepicker().value());
+           // console.log(this);
+            info.dateDepart = new Date($(this).datepicker().value());
             $('#date1').val($(this).datepicker().value());
-            console.log(info)
+            //console.log(info)
         });
 
         $('#datepicker2').on("change", function() {
-            info.retour = new Date($(this).datepicker().value());
+            info.dateRetour = new Date($(this).datepicker().value());
             $('#date2').val($(this).datepicker().value());
-            console.log(info)
+           // console.log(info)
         });
 
         $("input[type=text]").on("change", function() {
@@ -297,9 +331,9 @@
                 info.heureDepart = new Date(this.valueAsDate);
             }
             if (this.id == 'timepicker2'){
-                info.heureRetour = this.valueAsDate;
+                info.heureRetour = new Date(this.valueAsDate);
             }
-            console.log(info)
+            //console.log(info)
         });
 
         $("#defaultUnchecked1").click(function () {
@@ -310,33 +344,76 @@
             else{
                 info.retourEndDiff = false;
                 $("#cache").hide('slow', 'swing');
-                console.log(info)
+               // console.log(info)
             }
         });
 
-        $("#payOnline").click(function () {
+        $(".online").click(function () {
             info.payOnline = $(this).val();
-            console.log(info)
+            info.payAgence = false;
+           // console.log(info);
         });
-        $("#payAgence").click(function () {
+
+        $(".agence").click(function () {
             info.payAgence = $(this).val();
-            console.log(info)
+            info.payOnline = false;
+           // console.log(info);
         });
+
         $("#defaultUnchecked2").click(function () {
-            info.couvDom = $(this).val();
-            console.log(info)
+            // info.couvDom = $(this).val();
+            // console.log(info);
+            if ($(this).prop("checked")){
+                info.couvDom = 3;
+                $(".hide-show1").show('slow', 'swing');
+            }
+            else{
+                info.couvDom = 0;
+                $(".hide-show1").hide('slow', 'swing');
+                // console.log(info)
+            }
         });
+
         $("#defaultUnchecked3").click(function () {
-            info.couvVol = $(this).val();
-            console.log(info)
+            // console.log(info);
+            if ($(this).prop("checked")){
+                info.couvVol = 4;
+                $(".hide-show2").show('slow', 'swing');
+            }
+            else{
+                info.couvVol = 0;
+                $(".hide-show2").hide('slow', 'swing');
+                // console.log(info)
+            }
+        });
+
+        $("#defaultUnchecked4").click(function () {
+            // console.log(info);
+            if ($(this).prop("checked")){
+                info.age = 5;
+                $(".hide-show3").show('slow', 'swing');
+            }
+            else{
+                info.age = 0;
+                $(".hide-show3").hide('slow', 'swing');
+                // console.log(info)
+            }
+        });
+
+        $("select[name='id_agence']").change( function() // lorsqu'une agence est sélectionnée
+        {
+            info.lieuRetour = $("select[name='id_agence'] > option:selected").attr('label') ;
         });
 
         function calcul(){
             var affDetails = "";
             var prixVehic = $('#prixVehic').html();
             var catVehic = $('#catVehic').html();
-            var lieuRetour = $('#lieuRetour').html();
+            var lieuDepart = $('#lieuDepart').html();
             var retourEndDiff = $('#retourEndDiff').html();
+            var user = $('#users').html();
+            // var couvDom = 3;
+            // var couvVol = 4;
 
             info.prixCat = prixVehic;
 
@@ -344,69 +421,104 @@
             day = date1.getDate();
             month = date1.getMonth() + 1;
             year = date1.getFullYear();
-            info.depart = [day, month, year].join('/');
+            info.dateDepart = [day, month, year].join('/');
 
             if (info.heureDepart){
                 var heure = info.heureDepart.getHours();
                 var minute = info.heureDepart.getMinutes();
                 date1.setHours(heure);
                 date1.setMinutes(minute);
-                console.log(date1);
+                // console.log(date1);
             }
 
             var date2 = new Date($('#datepicker2').val());
             day = date2.getDate();
             month = date2.getMonth() + 1;
             year = date2.getFullYear();
-            info.retour = [day, month, year].join('/');
+            info.dateRetour = [day, month, year].join('/');
 
             if (info.heureRetour){
                 var heure = info.heureRetour.getHours();
                 var minute = info.heureRetour.getMinutes();
                 date2.setHours(heure);
                 date2.setMinutes(minute);
-                console.log(date2);
+                // console.log(date2);
             }
-            console.log(info);
+            // console.log(info);
 
             var diffMs = date2 - date1;
             var diffDays = Math.floor(diffMs / 86400000); // days
             var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
             var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
             // alert(diffDays + " days, " + diffHrs + " hours, " + diffMins + " minutes until Christmas 2009 =)");
-            console.log(diffHrs);
+            // console.log(diffHrs);
+
+            if (diffDays == 0)
+                diffDays = 1;
+            info.prixTot = (prixVehic * diffDays) + info.couvDom + info.couvVol + info.age;
+
+            $('<input>').attr({
+                type: 'hidden', id:'prixTot', name:'coutTot', value:info.prixTot
+            }).appendTo('form');
+
+            $('<input>').attr({
+                type: 'hidden', id:'prixVehic', name:'prixVehic', value:prixVehic
+            }).appendTo('form');
+
+            $('<input>').attr({
+                type: 'hidden', id:'couvDom', name:'couvDom', value:info.couvDom
+            }).appendTo('form');
+
+            $('<input>').attr({
+                type: 'hidden', id:'prixVehic', name:'couvVol', value:info.couvVol
+            }).appendTo('form');
+
+            $('<input>').attr({
+                type: 'hidden', id:'prixVehic', name:'age', value:info.age
+            }).appendTo('form');
 
             //Affichages
+
+            if (user != null){
+                affDetails+="<p class='taille'><b class=''>Client :</b> <span class='texte-droite'>" +user+"</span></p>";
+            }
 
             if (catVehic != ""){
                 affDetails+="<p class='taille'><b class=''>Catégorie du véhicule :</b> <span class='texte-droite'>" +catVehic+"</span></p>";
             }
 
+            affDetails+="<p class='taille'><b>lieu de depart :</b> <span class='texte-droite'>"+lieuDepart+"</span></p>";
+
             if (retourEndDiff != true){
-                affDetails+="<p class='taille'><b>Lieu de départ :</b> </p>";
-                affDetails+="<p class='taille'><b>Retour à :</b> <span class='texte-droite'>"+lieuRetour+"</span></p>";
+                affDetails+="<p class='taille'><b>Retour à :</b> <span class='texte-droite'>"+info.lieuRetour+"</span></p>";
+                // if (retourEndDiff == ""){
+                //     affDetails+="<p class='taille'><b>Retaour à :</b> <span class='texte-droite'>"+lieuDepart+"</span></p>";
+                // }
             }
 
             if (diffDays !=""){
                 affDetails+="<p class='taille'><b>nombre de jour :</b><span class='texte-droite'> " +diffDays+" Jour(s)</span></p>";
             }
-
-            if (diffHrs !=""){
-                affDetails+="<p class='taille'><b>nombre d'heure :</b> <span class='texte-droite'>" +diffHrs+" Heure(s)</span></p>";
-            }
-
+            // if (diffHrs !=""){
+            //     affDetails+="<p class='taille'><b>nombre d'heure :</b> <span class='texte-droite'>" +diffHrs+" Heure(s)</span></p>";
+            // }
             if (prixVehic !=0){
                 affDetails+="<p class='taille'><b>Coût par jour :</b> <span class='texte-droite'>" +prixVehic+ " Euros / Jour </span></p>";
             }
 
             if (prixVehic !=0){
-                affDetails+="<p class='taille'><b>Couverture dommages : </b></p>";
-                affDetails+="<p class='taille'><b>Couverture vol :</b> </p>";
-                affDetails+="<p class='taille'><b>Coût total à payer (TVA) :</b> </p>";
+                affDetails+="<p class='taille'><b>Couverture dommages :</b> <span class='texte-droite'>" +info.couvDom+" Euros</span></p>";
+                affDetails+="<p class='taille'><b>Couverture vol :</b> <span class='texte-droite'>" +info.couvVol+" Euros</span></p>";
+                affDetails+="<p class='taille'><b>25 - 69 :</b> <span class='texte-droite'>" +info.age+" Euros</span></p>";
             }
 
+            if (info.prixTot != 0){
+                affDetails+="<p class='taille'><b>Coût total à payer (TVA comprise) :</b> <span class='texte-droite'>" +info.prixTot+ " Euros </span> </p>";
+            }
+
+
             $('#details').html(affDetails);
-        };
+        }
 
         function nextPrev(number) {
             let $tabs = $('.tab');
@@ -420,7 +532,7 @@
             currentTab = currentTab + number;
             if (currentTab >= $tabs.length) {
                 $('#regForm').css('display', 'none');
-                $('.registration-successful').css('display', 'block');
+                // $('.registration-successful').css('display', 'block');
                 return false;
             }
             showTab(currentTab);

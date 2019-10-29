@@ -285,7 +285,7 @@ ul.pagination{
     background-color: #fff !important;
     /* border-color: #80bdff; */
     outline: 0 !important;
-    box-shadow: 0 0 0 0.2rem #FFF176 !important;
+    box-shadow: 0 0 0 0.2rem #F57F17 !important;
 }
 .text{
     cursor: pointer;
@@ -305,7 +305,7 @@ ul.pagination{
 
 .slide{
     /*left: 30%;*/
-    z-index: 0;
+    z-index: -1;
     margin-top: -52.2%;
     margin-bottom: 10%;
     width: 100%;
@@ -647,7 +647,7 @@ h3{
     width: 120px;
     background-color: white;
     color: black;
-    font-size: 12px;
+    font-size: 10px !important;
     font-family: "Trebuchet MS", sans-serif;
     font-weight: normal;
     text-align: center;

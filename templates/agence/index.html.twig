@@ -12,20 +12,21 @@
         <div class="col-sm-6" style="margin-top: -5%">
             <div class="card" style="width: 125%;">
                 <div class="card-body">
-                    <h5 class="card-title titre-card">Special title treatment</h5>
-                    <p class="card-text text-card">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                    <p class="card-text text-card">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                    <a href="#" class="">Lire la suite ...</a>
+                    <h5 class="card-title titre-card">Service pour sociétés</h5>
+                    <p class="card-text text-card" style="text-align: justify">Vous êtes à la recherche d’un véhicule de courtoisie pour un nouveau collaborateur sans vous lier à un contrat de leasing long terme, ou un véhicule de location pour des visiteurs de votre firme ?</p>
+                    <p class="card-text text-card" style="text-align: justify">Vous avez besoin d’un utilitaire pour un évènement ou une livraison inattendue ?</p>
+                    <p class="card-text text-card" style="text-align: justify"><b><i>MyCaag</i></b> vous offre une solution sur mesure pour tous vos besoins de mobilité, et ceci avec une flexibilité optimale.</p>
+                    <p class="card-text text-card" style="text-align: justify"><i>Vous souhaitez nous contacter pour plus d'infos ?</i><a href=""> +32 466423930</a></p>
                 </div>
             </div>
         </div>
         <div class="col-sm-6" style="margin-top: -5%">
             <div class="card" style="width: 90%; margin-left: 25%">
                 <div class="card-body">
-                    <h5 class="card-title titre-card">Special title treatment</h5>
-                    <p class="card-text text-card">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                    <p class="card-text text-card">Lorem ipsum dolor sit amet, consectetur adipiscing elit ...</p>
-                    <a href="#" class="">Lire la suite ...</a>
+                    <h5 class="card-title titre-card" style="text-align: justify"><b>MyCaag</b>, propriétaires de flotte</h5>
+                    <p class="card-text text-card" style="text-align: justify">Nous avons comme objectif de soumettre aux entreprises, grandes ou petites, un ensemble de <b>services de haute qualité</b>.</p>
+                    <p class="card-text text-card" style="text-align: justify">Avec vous, nous recherchons la solution correspondant le mieux à vos besoins en mobilité. En effet, une bonne communication est à la base d'un <b>service rapide et personnalisé</b>.</p>
+                    <p class="card-text text-card" style="text-align: justify"><i>Pour plus d'infos ?</i> <a href="">arnoldmpoyi@yahoo.fr</a></p>
                 </div>
             </div>
         </div>
@@ -34,44 +35,21 @@
     <div class="accordion" id="accordionExample" style="width: 90%; margin-left: 5%; margin-bottom: 2%">
         <div class="card">
             <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
+                <h5 class="mb-0" style="width: 15%; margin-left: 42.5%">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                         Voir le plan
                     </button>
                 </h5>
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div class="card-body">
-                    <h5 class="card-title titre-card">Trouver une agence</h5>
-                    <div class="form-group">
-                        <select class="form-control mySelect-agence" name="id_agence" id="conditionsselect1" required autofocus>
-                            <option>
-                                -- Selectionner un pays --
-                            </option>
-                            {% for agence in agences %}
-                                <option value="{{ agence.id }}">
-                                    {{ agence.pays|capitalize }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </div>
+                <div class="card-body" style="margin-left: 30%">
 
-                    <div class="form-group">
-                        <select class="form-control mySelect-agence">
-                            <option>
-                                -- Selectionner une ville --
-                            </option>
-                            {% for agence in agences %}
-                                <option value="{{ agence.id }}">
-                                    {{ agence.ville|capitalize }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </div>
+                    <h5 class="card-title titre-card" style="margin-left: 3%;">Trouver une agence</h5>
 
-                    <div class="form-group">
-                        <select class="form-control mySelect-agence">
-                            <option>
+                    <div class="form-group" style="width: 32%;">
+
+                        <select class="form-control mySelect-agence" id="selectAgence">
+                            <option value="">
                                 -- Selectionner un aéroport --
                             </option>
                             {% for agence in agences %}
@@ -80,59 +58,350 @@
                                 </option>
                             {% endfor %}
                         </select>
+
                     </div>
 
-                    <a href="#" class="btn btn-primary">Trouver</a>
+                    <a href="#" class="btn btn-primary" style="width: 15%; margin-top: -10%; margin-left: 35%">Trouver</a>
 
-                    <div id="bruxelles">
-                        <iframe id="inlineFrameExample"
-                            title="Inline Frame Example"
-                            width="300"
-                            height="200"
-                            src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+                    <div id="bruxelles" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="https://umap.openstreetmap.fr/fr/map/aeroport-de-zaventem_378838?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false">
                         </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-de-zaventem_378838">
+                                Voir en plein écran
+                            </a>
+                        </p>
                     </div>
-                    <div id="paris">
-                        <iframe id="inlineFrameExample"
-                                title="Inline Frame Example"
-                                width="300"
-                                height="200"
-                                src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+                    <div id="paris" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378839:70fDr8q9ejc2BSScCYhrDitA1PU">
                         </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-charles-de-gaulle_378839">
+                               Voir en plein écran
+                            </a>
+                        </p>
                     </div>
-                    <div id="charleroi">
-                        <iframe id="inlineFrameExample"
-                                title="Inline Frame Example"
-                                width="600"
-                                height="300"
-                                src="https://umap.openstreetmap.fr/fr/map/carte-sans-nom_360825#15/50.8749/4.4756">
+                    <div id="charleroi" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="https://umap.openstreetmap.fr/fr/map/aeroport-de-charleroi_378840?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false">
                         </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-de-charleroi_378840">
+                                Voir en plein écran
+                            </a>
+                        </p>
                     </div>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
+                    <div id="amsterdam" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378842:buzO_FG4JrA9vfWpg8_7GW7Rbvo">
+                        </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-damsterdam_378842">
+                                Voir en plein écran
+                            </a>
+                        </p>
+                    </div>
+                    <div id="liege" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378843:TDJGmlSwYWeJAQsIqguiNuM5MBY">
+                        </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/carte-sans-nom_378843">
+                                Voir en plein écran
+                            </a>
+                        </p>
+                    </div>
+                    <div id="orly" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378839:70fDr8q9ejc2BSScCYhrDitA1PU">
+                        </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-dorly_378844">
+                                Voir en plein écran
+                            </a>
+                        </p>
+                    </div>
+                    <div id="lille" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378845:PwvvUrNxVGCERDHfPvG5QPWegto">
+                        </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-de-lille_378845">
+                                Voir en plein écran
+                            </a>
+                        </p>
+                    </div>
+                    <div id="kin" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378847:AT9ziAmQRVjJBY1vs7sSkq9o4-Y">
+                        </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-de-ndjili_378847">
+                                Voir en plein écran
+                            </a>
+                        </p>
+                    </div>
+                    <div id="frankfurt" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378848:4PveHTlD4CJUh-M9VKVaEbsjIU4">
+                        </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-de-frankfurt_378848">
+                                Voir en plein écran
+                            </a>
+                        </p>
+                    </div>
+                    <div id="lux" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378850:H1MVO28glbOzR2OHVZihilGPHVM">
+                        </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-de-luxembourg_378850">
+                                Voir en plein écran
+                            </a>
+                        </p>
+                    </div>
+                    <div id="laus" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378852:PNPof7pVjgR5RM2mRzt1KU904Vg">
+                        </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-de-lausanne_378852">
+                                Voir en plein écran
+                            </a>
+                        </p>
+                    </div>
+                    <div id="anvers" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378854:E0LVS455GG23GKTnFC1CSuF8jnA">
+                        </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-danvers_378854">
+                                Voir en plein écran
+                            </a>
+                        </p>
+                    </div>
+                    <div id="ostende" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378855:8G9KnqfPMuyhlQv7UCnaqGNJad8">
+                        </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-dostende_378855">
+                                Voir en plein écran
+                            </a>
+                        </p>
+                    </div>
+                    <div id="lyon" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378857:hbYJ6C8bQuLpa1byvWKty6wLU94">
+                        </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-de-lyon_378857">
+                                Voir en plein écran
+                            </a>
+                        </p>
+                    </div>
+                    <div id="nice" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378858:10yUgDiE_JwJ5s7bgMciSwv_WFo">
+                        </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroprt-de-nice-cote-dazur_378858">
+                                Voir en plein écran
+                            </a>
+                        </p>
+                    </div>
+                    <div id="bordeaux" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378859:IZsBbe2005wAuFND_DMMl5Z5K50">
+                        </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-de-bordeaux_378859">
+                                Voir en plein écran
+                            </a>
+                        </p>
+                    </div>
+                    <div id="zurich" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378860:bKrtJfR0Na8axB8fJyMqw8eaTlE">
+                        </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-de-zurich_378860">
+                                Voir en plein écran
+                            </a>
+                        </p>
+                    </div>
+                    <div id="geneve" class="umap">
+                        <iframe
+                                width="100%"
+                                height="300px"
+                                frameborder="0" allowfullscreen
+                                style="margin-left: -25%;"
+                                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378861:ANCShIyviKql7NaCtp8jI7mQa0M">
+                        </iframe>
+                        <p>
+                            <a style="margin-left: 15%;"
+                               href="https://umap.openstreetmap.fr/fr/map/aeroport-de-geneve_378861">
+                                Voir en plein écran
+                            </a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div style="margin-left: 5%">
-        <b>Nos agences dans le monde</b>
+    <div style="margin-left: 41%;">
+        <b style=" font-size: 20px;">Nos agences dans le monde</b>
     </div>
-    <div style="width: 90%; margin-left: 5%; margin-bottom: 5%">
-        <select class="form-control mySelect-agence">
-            <option>
-                -- Filtrer par pays --
-            </option>
-            {% for agence in agences %}
-                <option value="{{ agence.id }}">
-                    {{ agence.pays|capitalize }}
-                </option>
-            {% endfor %}
-        </select>
-        <a href="#" class="btn btn-primary">Trouver</a>
+    <div class="container" style="width: 90%; margin-left: 28%; margin-bottom: 5%">
+        <iframe
+                width="100%"
+                height="300px"
+                frameborder="0" allowfullscreen
+                style="margin-left: -25%;"
+                src="http://umap.openstreetmap.fr/fr/map/anonymous-edit/378827:TpsA1O9-GNBvzmkzCvrSpEmt_ls">
+        </iframe>
+        <p>
+            <a style="margin-left: 15%;"
+               href="https://umap.openstreetmap.fr/fr/map/cartes-de-toutes-les-agences_378827">
+                Voir en plein écran
+            </a>
+        </p>
     </div>
 
-    <style>
-
-    </style>
+    <script>
+        $(document).ready(function () {
+            $('.umap').hide();
+            $('#selectAgence').change(function () {
+                $('.umap').hide();
+                let agence = $(this).find("option:selected");
+                let agenceId = agence.val();
+                console.log(agenceId);
+                if (agenceId == 1){
+                    $('#bruxelles').show();
+                }if (agenceId == 2){
+                    $('#paris').show();
+                }if (agenceId == 3){
+                    $('#kin').show();
+                }if (agenceId == 4){
+                    $('#orly').show();
+                }if (agenceId == 5){
+                    $('#liege').show();
+                }if (agenceId == 6){
+                    $('#charleroi').show();
+                }if (agenceId == 7){
+                    $('#anvers').show();
+                }if (agenceId == 8){
+                    $('#ostende').show();
+                }if (agenceId == 9){
+                    $('#lille').show();
+                }if (agenceId == 10){
+                    $('#lyon').show();
+                }if (agenceId == 11){
+                    $('#nice').show();
+                }if (agenceId == 12){
+                    $('#bordeaux').show();
+                }if (agenceId == 13){
+                    $('#zurich').show();
+                }if (agenceId == 14){
+                    $('#geneve').show();
+                }if (agenceId == 15){
+                    $('#laus').show();
+                }if (agenceId == 16){
+                    $('#lux').show();
+                }if (agenceId == 17){
+                    $('#amsterdam').show();
+                }if (agenceId == 18){
+                    $('#frankfurt').show();
+                }
+            })
+        })
+    </script>
 {% endblock %}

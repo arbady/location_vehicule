@@ -9,9 +9,12 @@
         "easycorp/easyadmin-bundle": "^2.3",
         "knplabs/knp-menu-bundle": "^2.2",
         "knplabs/knp-paginator-bundle": "^4.0",
+        "mpdf/mpdf": "^8.0",
         "nelmio/cors-bundle": "^1.5",
         "onurb/doctrine-yuml-bundle": "^1.1",
+        "paypal/rest-api-sdk-php": "*",
         "sensio/framework-extra-bundle": "^5.4",
+        "symfony/apache-pack": "^1.0",
         "symfony/asset": "4.3.*",
         "symfony/console": "4.3.*",
         "symfony/dotenv": "4.3.*",
@@ -85,7 +88,7 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
+            "allow-contrib": true,
             "require": "4.3.*"
         }
     }

@@ -21,7 +21,7 @@ class Contrat
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $num_contrat;
 
@@ -99,7 +99,7 @@ class Contrat
     /**
      * @Grapher\IsDisplayedMethod()
      */
-    public function getNumContrat(): ?int
+    public function getNumContrat(): ?string
     {
         return $this->num_contrat;
     }
@@ -107,7 +107,7 @@ class Contrat
     /**
      * @Grapher\IsDisplayedMethod()
      */
-    public function setNumContrat(int $num_contrat): self
+    public function setNumContrat(string $num_contrat): self
     {
         $this->num_contrat = $num_contrat;
 
@@ -389,5 +389,9 @@ class Contrat
         }
 
         return $this;
+    }
+
+    public function __toString() {
+        return 'NULL';
     }
 }

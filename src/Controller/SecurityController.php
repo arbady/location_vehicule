@@ -6,7 +6,9 @@ use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\PermisRepository;
 use App\Repository\UserRepository;
+use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,11 +19,12 @@ use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 
-
 class SecurityController extends AbstractController
 {
     /**
      * @Route("/login", name="app_login")
+     * @param AuthenticationUtils $authenticationUtils
+     * @return Response
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
@@ -31,10 +34,17 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+
+//        if (true === $authChecker->isGranted('ROLE_USER')) {
+//            return $this->redirectToRoute('');
+//        }
     }
 
     /**
      * @Route("/profile", name="app_profile")
+     * @param AuthenticationUtils $authenticationUtils
+     * @param UserRepository $userRepository
+     * @return Response
      */
     public function profile(AuthenticationUtils $authenticationUtils, UserRepository $userRepository): Response
     {
@@ -46,6 +56,7 @@ class SecurityController extends AbstractController
 
         $user = $userRepository->findBy(['email' => $lastUsername])[0];
 //        dd($user->getPermis());
+       // dd($user);
         return $this->render('profile/profile.html.twig', [
             'last_username' => $lastUsername,
             'user' => $user,
@@ -54,31 +65,65 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/register", name="app_register")
+     * @Route("/update_profile", name="update_profile")
+     * @param Request $request
+     * @param AuthenticationUtils $authenticationUtils
+     * @param UserRepository $userRepository
+     * @return Response
      */
-    public function register(Request $request, LoginFormAuthenticator $authenticator, PermisRepository $permisRepository, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $authenticatorHandler): Response
+    public function updateProfile(Request $request, AuthenticationUtils $authenticationUtils, UserRepository $userRepository): Response
     {
         if ($request->isMethod('POST')) {
-//        $user = new User();
-//        $form = $this->createForm(UserType::class, $user);
-//        $form->handleRequest($request);
-//        if($request->isSubmitted() && $request->isValid()){
+
+//            $idUser = $this->getUser()->getId();
+//            $user = $userRepository->find($idUser);
+            $user = $this->getUser();
+
+            $user->setNom($request->request->get('nom'));
+            $user->setPrenom($request->request->get('prenom'));
+            $user->setSexe($request->request->get('sexe'));
+//            $user->setDateNaissance(date_create_from_format('m/d/Y', $request->request->get('date_naissance')));
+            $user->setAdresse($request->request->get('adresse'));
+            $user->setTelephone(strval($request->request->get('telephone')));
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($user);
+            $em->flush();
+
+            $this->addFlash('success', 'Votre profil a été bien mis à jour !' );
+            return $this->redirectToRoute('app_profile');
+        }
+        else{
+            $this->addFlash('alert', 'Votre profil n\'a pas été mis à jour !' );
+            return $this->redirectToRoute('app_profile');
+        }
+    }
+
+    /**
+     * @Route("/register", name="app_register")
+     * @param UserRepository $userRepository
+     * @param Request $request
+     * @param LoginFormAuthenticator $authenticator
+     * @param PermisRepository $permisRepository
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param GuardAuthenticatorHandler $authenticatorHandler
+     * @return Response
+     */
+    public function register(UserRepository $userRepository, Request $request, LoginFormAuthenticator $authenticator, PermisRepository $permisRepository, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $authenticatorHandler): Response
+    {
+        if ($request->isMethod('POST')) {
+
             $user = new User();
             $user->setNom($request->request->get('nom'));
             $user->setPrenom($request->request->get('prenom'));
             $user->setSexe($request->request->get('sexe'));
-//            $user->setDateNaissance(date_parse_from_format ('%d/%m/%Y', $request->request->get('date_naissance')));
-//            dd($request->request->get('date_naissance'));
-//            dd($request->request->get('date_inscription'));
-
+//            dd(date_create_from_format('m/d/Y', $request->request->get('date_naissance')));
             $user->setDateNaissance(date_create_from_format('m/d/Y', $request->request->get('date_naissance')));
             $user->setEmail($request->request->get('email'));
             $user->setPassword($passwordEncoder->encodePassword($user, $request->request->get('password')));
-//            $user->setDateInscription($request->request->get('date_inscription'));
-//            $user->setDateNaissance(\DateTime::createFromFormat('Y-m-d', "2018-09-09"));
             $user->setDateInscription(date_create_from_format('m/d/Y',$request->request->get('date_inscription')));
             $user->setAdresse($request->request->get('adresse'));
-//            dd($user);
             $user->setTelephone(strval($request->request->get('telephone')));
             $user->setRoles(['ROLE_ALLOWED_TO_SWITCH']);
 
@@ -90,6 +135,13 @@ class SecurityController extends AbstractController
 
             $em = $this->getDoctrine()->getManager();
 
+            $mailUtilise = $userRepository->findBy([
+                "email" => $request->request->get('email')
+            ]);
+            if ($mailUtilise){
+                $this->addFlash('alert', 'Cette adresse mail est déjà prise !' );
+                return $this->redirectToRoute('app_register');
+            }
             $em->persist($user);
             $em->flush();
 
@@ -115,8 +167,8 @@ class SecurityController extends AbstractController
             }
             $em->persist($user);
             $em->flush();
-//            dd($user);
-            //return $this->redirectToRoute('home');
+
+            $this->addFlash('success', 'Votre compte a été créér avec succès !' );
             return $authenticatorHandler
                 ->authenticateUserAndHandleSuccess(
                     $user,
@@ -130,8 +182,12 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/forgotten_password", name="app_forgotten_password")
+     * @param Request $request
+     * @param Swift_Mailer $mailer
+     * @param TokenGeneratorInterface $tokenGenerator
+     * @return Response
      */
-    public function forgottenPassword(Request $request, \Swift_Mailer $mailer, TokenGeneratorInterface $tokenGenerator): Response
+    public function forgottenPassword(Request $request, Swift_Mailer $mailer, TokenGeneratorInterface $tokenGenerator): Response
     {
         if ($request->isMethod('POST')) {
             $email = $request->request->get('email');
@@ -168,6 +224,10 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/reset_password/{token}", name="app_reset_password")
+     * @param Request $request
+     * @param string $token
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @return RedirectResponse|Response
      */
     public function resetPassword(Request $request, string $token, UserPasswordEncoderInterface $passwordEncoder)
     {

@@ -22,7 +22,7 @@ class Facture
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $num_facture;
 
@@ -79,7 +79,7 @@ class Facture
     /**
      * @Grapher\IsDisplayedMethod()
      */
-    public function getNumFacture(): ?int
+    public function getNumFacture(): ?string
     {
         return $this->num_facture;
     }
@@ -87,7 +87,7 @@ class Facture
     /**
      * @Grapher\IsDisplayedMethod()
      */
-    public function setNumFacture(int $num_facture): self
+    public function setNumFacture(string $num_facture): self
     {
         $this->num_facture = $num_facture;
 

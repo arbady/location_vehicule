@@ -10,46 +10,9 @@
 
 <div class="container">
     <h2 class="my-5 h3 text-center" id="test">Choisissez une catégorie de vehicules</h2>
-    <hr class="mb-5">
-    <div class="row">
-        <div class="col">
-            <div style="display: inline-block; margin-left: 0">
-                <div id="all">
-                    <div>
-                        <input type="radio" class="radio-inline coul-btn" name="radio" id="radio0" checked />
-                        <label class="text" id="Tous" for="radio0">Tous</label>
-                    </div>
-                    <div>
-                        <input type="radio" class="radio-inline coul-btn" name="radio" id="radio1" />
-                        <label class="text" id="V" for="radio1">Voitures</label>
-                    </div>
-                    <div>
-                        <input type="radio" class="radio-inline coul-btn" name="radio" id="radio2" />
-                        <label class="text" id="utilitaires" for="radio2">Utilitaires</label>
-                    </div>
-                    <div>
-                        <input type="radio" class="radio-inline coul-btn" name="radio" id="radio3" />
-                        <label class="text" id="2roues" for="radio3">2 Roues</label>
-                    </div>
-                    <div>
-                        <input type="radio" class="radio-inline coul-btn" name="radio" id="radio4" />
-                        <label class="text" id="luxe" for="radio4">Luxes</label>
-                    </div>
-                </div>
-                <div class="col col-decalé">
-                    <select class="form-control mySelect" name="id_agence" id="conditionsselect1 mySelect1">
-                        <option>
-                            -- Filtrer par lieu --
-                        </option>
-                        {% for agence in tab_agences %}
-                            <option id="affAgence" value="{{ agence.id }}">
-                                {{ agence.ville|capitalize }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                </div>
-            </div>
-        </div>
+    <hr class="mb-5" style="margin-top: -2%">
+    <div class="row" style="margin-top: -3%">
+
         <div class="card-group" style="display: flex">
             <div class="col">
                 <div class="card myCard filter" style="box-shadow: unset" id="berline">
@@ -66,7 +29,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="card myCard filter" style="box-shadow: unset" id="coupé">
+                <div class="card myCard filter" style="box-shadow: unset" id="coupe">
                     <p class="grid">
                         <img alt="coupe" src={{ asset('image/coupé.jpg') }}>
                         <h3 id="text-anim">Coupé</h3>
@@ -93,13 +56,54 @@
                         <h3 id="text-anim">Monospace</h3>
                 </div>
             </div>
+            <div class="col">
+                <div class="card myCard filter" style="box-shadow: unset" id="utilitaires">
+                    <p class="grid">
+                        <img alt="utilitaire" src={{ asset('image/utilitaire.jpg') }}>
+                        <h3 id="text-anim">Utilitaire</h3>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card myCard filter" style="box-shadow: unset" id="2roues">
+                    <p class="grid">
+                        <img alt="2roues" src={{ asset('image/2roues.jpg') }}>
+                        <h3 id="text-anim">2 Roues</h3>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card myCard filter" style="box-shadow: unset" id="luxe">
+                    <p class="grid">
+                        <img alt="luxe" src={{ asset('image/luxe.jpg') }}>
+                        <h3 id="text-anim">Luxe</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col" style="margin-left: 23%;">
+            <div style="display: inline-block; margin-left: 0">
+
+                <label for="" style="margin-bottom: 57%; color: black !important">Filter par lieu :</label>
+
+                <div class="col col-decalé">
+                    <select class="form-control mySelect" name="id_agence" id="select1" style="width: 265%">
+                        <option value="" class="text-center">
+                            Tous
+                        </option>
+                        {% for agence in tab_agences %}
+                            <option id="affAgence" value="{{ agence.ville }}">
+                                {{ agence.ville|capitalize }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="container cont-line">
 
-    <hr class="mb-5">
+    <hr class="mb-5" style="margin-top: -8%;">
 
     <!--Section: More-->
     <section>
@@ -115,15 +119,19 @@
                     {% else %}
 {#                        <p>Pays : {% for dispo in vehicule.disponibilites %}{{ dispo.agence.pays }}{% endfor %}</p>#}
                         <!-- Card Narrower -->
-                    <div class="col-12 col-xl-4 col-lg-3 col-sm-12 col-md-4 mb-4 myFliter {{ vehicule.categorie }}">
+                    <div class="col-12 col-xl-4 col-lg-3 col-sm-12 col-md-4 mb-4 myFliter {{ vehicule.categorie }}" data-name="{{ vehicule.categorie }} {% for dispo in vehicule.disponibilites %}{% if dispo.agence.id == vehicule.lieuVehic %}{{ dispo.agence.ville }}{% endif %}{% endfor %}">
                         <div class="card" id="{{ 'card' ~ vehicule.id }}">
 
                             <!-- Card image -->
                             <p class="marque-modele hideELt">{{ vehicule.modele.marque.nom }} | {{ vehicule.modele.nom }}</p>
                             <p class="caract hideELt">{{ vehicule.caracteristiques }}</p>
-                            <p class="origine1 hideELt"><b>Pays</b> : {% for dispo in vehicule.disponibilites %}{{ dispo.agence.pays }}{% endfor %}</p>
-                            <p class="origine2 hideELt"><b>Ville</b> : {% for dispo in vehicule.disponibilites %}{{ dispo.agence.ville }}{% endfor %}</p>
-                            <p class="origine3 hideELt"><b>Aéroport</b> : {% for dispo in vehicule.disponibilites %}{{ dispo.agence.aeroport }}{% endfor %}</p>
+                            {% for dispo in vehicule.disponibilites  %}
+                                {% if dispo.agence.id == vehicule.lieuVehic %}
+                                    <p class="origine1 hideELt"><b>Pays</b> : {{ dispo.agence.pays }} </p>
+                                    <p class="origine2 hideELt"><b>Ville</b> : {{ dispo.agence.ville }} </p>
+                                    <p class="origine3 hideELt"><b>Aéroport</b> : {{ dispo.agence.aeroport }} </p>
+                                {% endif %}
+                            {% endfor %}
                             <div class="card-body">
                             <img  class="card-img-top card-image" src="{{asset('image/' ~ vehicule.images)}}" alt="Card_image_cap" width="70px" height="200px">
                             <a>
@@ -167,12 +175,14 @@
                             <hr class="mb-5" style="margin-top: 5%">
                             {% if vehicule.etat.description == "En agence" %}
                                 <!-- Button -->
-                            <a class="btn btn-unique myBtn" href="{{ path('reservation_index', { id:vehicule.id}) }} ">Reserver</a>
+                            <a class="btn btn-unique myBtn" id="{{ 'reserver' ~ vehicule.id }}" href="{{ path('reservation_index', { id:vehicule.id}) }} ">Reserver</a>
                             <a class="btn btn-unique myBtn plusdInfo" id="{{ 'vehicule' ~ vehicule.id }}" style="">+ d'infos</a>
 
                             {% elseif vehicule.etat.description == "En location" %}
 {#                                <p>Ce véhicule est déjà reservé jusqu'au {% for dispo in vehicule.disponibilites %} {{ dispo.dateDispo |date('d/m/Y') }}{% endfor %}</p>#}
-                                <p class="text-center" style="line-height: 1.38 !important;">Ce véhicule est déjà reservé jusqu'au {% for dispo in vehicule.disponibilites %} {{ dispo.dateDispo |localizeddate('none', 'none', null, null, 'd MMMM Y') }}{% endfor %}</p>
+                                <a class="btn btn-unique myBtn" id="{{ 'reserver' ~ vehicule.id }}" href="{{ path('reservation_index', { id:vehicule.id}) }} ">Reserver</a>
+                                <a class="btn btn-unique myBtn plusdInfo" id="{{ 'vehicule' ~ vehicule.id }}" style="">+ d'infos</a>
+
                             {% else %}
                                 <p style="line-height: 1.38 !important;">Ce véhicule est indisponible jusqu'à une date </p>
                             {% endif %}
@@ -215,8 +225,8 @@
                 </div>
 
                 <!-- Modal footer -->
-                <div class="modal-footer">
-                    <a class="btn btn-unique myBtn" >Reserver</a>
+                <div class="modal-footer" id="btn-res-modal">
+
                 </div>
             </div>
         </div>

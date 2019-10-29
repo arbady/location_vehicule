@@ -1,14 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}Hello {{ app.user.nom }}!{% endblock %}
 
 {% block body %}
 {#<style>#}
 {#    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }#}
 {#    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }#}
 {#</style>#}
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 
-<title>Profile</title>
+    <title>Profil</title>
 <style type="text/css">
     table tr td {
         border: 1px solid #cccccc;
@@ -18,32 +21,36 @@
     <div class="container">
         <img src="{{ asset('image/compte.png') }}" width="100px" height="100px" style="margin-top: 5%; margin-left: 45%">
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-            <h3 class="text-center">Hello {{ user.nom }} !</h3>
+            <h3 class="text-center">Hello {{ user.nom }} {{ user.prenom }}!</h3>
         {% endif %}
 
-        <div style="margin-left: 28%; margin-right: 10%">
+        <div style="margin-left: 26%; margin-right: 10%">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
                 <li class="nav-item">
-                    <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                    <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-infos" role="tab"
                        aria-controls="pills-home" aria-selected="true">Informations personnelles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-reservations" role="tab"
                        aria-controls="pills-profile" aria-selected="false">Mes reservations</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-factures" role="tab"
+                       aria-controls="pills-contact" aria-selected="false">Mes factures</a>
                 </li>
 
     {#                <form action="" method="post">#}
                     <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-edit" role="tab"
                         aria-controls="pills-contact" aria-selected="false">Editer mon profil</a>
                     </li>
     {#                </form>#}
-
             </ul>
             <div class="tab-content pt-2 pl-1" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                    <table class="picker__table" style="margin-left: -10%; width: 85%">
+                <div class="tab-pane fade show active" id="pills-infos" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <table class="picker__table" style="margin-left: -3.1%; width: 85%">
 
                         <tr>
                             <td><b>Nom</b></td> <td class='text-right'>{{ user.nom }}</td>
@@ -78,22 +85,108 @@
                         </tr>
                     </table>
                 </div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Ad
-                    pariatur nostrud pariatur exercitation ipsum ipsum culpa mollit commodo mollit ex. Aute sunt incididunt
-                    amet commodo est sint nisi deserunt pariatur do. Aliquip ex eiusmod voluptate exercitation cillum id
-                    incididunt elit sunt. Qui minim sit magna Lorem id et dolore velit Lorem amet exercitation duis
-                    deserunt. Anim id labore elit adipisicing ut in id occaecat pariatur ut ullamco ea tempor duis.</div>
-                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Est
-                    quis nulla laborum officia ad nisi ex nostrud culpa Lorem excepteur aliquip dolor aliqua irure ex.
-                    Nulla ut duis ipsum nisi elit fugiat commodo sunt reprehenderit laborum veniam eu veniam. Eiusmod minim
-                    exercitation fugiat irure ex labore incididunt do fugiat commodo aliquip sit id deserunt reprehenderit
-                    aliquip nostrud. Amet ex cupidatat excepteur aute veniam incididunt mollit cupidatat esse irure officia
-                    elit do ipsum ullamco Lorem. Ullamco ut ad minim do mollit labore ipsum laboris ipsum commodo sunt
-                    tempor enim incididunt. Commodo quis sunt dolore aliquip aute tempor irure magna enim minim
-                    reprehenderit. Ullamco consectetur culpa veniam sint cillum aliqua incididunt velit ullamco sunt
-                    ullamco quis quis commodo voluptate. Mollit nulla nostrud adipisicing aliqua cupidatat aliqua pariatur
-                    mollit voluptate voluptate consequat non.</div>
+                <div class="tab-pane fade" id="pills-factures" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <ul>
+
+                        <table class="picker__table" style="margin-left: -2%; width: 85%">
+                            <tr>
+                                <td>
+                                    <b>Numéro de Factures</b>
+                                </td>
+                                <td>
+                                    <b>Libellé</b>
+                                </td>
+                                <td>
+                                    <b>Date d'émission</b>
+                                </td>
+                            </tr>
+
+                            {%  for  reservation in user.reservations  %}
+                                {%  if reservation.contrat != NULL %}
+
+                                    <tr>
+                                        <td>
+                                            <li><a target="_blank" href="{{ path('facture_id',{'id':reservation.contrat.facture.id}) }}">Facture_n° {{ reservation.contrat.facture.numFacture }}</a></li>
+                                        </td>
+                                        <td>
+                                            {{ reservation.contrat.facture.libelle }}
+                                        </td>
+                                        <td>
+                                            {{ reservation.contrat.facture.dateFacture|date('d/m/Y') }}
+                                        </td>
+                                    </tr>
+
+                                {% endif %}
+                            {%  endfor %}
+
+                        </table>
+
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="pills-reservations" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <ul>
+
+                        <table class="picker__table" style="margin-left: -2%; width: 85%">
+                            <tr>
+                                <td>
+                                    <b>Numéro de Reservation</b>
+                                </td>
+                                <td>
+                                    <b>Date_Reservation</b>
+                                </td>
+                                <td>
+                                    <b>Debut de la location</b>
+                                </td>
+                                <td>
+                                    <b>Fin de la location</b>
+                                </td>
+                            </tr>
+
+                            {%  for  reservation in user.reservations  %}
+                                {%  if reservation != NULL %}
+
+                                    <tr>
+                                        <td>
+                                            <li><a target="_blank" href="{{ path('reservation_id',{'id':reservation.id}) }}">Reservation_n° {{ reservation.id }}</a></li>
+                                        </td>
+                                        <td>
+                                            {{ reservation.dateRes| date('d/m/Y') }}
+                                        </td>
+                                        <td>
+                                            {{ reservation.dateDebutLoc|date('d/m/Y') }}
+                                        </td>
+                                        <td>
+                                            {{ reservation.dateFinLoc|date('d/m/Y') }}
+                                        </td>
+                                    </tr>
+
+                                {% endif %}
+                            {%  endfor %}
+
+                        </table>
+
+                    </ul>
+                </div>
+                <div class="tab-pane fade editor" id="pills-edit" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <form action="{{ path('update_profile') }}" method="post">
+                        <input type="text" value="{{ user.nom }}" name="nom">
+                        <input type="text" value="{{ user.prenom }}" name="prenom">
+                        <input type="text" value="{{ user.sexe }}" name="sexe">
+{#                        <input type="text" class="datepicker" value="{{ user.dateNaissance |localizeddate('none', 'none', null, null, 'd MMMM Y') }}" name="date_naissance">#}
+                        <input type="text" value="{{ user.adresse }}" name="adresse">
+                        <input type="text" value="{{ user.telephone }}" name="telephone">
+                        <button type="submit">Enregistrer</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+
+
+
+{#    <script type="text/javascript">#}
+{#        $(document).ready(function () {#}
+{#            $(".editor").editor();#}
+{#        });#}
+{#    </script>#}
 {% endblock %}

@@ -43,7 +43,7 @@ class Vehicule
     private $categorie;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Etat", inversedBy="vehicules")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Etat", inversedBy="vehicules", cascade ={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $etat;
@@ -99,11 +99,22 @@ class Vehicule
      */
     private $gps;
 
+    /**
+     * @ORM\Column(type="string", length=25, nullable=true)
+     */
+    private $lieu_vehic;
+
+//    /**
+//     * @ORM\ManyToMany(targetEntity="App\Entity\Agence", mappedBy="vehicule")
+//     */
+//    private $agences;
+
     public function __construct()
     {
 //        $this->modele = new ArrayCollection();
         $this->disponibilites = new ArrayCollection();
         $this->contrats = new ArrayCollection();
+//        $this->agences = new ArrayCollection();
     }
 
     /**
@@ -349,6 +360,8 @@ class Vehicule
 
     /**
      * @Grapher\IsDisplayedMethod()
+     * @param string|null $images
+     * @return Vehicule
      */
     public function setImages(?string $images): self
     {
@@ -367,6 +380,8 @@ class Vehicule
 
     /**
      * @Grapher\IsDisplayedMethod()
+     * @param int|null $nbPlace
+     * @return Vehicule
      */
     public function setNbPlace(?int $nbPlace): self
     {
@@ -385,6 +400,8 @@ class Vehicule
 
     /**
      * @Grapher\IsDisplayedMethod()
+     * @param string|null $transmission
+     * @return Vehicule
      */
     public function setTransmission(?string $transmission): self
     {
@@ -464,4 +481,44 @@ class Vehicule
 
         return $this;
     }
+
+    public function getLieuVehic(): ?string
+    {
+        return $this->lieu_vehic;
+    }
+
+    public function setLieuVehic(?string $lieu_vehic): self
+    {
+        $this->lieu_vehic = $lieu_vehic;
+
+        return $this;
+    }
+
+//    /**
+//     * @return Collection|Agence[]
+//     */
+//    public function getAgences(): Collection
+//    {
+//        return $this->agences;
+//    }
+//
+//    public function addAgence(Agence $agence): self
+//    {
+//        if (!$this->agences->contains($agence)) {
+//            $this->agences[] = $agence;
+//            $agence->addVehicule($this);
+//        }
+//
+//        return $this;
+//    }
+//
+//    public function removeAgence(Agence $agence): self
+//    {
+//        if ($this->agences->contains($agence)) {
+//            $this->agences->removeElement($agence);
+//            $agence->removeVehicule($this);
+//        }
+//
+//        return $this;
+//    }
 }
