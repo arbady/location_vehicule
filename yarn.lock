@@ -716,6 +716,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@chenfengyuan/datepicker@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@chenfengyuan/datepicker/-/datepicker-1.0.9.tgz#6ba452e1b4b622d144645abb9d0b5f98a44fe487"
+  integrity sha512-ojj4R4j0ncPSQzEwqABIDzy1QWsaJsmq3fkvCrM99KKpqHqjv4DrL5f4uIIWCXwuUCpDhTChmnqddf0UADpwJQ==
+
 "@symfony/webpack-encore@^0.28.0":
   version "0.28.0"
   resolved "https://registry.yarnpkg.com/@symfony/webpack-encore/-/webpack-encore-0.28.0.tgz#75f24034602cfca35eea95400e88926821a1d7dc"
@@ -965,6 +970,13 @@ adjust-sourcemap-loader@2.0.0:
     object-path "0.11.4"
     regex-parser "2.2.10"
 
+air-datepicker@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/air-datepicker/-/air-datepicker-2.2.3.tgz#9dbb6bc6bc8c9d9db380475091370dad82c2f787"
+  integrity sha1-nbtrxryMnZ2zgEdQkTcNrYLC94c=
+  dependencies:
+    jquery ">=2.0.0 <4.0.0"
+
 ajv-errors@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ajv-errors/-/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"
@@ -989,6 +1001,11 @@ alphanum-sort@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
+
+animate.css@^3.7.2:
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/animate.css/-/animate.css-3.7.2.tgz#e73e0d50e92cb1cfef1597d9b38a9481020e08ea"
+  integrity sha512-0bE8zYo7C0KvgOYrSVfrzkbYk6IOTVPNqkiHg2cbyF4Pq/PXzilz4BRWA3hwEUBoMp5VBgrC29lQIZyhRWdBTw==
 
 ansi-colors@^1.0.1:
   version "1.1.0"
@@ -1053,6 +1070,11 @@ anymatch@^2.0.0:
   dependencies:
     micromatch "^3.1.4"
     normalize-path "^2.1.1"
+
+apache-server-configs@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/apache-server-configs/-/apache-server-configs-3.2.1.tgz#30a67762bb0e1ff9f0ca3cdaa3ad9998ab5eb458"
+  integrity sha512-G6P06RnsYwoNr5c09ko8l8iLggB2iIox0xA3FnadCmcd9V1VFqsUntTlmjGWT1n/qbslLsssnlwIHD1WmpT3qg==
 
 aproba@^1.0.3, aproba@^1.1.1:
   version "1.2.0"
@@ -3554,6 +3576,11 @@ isobject@^3.0.0, isobject@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
+
+"jquery@>=2.0.0 <4.0.0":
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
+  integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==
 
 js-levenshtein@^1.1.3:
   version "1.1.6"
@@ -6335,9 +6362,9 @@ websocket-driver@>=0.5.1:
     websocket-extensions ">=0.1.1"
 
 websocket-extensions@>=0.1.1:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
-  integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.4.tgz#7f8473bc839dfd87608adb95d7eb075211578a42"
+  integrity sha512-OqedPIGOfsDlo31UNwYbCFMSaO9m9G/0faIHj5/dZFDMFqPTcx6UwqyOy3COEaEOg/9VsGIpdqn62W5KhoKSpg==
 
 which-module@^2.0.0:
   version "2.0.0"
